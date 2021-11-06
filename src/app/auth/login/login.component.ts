@@ -18,18 +18,18 @@ export class LoginComponent implements OnInit {
   rememberMe = false;
   myList:any=[]
   checkStorage :string |null='';
-  userNameText :string |null;
-  passwordText :string |null;
+  userNameText :string |null=''
+  passwordText :string |null=''
 
 
   constructor(private service :MyServiceService , private mainRoute:Router) {
-      this.userNameText = localStorage.getItem('userName');
-      this.passwordText = localStorage.getItem('password');
+     
       this.checkStorage = localStorage.getItem('rememberCheck');
      if(this.checkStorage == "true")
      {
-      console.log(localStorage.getItem('userName'));
-      console.log(localStorage.getItem('password'));
+      this.userNameText = localStorage.getItem('userName');
+      this.passwordText = localStorage.getItem('password');
+ 
       this.rememberMe=true
      }
      else
@@ -60,6 +60,18 @@ export class LoginComponent implements OnInit {
       // getting Token Data
        const tokenValue:any=jwtDecode(result.tokenValue);
        console.log(tokenValue);
+
+         // saving the last success login Attempt
+         if(this.rememberMe == true){
+          localStorage.setItem('rememberCheck',"true");
+          localStorage.setItem('userName',user.userName);
+          localStorage.setItem('password',user.password);
+         }
+         else
+         localStorage.setItem('rememberCheck',"false");
+      
+         localStorage.setItem('userToken',tokenValue)
+         
        switch(tokenValue.role)
       {
         case ('1'):{
@@ -80,11 +92,7 @@ export class LoginComponent implements OnInit {
          
       }
 
-       // saving the last success login Attempt
-       localStorage.setItem('userName',user.userName);
-       localStorage.setItem('password',user.password);
-       localStorage.setItem('rememberCheck',"true");
-       localStorage.setItem('userToken',tokenValue)
+    
        
      }
      else

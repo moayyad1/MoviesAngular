@@ -46,7 +46,13 @@ this.route.navigate(["best"])
     getAllMovies(){
       this.movieService.getAllMovies().subscribe((res:any) => { (this.moviesData=res) },
       err => { console.log(err) })
-      }      
+      }    
+      
+      logOutBtn(){
+    
+        localStorage.removeItem('userToken')
+        this.route.navigate([''])
+      }
 }
     
 
