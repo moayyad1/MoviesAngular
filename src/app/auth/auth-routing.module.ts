@@ -5,7 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { SingUpPageComponent } from './sing-up-page/sing-up-page.component';
 const routes: Routes = [
   {path:'',component:LoginComponent},
-  {path:'singUP',component:SingUpPageComponent}
+  {path:'singUP',component:SingUpPageComponent},
 ];
 
 @NgModule({

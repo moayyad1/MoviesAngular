@@ -5,10 +5,12 @@ import { LoginComponent } from './login/login.component';
 import { SharedModule } from '../shared/shared.module';
 import { SingUpPageComponent } from './sing-up-page/sing-up-page.component';
 
+
 @NgModule({
   declarations: [
     LoginComponent,
-    SingUpPageComponent
+    SingUpPageComponent,
+  
   ],
   imports: [
     CommonModule,

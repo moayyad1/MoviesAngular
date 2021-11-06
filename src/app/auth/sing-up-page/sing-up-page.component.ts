@@ -6,151 +6,181 @@ import { MyServiceService } from 'src/app/shared/my-service.service';
 @Component({
   selector: 'app-sing-up-page',
   templateUrl: './sing-up-page.component.html',
-  styleUrls: ['./sing-up-page.component.css']
+  styleUrls: ['./sing-up-page.component.css'],
 })
 export class SingUpPageComponent implements OnInit {
-  loginList:any=[]
-  EmailList:any=[]
+  holderList: any = [];
+  EmailList: any = [];
   checkBoxValue = false;
 
- @ViewChild("termsBox") myCheckbox:any;
-  myform:any;
-  password=null
-  userEmail=''
-  RegisterResult:any=[]
-  ConfirmedPassword=null
+  @ViewChild('termsBox') myCheckbox: any;
+  myform: any;
+  password = null;
+  userEmail = '';
+  RegisterResult: any = [];
+  ConfirmedPassword = null;
   result = false;
-  passwordValid=true;
-  newData:any=[]
-  customerID :any
-  errorLogs =''
-  emailValidation:any='initlize';
-  EmailIsValid=true
-  usernameIsValid=false
-  visaIsValid=false
-  userName=''
-  firstName=''
-  lastName=''
-  constructor(private myService :MyServiceService) {
-
-    myService.requestCall("https://localhost:44391/api/Customer/getCustomer",'Get')?.subscribe(data =>{this.EmailList=data})
-   }
-
-  ngOnInit(): void {
+  passwordValid = true;
+  newData: any = [];
+  customerID: any;
+  errorLogs = '';
+  emailValidation: any = 'initlize';
+  EmailIsValid = true;
+  usernameIsValid = false;
+  visaIsValid = false;
+  userName = '';
+  firstName = '';
+  lastName = '';
+  constructor(private myService: MyServiceService) {
+    myService
+      .requestCall('https://localhost:44391/api/Customer/getCustomer', 'Get')
+      ?.subscribe((data) => {
+        this.EmailList = data;
+      });
   }
 
-   
-  CreateCustomer(userSignUp:NgForm){
+  ngOnInit(): void {}
+  //creating customer method
+  CreateCustomer(userSignUp: NgForm) {
+    // first creating record in Customer Table
+    // spinner starts here
+    let customerObject = {
+      firstName: userSignUp.value.firstName,
+      lastName: userSignUp.value.lastName,
+      phone: '123',
+      email: userSignUp.value.email,
+      gender: 'Male',
+      img: 'imag,jpg',
+      VisaCard: userSignUp.value.email,
+    };
 
-  }
-  getColor(id:any){
-    switch (id) {
-          case 1 :{
-                   if (this.firstName=='')
-                   {
-                    return '';
-
-                   }
-                   else
-                   return '1px green solid';
-                 
-                    
-          }
-          case 2 :{
-            if (this.lastName=='')
-            {
-             return '';
-
-            }
-            else
-            return '1px green solid';
+    this.myService
+      .requestCall(
+        'https://localhost:44391/api/Customer/InsertCustomer',
+        'Post',
+        customerObject
+      )
+      ?.subscribe(
+        (data) => {
+          this.myService
+            .requestCall(
+              'https://localhost:44391/api/Customer/getCustomerByEmail/' +
+                userSignUp.value.email,
+              'Get'
+            )
+            ?.subscribe((data) => {
+              this.holderList = data;
+              const customerID = this.holderList.id;
+              let loginCustomer = {
+                userName: userSignUp.value.UserName,
+                password: userSignUp.value.Password,
+                departmentId: 2,
+                accountantId: null,
+                customerId: customerID,
+                verification: null,
+              };
             
-          }
-          case 3 :{
-            if (this.userName=='')
-            {
-             return '';
 
-            }
-            else
-            return '1px green solid';
-          }
+              this.myService
+                .requestCall(
+                  'https://localhost:44391/api/Login/InsertLogin',
+                  'Post',
+                  loginCustomer
+                )
+                ?.subscribe(
+                  (data) => {
+                    /*success toaster goes here */
+                  },
 
+                  (err) => {
+                    //spinner ends here
+                    /*failed toaster goes here */
+                  }
+                );
+            });
+        },
+        (err) => {
+          //spinner ends here
+          /*failed toaster goes here */
+        }
+      );
+  }
+  getColor(id: any) {
+    switch (id) {
+      case 1: {
+        if (this.firstName == '') {
+          return '';
+        } else return '1px green solid';
+      }
+      case 2: {
+        if (this.lastName == '') {
+          return '';
+        } else return '1px green solid';
+      }
+      case 3: {
+        if (this.userName == '') {
+          return '';
+        } else return '1px green solid';
+      }
     }
-    return '1px solid green'
+    return '1px solid green';
   }
 
-  getEmailBorderColor(){
-    if(this.emailValidation=='initlize'){
+  getEmailBorderColor() {
+    if (this.emailValidation == 'initlize') {
       return '';
-    }
-   else if(this.emailValidation=='Error'){
+    } else if (this.emailValidation == 'Error') {
       return '1px red solid';
-    }
-    else
-    return '1px green solid';
+    } else return '1px green solid';
   }
   getBorderColor() {
-    if(this.password==null)
-    {
+   
+    if (this.password == null) {
       return '';
-    }
-   else if(this.password==this.ConfirmedPassword)
-     { 
-       this.passwordValid=true
-       return '1px green solid';
-    } 
-    else{
-      this.passwordValid=false
+    } else if (this.password == this.ConfirmedPassword) {
+      this.passwordValid = true;
+      return '1px green solid';
+    } else {
+      this.passwordValid = false;
       return '1px red solid';
     }
-     
   }
 
-  checkEmail(isValid:any){
-    this.EmailIsValid=true
-    let email = this.userEmail
-    if(isValid)
-    this.emailValidation='true'
-    else
-     this.emailValidation='Error'
+ 
+  checkEmail(isValid: any) {
+    this.EmailIsValid = true;
+    let email = this.userEmail;
+    if (isValid) this.emailValidation = 'true';
+    else this.emailValidation = 'Error';
 
-     this.EmailList.forEach( (item:any) => {
-         if(item.email==email)
-      {
-       this.emailValidation='Error'
-       this.EmailIsValid=false
+    this.EmailList.forEach((item: any) => {
+      if (item.email == email) {
+        this.emailValidation = 'Error';
+        this.EmailIsValid = false;
       }
-      
     });
-
-  
-
-     
-
   }
-  checkPassword(){
-    if(this.password==this.ConfirmedPassword){
-    this.passwordValid=true
-    return true
-    }
-    else{
-    this.passwordValid=false
-    return false
+  checkLength(data:any)
+  {
+   if(data)
+  {
+        return '1px green solid';
+  }
+  else
+   return '1px red solid'
+  }
+  checkPassword() {
+    if (this.password == this.ConfirmedPassword) {
+      this.passwordValid = true;
+      return true;
+    } else {
+      this.passwordValid = false;
+      return false;
     }
   }
-  setBoxValue(){
-    if(this.myCheckbox.nativeElement.checked){
-      this.checkBoxValue = true
-     
-    }
-    else 
-    this.checkBoxValue = false
-  
-   
-   }
-  
- 
- 
-
+  setBoxValue() {
+    if (this.myCheckbox.nativeElement.checked) {
+      this.checkBoxValue = true;
+    } else this.checkBoxValue = false;
+  }
 }

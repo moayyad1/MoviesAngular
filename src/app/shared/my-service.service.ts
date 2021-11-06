@@ -15,7 +15,7 @@ export class MyServiceService {
     switch(method)
     {
       case 'Get':{
-        respons=this.http.get(apiUrl)
+        respons=this.http.get<any>(apiUrl)
         break;
       }
         case 'Post':{
