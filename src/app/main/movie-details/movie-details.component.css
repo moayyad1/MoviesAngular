@@ -1,0 +1,113 @@
+*{
+    margin: 5px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family:' Poppins' , sans-serif;
+    transition: all 0.35s linear;  
+}
+body {
+    min-height:100vh;
+    background-size: cover;
+}
+.container {
+    min-height:100vh;
+    display: grid;
+    grid-template-columns:480px 1fr ;
+    grid-gap: 32px;
+    color: white;
+    margin-bottom: -50px;
+    margin-top: -40px;
+
+}
+.videoPlayer p
+{
+color: white;
+font-size: 1.3rem;
+text-align: center;
+}
+
+.info {
+    padding-top: 24px;
+    padding-left: 24px;
+}
+.poster {
+    width: 480px;
+    height: 100vh;
+    overflow: hidden;
+    }
+.poster img {
+    width: 480px;
+    height: 75vh;
+    object-fit: cover;
+    overflow: hidden;
+    transition: all 1.5s ease-in-out;
+    border: 10px solid white;
+    margin-top: 65px;
+}
+
+
+.poster img:hover {
+    transform:scale(1.35) rotateZ(5deg);
+}
+.info > div {
+    
+    margin-top: 32px;
+    margin-bottom: 32px;
+    margin-right: 32px;
+}
+.movie-title {
+    font-size: 64px;
+    font-weight: bold;
+    background-image :linear-gradient(45deg,cyan,green); 
+    background-clip: text;
+    color: transparent;
+}
+
+.movie-detail .set {
+    display: inline-block;
+    margin-right: 64px;
+}
+.movie-detail label {
+    font-size: 14px;
+    color: white;
+    display: block;
+}
+.movie-detail span {
+    font-size: 22px;
+ }
+ 
+.movie-description {
+    line-height: 24px
+}
+.movie-cast .header {
+    font-size: 24px;
+    margin-bottom: 24px;
+}
+.movie-cast .list
+{
+    grid-template-columns: repeat(6,160px);
+    grid-gap: 32px;
+}
+.movie-cast .cast {
+    width: 160px;
+    height: 180px;
+    cursor: pointer;
+}
+.videoPlayer
+{
+    width: 60%;
+    margin-bottom: 5%;
+    margin-left: 20%;
+    border: 2px solid rgb(88, 81, 81);
+}
+
+
+
+    
+
+    
+ 
+
+
+
+

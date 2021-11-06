@@ -1,0 +1,68 @@
+<div style="margin-top: -30px">
+    <app-nav></app-nav>
+</div>
+  <!-- <h1 style="text-align: center;color: aliceblue"><span style="border-bottom:1px solid snow;">Movie Details</span> </h1> -->
+
+<div class="container">
+
+<div class="poster">
+    <img src="../../../assets/images/movies-images/{{MovieById.img}}">
+</div>
+
+<div class="info">
+<div class="movie-title">{{MovieById.name}}<h1 style="color: aliceblue;"></h1></div>
+
+<div class="movie-detail">
+    <div class="set">
+        <label>Release Date</label>
+        <span>{{MovieById.releaseDate | date:'y'}}</span>
+    </div>
+    <div class="set">
+        <label >Movie Language</label>
+        <span>{{MovieById.language}}</span>
+    </div>
+    <div class="set">
+        <label >Genre</label>
+        <span>{{MovieById.category}}</span>
+    </div>
+    <div class="set">
+        <label >Movie country</label>
+        <span>{{MovieById.country}}</span>
+    </div>
+    <div class="set">
+        <label>Movie Price</label>
+        <span>{{MovieById.price}}$</span>
+    </div>
+</div>
+
+<div class="movie-description">
+    <p style="margin-left: 0px;font-size: 24px">Story</p> <br>{{MovieById.storyLine}}
+</div>
+
+<div style="margin-left: 0px;" class="movie-cast">
+         <app-stars></app-stars>
+</div>
+</div>
+</div>
+
+<div style="width: 50%;margin-left:25%;">    
+    <p style="color: white;font-size: 1.4rem;text-align: center;">Movie Trailer</p>
+    <youtube-player style="margin-left:25%;" videoId="{{MovieById.trailer}}" suggestedQuality="highres" [height]="250" [width]="500" [startSeconds]="0" ></youtube-player>
+</div>
+
+<br>
+<div class="videoPlayer">
+    <p>Watch Movie</p>
+    <div class="player-wrapper">
+        <vg-player>
+            <video id="singleVideo" preload="auto" controls>
+              <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+            </video>
+          </vg-player> 
+      </div>
+</div>
+
+<br><br>
+<app-comments></app-comments>
+<app-footer></app-footer>
+
