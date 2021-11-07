@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import jwtDecode from 'jwt-decode';
 import { MovieServiceService } from 'src/app/services/movie-service.service';
 @Component({
   selector: 'app-landing',
@@ -7,7 +8,25 @@ import { MovieServiceService } from 'src/app/services/movie-service.service';
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
-  constructor(private route:Router,private movieService:MovieServiceService) { }
+  @Input() Img:any|undefined
+
+  constructor(private route:Router,private movieService:MovieServiceService) {
+
+  
+    let token:any  = localStorage.getItem('userToken')
+   
+    const tokenValue:any=jwtDecode(token);
+    let user={
+      role:tokenValue.role ,
+      username :tokenValue.unique_name[0],
+      id :tokenValue.unique_name[1],
+    }
+    
+    console.warn(user);
+    
+
+   }
+
   Movielanding:any = [];
   Moviecat:any = [{}];
   websiteData:any = [{}];
@@ -53,6 +72,13 @@ this.route.navigate(["best"])
         localStorage.removeItem('userToken')
         this.route.navigate([''])
       }
+
+      getImagePath(value:string ){
+
+        let basePath="../../../../assets/images/Uploaded File/";
+        return basePath+value;
+        
+        }
 }
     
 

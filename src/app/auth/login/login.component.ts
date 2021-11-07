@@ -70,23 +70,30 @@ export class LoginComponent implements OnInit {
          else
          localStorage.setItem('rememberCheck',"false");
       
-         localStorage.setItem('userToken',tokenValue)
+
+      
+        
+         
          
        switch(tokenValue.role)
       {
         case ('1'):{
          //route here for Admin
+         localStorage.setItem('userRole','1')
       
          break
         }
         case ('2'):{
           //route here for Customer
+          localStorage.setItem('userToken',result.tokenValue)
+          localStorage.setItem('userRole','2')
           this.mainRoute.navigate(["movies/home"])
          
          break
         }
         case ('3'):{
            //route here for Accountant
+           localStorage.setItem('userRole','3')
          break
         }
          
