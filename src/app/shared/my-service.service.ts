@@ -8,9 +8,7 @@ export class MyServiceService {
   apiUrl='https://localhost:44391/api/'
   display_image:any
   constructor(private http:HttpClient) { }
-
   uploadAttachment(file:FormData){
-    debugger
     const headerDict = {
     'Content-Type': 'application/json',
     'Accept': 'application/json'

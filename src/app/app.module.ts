@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {ToastrModule, ToastNoAnimation,ToastNoAnimationModule} from 'ngx-toastr';
-
+import { NgxSpinnerModule } from "ngx-spinner";
 @NgModule({
   declarations: [
     AppComponent
@@ -16,7 +16,8 @@ import {ToastrModule, ToastNoAnimation,ToastNoAnimationModule} from 'ngx-toastr'
     BrowserAnimationsModule,
     HttpClientModule,
     ToastNoAnimationModule.forRoot(),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgxSpinnerModule
     ],
   providers: [],
   bootstrap: [AppComponent]

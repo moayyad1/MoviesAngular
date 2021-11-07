@@ -7,18 +7,13 @@ import { MyServiceService } from 'src/app/shared/my-service.service';
 import jwtDecode from 'jwt-decode';
 import { ToastrService } from 'ngx-toastr';
 import { ThemePalette } from'@angular/material/core';
-import { ProgressSpinnerMode } from'@angular/material/progress-spinner';
-
+import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  color: ThemePalette = 'primary';
-  mode: ProgressSpinnerMode = 'indeterminate';
-  value = 50;  
   APIURl:string ="https://localhost:44391/api/"
   loginAttemptresult=true
   rememberMe = false;
@@ -26,9 +21,7 @@ export class LoginComponent implements OnInit {
   checkStorage :string |null='';
   userNameText :string |null=''
   passwordText :string |null=''
-
-
-  constructor(private service :MyServiceService , private mainRoute:Router,private toast:ToastrService) {
+  constructor(private service :MyServiceService , private mainRoute:Router,private toast:ToastrService,private spinner:NgxSpinnerService) {
      
       this.checkStorage = localStorage.getItem('rememberCheck');
      if(this.checkStorage == "true")
@@ -53,9 +46,10 @@ export class LoginComponent implements OnInit {
  this.service.requestCall(this.APIURl,"Get")?.subscribe(data=>{this.myList=data})
  }
   loginSubmit(data:NgForm){
+      this.spinner.show();
+ 
     this.APIURl="https://localhost:44391/api/Login/checkLogin"
-    let  user={  
-        
+    let  user={         
       userName:data.value.userName,
       password: data.value.password
     }
@@ -76,12 +70,6 @@ export class LoginComponent implements OnInit {
          }
          else
          localStorage.setItem('rememberCheck',"false");
-      
-
-      
-        
-         
-         
        switch(tokenValue.role)
       {
         case ('1'):{
@@ -104,32 +92,23 @@ export class LoginComponent implements OnInit {
          break
         }
          
-      }
-
-    
-       
+      }      
      }
      else
-     { //if data are incorrect show some failed animation
-     
+     { //if data are incorrect show some failed animation     
        this.loginAttemptresult = false 
-
      }
-    
-     
+     setTimeout(() => {
+      this.spinner.hide();
+    }, 1500);
     },err=>{console.log(err)})
-    if (this.rememberMe){
-     
+    if (this.rememberMe){   
     }
-     
-
- 
   }
   CheckRememberMe(){
     this.rememberMe = !this.rememberMe;
     console.log(this.rememberMe);
   }
-
 changeLoginState(){
   this.loginAttemptresult=true
 }
@@ -137,12 +116,9 @@ changeLoginState(){
     if(this.loginAttemptresult == false  )
     {
       return '3px red solid';
-    }
-  
+    } 
     else
      
-      return '';
-    
+      return '';   
   }
-
 }

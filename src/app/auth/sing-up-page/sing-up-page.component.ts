@@ -1,20 +1,19 @@
-import { HttpEventType } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-
 import { MyServiceService } from 'src/app/shared/my-service.service';
-
+import { NgxSpinnerService } from "ngx-spinner";
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-sing-up-page',
   templateUrl: './sing-up-page.component.html',
   styleUrls: ['./sing-up-page.component.css'],
 })
 export class SingUpPageComponent implements OnInit {
+
   holderList: any = [];
   EmailList: any = [];
   checkBoxValue = false;
   imageurl=`C:/Users/lenovo/Documents/MoviesAPI-master/Movies.API/resc/images`
-
   @ViewChild('termsBox') myCheckbox: any;
   myform: any;
   password = null;
@@ -34,7 +33,7 @@ export class SingUpPageComponent implements OnInit {
   userName = '';
   firstName = '';
   lastName = '';
-  constructor(private myService: MyServiceService) {
+  constructor(private myService: MyServiceService,private toaster:ToastrService,private spinner:NgxSpinnerService) {
     this.imageurl=''
     myService
       .requestCall('https://localhost:44391/api/Customer/getCustomer', 'Get')
@@ -54,18 +53,15 @@ export class SingUpPageComponent implements OnInit {
     formData.append('file', fileToUpload, fileToUpload.name);
     this.myService.uploadAttachment(formData);
     }
-    
-
-  
-
-
-
 
   //creating customer method
   CreateCustomer(userSignUp: NgForm,imageFile:any) {
     // first creating record in Customer Table
-    // spinner starts here
-   const ImageName =imageFile[0].name
+this.spinner.show();
+setTimeout(() => {
+  this.spinner.hide();
+}, 2000);
+      const ImageName =imageFile[0].name
     
  this.uploadFile(imageFile)
  this.imageurl+=ImageName
@@ -90,9 +86,7 @@ export class SingUpPageComponent implements OnInit {
         (data) => {
           this.myService
             .requestCall(
-              'https://localhost:44391/api/Customer/getCustomerByEmail/' +
-                userSignUp.value.email,
-              'Get'
+              'https://localhost:44391/api/Customer/getCustomerByEmail/' +userSignUp.value.email,'Get',
             )
             ?.subscribe((data) => {
               this.holderList = data;
@@ -104,9 +98,7 @@ export class SingUpPageComponent implements OnInit {
                 accountantId: null,
                 customerId: customerID,
                 verification: null,
-              };
-            
-
+              };        
               this.myService
                 .requestCall(
                   'https://localhost:44391/api/Login/InsertLogin',
@@ -114,20 +106,17 @@ export class SingUpPageComponent implements OnInit {
                   loginCustomer
                 )
                 ?.subscribe(
-                  (data) => {
-                    /*success toaster goes here */
+                  (data) => {   
+                    this.toaster.success('account created successfully')
                   },
-
                   (err) => {
-                    //spinner ends here
-                    /*failed toaster goes here */
+                    this.toaster.error("error while create account")
                   }
                 );
             });
         },
         (err) => {
-          //spinner ends here
-          /*failed toaster goes here */
+          this.toaster.error("error while create account")
         }
       );
   }
@@ -171,8 +160,6 @@ export class SingUpPageComponent implements OnInit {
       return '1px red solid';
     }
   }
-
- 
   checkEmail(isValid: any) {
     this.EmailIsValid = true;
     let email = this.userEmail;

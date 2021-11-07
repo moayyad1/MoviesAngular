@@ -5,20 +5,23 @@ import { LoginComponent } from './login/login.component';
 import { SharedModule } from '../shared/shared.module';
 import { SingUpPageComponent } from './sing-up-page/sing-up-page.component';
 import {ToastrModule, ToastNoAnimation,ToastNoAnimationModule} from 'ngx-toastr';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
     LoginComponent,
-    SingUpPageComponent,
-  
+    SingUpPageComponent
+      
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
     SharedModule,
+    MatProgressSpinnerModule,
     ToastNoAnimationModule.forRoot(),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgxSpinnerModule
   ]
 })
 export class AuthModule { }

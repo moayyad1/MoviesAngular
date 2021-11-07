@@ -16,9 +16,9 @@ user:any={};
     this.IsUserOwnIt();
   }
   getTrending()
-  {
+  {  
     this.movieService.getTrending().subscribe((res:any) => { (this.trending=res) },
-    err => { console.log(err) })
+    err => { console.log(err) }) 
   }
   goToDtails(id:any)
   {

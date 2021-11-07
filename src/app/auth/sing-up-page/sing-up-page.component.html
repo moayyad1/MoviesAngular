@@ -8,11 +8,7 @@
           <div class="sign-in-page-data">
             <div class="sign-in-from w-100 m-auto">
               <h3 class="mb-3 text-center" style="color: white">Sign Up</h3>
-              <form
-                class="mt-4"
-                #userSignUp="ngForm"
-                (ngSubmit)="CreateCustomer(userSignUp, profilePic.files)"
-              >
+              <form class="mt-4" #userSignUp="ngForm"(ngSubmit)="CreateCustomer(userSignUp, profilePic.files)">
                 <div class="form-group">
                   <input
                     required
@@ -156,13 +152,7 @@
                       placeholder="choose File"
                       style="color: gray"
                     />
-                    <button
-                      type="button"
-                      class="btn-success"
-                      (click)="uploadFile(profilePic.files)"
-                    >
-                      uplaod IMage
-                    </button>
+
                   </div>
                 </div>
 
@@ -188,7 +178,7 @@
                   >
                 </div>
 
-                <input
+                <input             
                   type="submit"
                   [disabled]="
                     !userSignUp.valid ||
@@ -197,7 +187,7 @@
                     !checkBoxValue
                   "
                   class="btn btn-hover offset-4"
-                  value="sing Up"
+                  value="sign Up"
                 />
               </form>
             </div>
@@ -206,11 +196,11 @@
             <div class="d-flex justify-content-center links">
               <p style="color: rgb(163, 159, 159)">Already have an account</p>
               ? <a routerLink="" class="text-primary ml-2">Sign In</a>
-            </div>
-           
+            </div>        
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+

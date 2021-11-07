@@ -1,14 +1,15 @@
 <br><h2 style="border-left: thick solid red;color: white;margin-left: 15px;">&ensp;Trending Shows </h2><br>
-<section id="team" class="team-area">
+<section  id="team" class="team-area">
 <div class="row">
 <div *ngFor="let item of trending" class="col">
-    <div (click)="goToDtails(item.id)" class="card">
-     <div class="row team-items">
-     <div class="item">
-          <div class="thumb">
+  <!-- getting film by category  -->
+    <div *ngIf="item.category=='Action'" (click)="goToDtails(item.id)" class="card">
+     <div  class="row team-items">
+     <div  class="item">
+          <div  class="thumb">
               <img src="../../../assets/images/movies-images/{{item.img}}" alt="Thumb">
               <div class="overlay">
-                  <h4>{{item.name}} / {{item.id}}</h4>
+                  <h4>{{item.name}}</h4>
                   <p>{{item.category}} | {{item.country}} |{{item.releaseDate | date:'y'}}</p>
                   <p>{{item.storyLine}}</p>
                   <div class="social">
