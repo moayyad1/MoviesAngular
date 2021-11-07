@@ -14,10 +14,17 @@
                         <div style="border: 1px solid white;" class="form-group">                                 
                            <input  [(ngModel)]='passwordText'[ngStyle]="{'border':getBorderColor()}" (input)='changeLoginState()' name="password" type="password"  class="form-control mb-0" id="exampleInputPassword2" placeholder="Password" required>
                         </div><br>
+<<<<<<< HEAD
                         <input   [(ngModel)]="rememberMe" name="rememberCheck" class="offset-4 form-check-input" type="checkbox" value="" id="flexCheckDefault">
                           <label  style="color: white;" class="custom-control-label" for="flexCheckDefault"> Remember Me</label>                     
                           <div class="sign-info" style="margin-top: 15px;">
                               <input [disabled]="!userPost.valid" value="Sign in" type="submit" class="btn btn-danger offset-4">
+=======
+                        <input   [(ngModel)]="rememberMe"   name="rememberCheck"  class="offset-4 form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                          <label  style="color: white;" class="custom-control-label" for="flexCheckDefault"> Remember Me</label>                     
+                          <div class="sign-info" style="margin-top: 15px;">
+                              <input [disabled]="!userPost.valid" value="Sign in" type="submit" class=" offset-md-4 btn btn-hover">
+>>>>>>> 048ae54e6b5b60e09e99d51de3128034f7138945
                               <div class="custom-control custom-checkbox d-inline-block">                            
                               </div>                                
                            </div>                                                          
@@ -36,5 +43,9 @@
          </div>
       </div>
    </div>
+<<<<<<< HEAD
 </section>
 <mat-progress-spinner class="example-margin" [color] = "color"[mode] = "mode"[value] = "value" > dd</mat-progress-spinner>
+=======
+</section>
+>>>>>>> 048ae54e6b5b60e09e99d51de3128034f7138945
