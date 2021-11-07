@@ -10,12 +10,8 @@
   },
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "-": "0.0.1",
     "@angular/animations": "^12.2.13",
-=======
-    "@angular/animations": "~12.2.0",
->>>>>>> 048ae54e6b5b60e09e99d51de3128034f7138945
     "@angular/cdk": "^12.2.12",
     "@angular/common": "~12.2.0",
     "@angular/compiler": "~12.2.0",
@@ -35,28 +31,18 @@
     "jquery": "^3.6.0",
     "jwt-decode": "^3.1.2",
     "mdb-ui-kit": "^3.9.0",
-<<<<<<< HEAD
     "ng": "0.0.0",
     "ng2-search-filter": "^0.5.1",
     "ngx-owl-carousel-o": "^6.0.0",
     "ngx-slick-carousel": "^0.5.1",
     "ngx-toastr": "^14.1.4",
-=======
-    "ng2-search-filter": "^0.5.1",
-    "ngx-owl-carousel-o": "^6.0.0",
-    "ngx-slick-carousel": "^0.5.1",
->>>>>>> 048ae54e6b5b60e09e99d51de3128034f7138945
     "ngx-videogular": "^10.1.0-0",
     "rxjs": "~6.6.0",
     "screenfull": "^3.3.0",
     "slick-carousel": "^1.8.1",
-<<<<<<< HEAD
     "toastr": "^2.1.4",
     "tslib": "^2.3.0",
     "x": "^0.1.2",
-=======
-    "tslib": "^2.3.0",
->>>>>>> 048ae54e6b5b60e09e99d51de3128034f7138945
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

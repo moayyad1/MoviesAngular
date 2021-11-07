@@ -34,13 +34,10 @@ export class MovieServiceService
   {
    return this.http.get(this.baseUrl+"Payment/IsUserOwnIt/"+Id)
   }
-<<<<<<< HEAD
   getTestimoniall(){
     return this.http.get(this.baseUrl+"Testimonial/GetActiveTestimonial");
   }
 SaveMassege(data:any){
     return this.http.post(this.baseUrl+"ContactUs/insertContactUs",data)
 }
-=======
->>>>>>> 048ae54e6b5b60e09e99d51de3128034f7138945
 }

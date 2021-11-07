@@ -1,21 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-<<<<<<< HEAD
 import { Injectable } from '@angular/core';
-=======
-
-import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
->>>>>>> 048ae54e6b5b60e09e99d51de3128034f7138945
 
 @Injectable({
   providedIn: 'root'
 })
 export class MyServiceService {
-<<<<<<< HEAD
-
-  constructor(private http:HttpClient) { }
-
-=======
   apiUrl='https://localhost:44391/api/'
   display_image:any
   constructor(private http:HttpClient) { }
@@ -39,7 +28,6 @@ export class MyServiceService {
     })
     }
 
->>>>>>> 048ae54e6b5b60e09e99d51de3128034f7138945
   requestCall(apiUrl:string , method:string,Data?:any){
 
     let respons;

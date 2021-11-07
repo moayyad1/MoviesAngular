@@ -5,12 +5,9 @@ import { Router } from '@angular/router';
 import {NgForm } from '@angular/forms';
 import { MyServiceService } from 'src/app/shared/my-service.service'; 
 import jwtDecode from 'jwt-decode';
-<<<<<<< HEAD
 import { ToastrService } from 'ngx-toastr';
 import { ThemePalette } from'@angular/material/core';
 import { ProgressSpinnerMode } from'@angular/material/progress-spinner';
-=======
->>>>>>> 048ae54e6b5b60e09e99d51de3128034f7138945
 
 @Component({
   selector: 'app-login',
@@ -19,16 +16,11 @@ import { ProgressSpinnerMode } from'@angular/material/progress-spinner';
 })
 export class LoginComponent implements OnInit {
 
-<<<<<<< HEAD
   color: ThemePalette = 'primary';
   mode: ProgressSpinnerMode = 'indeterminate';
   value = 50;  
   APIURl:string ="https://localhost:44391/api/"
   loginAttemptresult=true
-=======
-   APIURl:string ="https://localhost:44391/api/"
-   loginAttemptresult=true
->>>>>>> 048ae54e6b5b60e09e99d51de3128034f7138945
   rememberMe = false;
   myList:any=[]
   checkStorage :string |null='';
@@ -36,11 +28,7 @@ export class LoginComponent implements OnInit {
   passwordText :string |null=''
 
 
-<<<<<<< HEAD
   constructor(private service :MyServiceService , private mainRoute:Router,private toast:ToastrService) {
-=======
-  constructor(private service :MyServiceService , private mainRoute:Router) {
->>>>>>> 048ae54e6b5b60e09e99d51de3128034f7138945
      
       this.checkStorage = localStorage.getItem('rememberCheck');
      if(this.checkStorage == "true")
@@ -55,30 +43,18 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
-<<<<<<< HEAD
     // this.toast.success("Welcome to first toast");
-=======
->>>>>>> 048ae54e6b5b60e09e99d51de3128034f7138945
   }
  onchange(){
    alert(this.rememberMe)
  }
  getData(){
-<<<<<<< HEAD
-
-this.APIURl+="Login/GetLogin"
-=======
    this.APIURl+="Login/GetLogin"
->>>>>>> 048ae54e6b5b60e09e99d51de3128034f7138945
  this.service.requestCall(this.APIURl,"Get")?.subscribe(data=>{this.myList=data})
  }
   loginSubmit(data:NgForm){
     this.APIURl="https://localhost:44391/api/Login/checkLogin"
-<<<<<<< HEAD
-    let user={  
-=======
     let  user={  
->>>>>>> 048ae54e6b5b60e09e99d51de3128034f7138945
         
       userName:data.value.userName,
       password: data.value.password
@@ -101,43 +77,30 @@ this.APIURl+="Login/GetLogin"
          else
          localStorage.setItem('rememberCheck',"false");
       
-<<<<<<< HEAD
-         localStorage.setItem('userToken',tokenValue)
-=======
 
       
         
          
->>>>>>> 048ae54e6b5b60e09e99d51de3128034f7138945
          
        switch(tokenValue.role)
       {
         case ('1'):{
          //route here for Admin
-<<<<<<< HEAD
-=======
          localStorage.setItem('userRole','1')
->>>>>>> 048ae54e6b5b60e09e99d51de3128034f7138945
       
          break
         }
         case ('2'):{
           //route here for Customer
-<<<<<<< HEAD
-=======
           localStorage.setItem('userToken',result.tokenValue)
           localStorage.setItem('userRole','2')
->>>>>>> 048ae54e6b5b60e09e99d51de3128034f7138945
           this.mainRoute.navigate(["movies/home"])
          
          break
         }
         case ('3'):{
            //route here for Accountant
-<<<<<<< HEAD
-=======
            localStorage.setItem('userRole','3')
->>>>>>> 048ae54e6b5b60e09e99d51de3128034f7138945
          break
         }
          
