@@ -1,0 +1,25 @@
+<header>
+  <div *ngFor="let item of websiteData" class="container ">
+    <div class="navbar flex1">
+      <div  class="logo">
+       <a routerLink="/movies/home"><img src="../../../assets/images/movies-images/{{item.logoImg}}" alt=""></a> 
+      </div>
+      <nav>
+        <ul id="menuitem">
+          <li><a routerLink="/movies/home">Home</a></li>
+          <li><a >Movies</a></li>
+          <li><a >Tv Shows</a></li>
+          <li><a routerLink="/movies/contact">Contact Us</a></li>
+          <li><a routerLink="/movies/about">About Us</a></li>
+        </ul>
+      </nav>
+      <span class="fa fa-bars" onclick="menutoggle()"></span>
+
+      <div class="subscribe flex">
+        <i style="color: white;" class="fas fa-search"></i>
+        <i style="color: white;" id="palybtn" class="fas fa-user"></i>
+        <button>SUBSCRIBE</button>
+      </div>
+    </div>
+  </div>
+</header>

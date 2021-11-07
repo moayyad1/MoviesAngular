@@ -1,0 +1,50 @@
+<section>
+  <div class="heading">Testimonials</div>
+  <div class="wrapper">
+    <div *ngFor="let item of trending" class="container">
+      <div class="profile">
+        <div class="imgBox">
+          <img src="../../../assets/images/customerImages/{{item.img}}">
+        </div>
+        <h2 style="font-family: 'Roboto', sans-serif;">{{item.firstname}}</h2>
+      </div><br>
+      <p style="font-family: 'Noto Sans', sans-serif;"><span class="fa fa-quote-left left"></span>{{item.message}}<span class="fa fa-quote-right right"></span></p>
+      <div *ngIf="item.stars==1" class="social">
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      </div>
+      <div *ngIf="item.stars==2" class="social">
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      </div>
+      <div *ngIf="item.stars==3" class="social">
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      </div>
+      <div *ngIf="item.stars==4" class="social">
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      </div>
+      <div *ngIf="item.stars==5" class="social">
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+      </div>
+    </div>
+    </div>
+</section>
+

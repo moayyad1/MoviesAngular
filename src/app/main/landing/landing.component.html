@@ -1,0 +1,52 @@
+<section style="background-image: url('https://wallpapercave.com/wp/wp5697600.jpg');" class="home">
+  <div class="headerbg">
+    <header>
+      <div *ngFor="let item of websiteData" class="container ">
+        <div class="navbar flex1">
+          <div class="logo">
+            <a routerLink="/movies/home"><img src="../../../assets/images/movies-images/{{item.logoImg}}" alt=""></a>
+          </div> 
+          <nav>
+            <ul id="menuitem">
+              <li><a routerLink="/movies/home">Home</a></li>
+              <li><a href="product.html">Movies</a></li>
+              <li><a href="index.html">Tv Shows</a></li>
+              <li><a routerLink="/movies/contact">Contact Us</a></li>
+              <li><a routerLink="/movies/about">About Us</a></li>
+            </ul>
+          </nav>
+          <span class="fa fa-bars"></span>   
+          <div class="subscribe flex">
+            <i class="fas fa-search"></i>
+            <i id="palybtn" class="fas fa-user"></i>
+            <button (click)="logOutBtn()">Log out</button>
+          </div>
+        </div>
+      </div>
+    </header>
+<br><br><br><br>
+    <div *ngFor="let item of Movielanding;let i=index" class="home_content mtop">
+      <div *ngIf="i < 1" class="container">
+        <div class="left">
+          <h1>{{item.name}}</h1>
+          <div class="time flex">
+            <p>{{item.price}}$</p>
+            <i class="fas fa-circle"></i>
+            <div><p>{{item.language}}</p></div>
+            <i class="fas fa-circle"></i>
+            <p>{{item.country}}</p>
+            <i class="fas fa-circle"></i>
+            <p>{{item.releaseDate | date:'y'}}</p>
+            <i class="fas fa-circle"></i>
+            <div><p>{{item.category}}</p></div>
+          </div>
+          <p>{{item.storyLine}}</p>
+          <div class="button flex">
+            <button (click)="goToDtails()" style="padding: 10px 10px 10px 10px;width: 15%;">PLAY NOW <i class="fa fa-play" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

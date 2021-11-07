@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #161616;
+  font-family: 'Poppins', sans-serif;
+}
+
+/*---------global------*/
+.container {
+  max-width: 95%;
+  margin: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+.flex {
+  display: flex;
+}
+
+
+i {
+  cursor: pointer;
+  transition: 0.5s;
+}
+/*---------footer------*/
+footer {
+  background: #221F1F;
+  color: white;
+}
+
+footer .container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+}
+
+footer .box {
+  margin-top: 50px;
+}
+
+footer .box i {
+  margin-right: 20px;
+  font-size: 30px;
+}
+
+footer h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+footer ul li {
+  margin-bottom: 15px;
+  opacity: 0.7;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+footer ul li::before {
+  content: "\2022";
+  color: red;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+}
+
+footer .ul {
+  margin-left: 50px;
+}
+
+footer p {
+  margin-bottom: 20px;
+  opacity: 0.7;
+  line-height: 30px;
+}
+
+footer .img img {
+  margin: 5px;
+  width: auto;
+  height: auto;
+}
+
+footer .box li:hover,
+footer .box i:hover {
+  color: #E50916;
+}
+
+.legal {
+  text-align: center;
+  background: #E50916;
+  padding: 20px;
+  margin: 0;
+  margin-top: 50px;
+  font-size: 14px;
+}
+
+/*---------footer------*/
+@media only screen and (max-width:768px) {
+  .left {
+    width: 100%;
+  }
+
+  .new_realase .items {
+    height: 65vh;
+  }
+
+  footer .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width:511px) {
+  header nav ul {
+    top: 70px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .time p {
+    margin-top: 10px;
+  }
+
+  .left p {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .time button {
+    padding: 5px 10px;
+  }
+
+  .heading {
+    margin-top: 50px;
+  }
+
+  .owl-prev {
+    left: 20px;
+  }
+
+  .owl-next {
+    right: 20px;
+  }
+
+  .new_realase .items {
+    height: 80vh;
+  }
+
+  .new_realase .button button {
+    padding: 10px;
+  }
+
+  .new_realase .time label,
+  .new_realase .time img,
+  .new_realase .time p {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  .new_realase .time button {
+    display: none;
+  }
+
+
+
+  footer .container {
+    padding: 10px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  footer .img img {
+    width: 150px;
+  }
+}

@@ -1,0 +1,61 @@
+<app-nav></app-nav>
+<section id="contact">
+    <div style="width: 55%;" class="rt-container">
+          <div class="col-rt-12">
+              <div  class="Scriptcontent">         
+         <div>
+            <div class="container">
+                <div *ngFor="let item of websiteData" class="contact-parent">
+                    <div  class="contact-child child1">
+                        <p>
+                            <i class="fas fa-map-marker-alt"></i> Address <br />
+                            <span> Irbid
+                                <br />
+                                Jordan,Irbid
+                            </span>
+                        </p>
+
+                        <p>
+                            <i  class="fas fa-phone-alt"></i> Let's Talk <br />
+                            <span>{{item.phone}}</span>
+                        </p>
+
+                        <p>
+                            <i class=" far fa-envelope"></i> General Support <br />
+                            <span>{{item.email}}</span>
+                        </p>
+                    </div>
+                    <div  class="contact-child child2">
+                        <div class="inside-contact">
+                           <form  #FormData="ngForm" (ngSubmit)="getUserFormData(FormData)">
+                            <h2>Contact Us</h2>
+                           
+
+                            <p>Name </p>
+                            <input id="txt_name" ngModel name="userName" type="text" required>
+
+                            <p>Email *</p>
+                            <p class="ErrorMessage" *ngIf="!email.valid && email.touched">Please Enter A vaild Email</p>
+                            <input id="txt_email"  #email="ngModel" email [(ngModel)]="userEmail" name="userEmail" type="text" required>
+
+                            <p>Phone </p>
+                            <input id="txt_phone"ngModel name="userPhone"  number required>
+
+                            <p>Message </p>
+                            <textarea id="txt_message" name="Message" ngModel rows="4" cols="20" required ></textarea>
+                            
+                            <input value="Send" class="btn btn-danger offset-3" type="submit" id="btn_send" [disabled]="!FormData.valid" >
+                           </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+           
+            </div>
+        </div>
+    </div>
+    
+</section>
+<app-footer></app-footer>
