@@ -24,7 +24,7 @@ export class ContactComponent implements OnInit {
         (data) => {          
           this.toastr.success("message sent succesfully");
           setTimeout(() => {
-            this.spinner.hide()
+            this.spinner.hide() 
           }, 1300); 
         },
         (err) => {
