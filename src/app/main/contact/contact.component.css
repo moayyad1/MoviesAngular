@@ -32,7 +32,7 @@
     margin-bottom:30px;
 }
 .child1{
-    background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("https://image.freepik.com/free-photo/rows-red-seats-theater_53876-64710.jpg");
+    background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("https://live.staticflickr.com/7457/11422473144_83b90f9d7a_b.jpg");
     background-size:cover;
     display:flex;
     flex-direction:column;
@@ -43,13 +43,13 @@
 
 .child1 p{
     padding-left:20%;
-    font-size:20px;
+    font-size:30px;
     text-shadow:0px 0px 2px #000;
 }
 
 .child1 p span{
-    font-size:16px;
-    color:#9df2fd;
+    font-size:20px;
+    color:whitesmoke;
 }
 
 .child2{
@@ -108,7 +108,7 @@
     }
 
     .child2{
-        background-image:linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.7)), url("https://cdn.pixabay.com/photo/2019/06/28/00/17/architecture-4303279_1280.jpg");
+        background-image:linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.7)), url("https://live.staticflickr.com/7457/11422473144_83b90f9d7a_b.jpg");
         background-size:cover;
     }
 
@@ -117,11 +117,6 @@
     }
 }
 
-/* ******************************************************
-	Author URI: https://codeconvey.com/
-	Demo Purpose Only - May not require to add.
-	font-family: "Raleway",sans-serif;
-*********************************************************/
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900');
 

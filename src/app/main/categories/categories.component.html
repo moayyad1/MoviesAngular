@@ -1,0 +1,232 @@
+<br><h2 style="border-left: thick solid red;color: white;margin-left: 15px">&ensp;Action Movies</h2><br>
+<section  id="team" class="team-area">
+<div style="display:flex;flex-direction:row;flex-wrap:wrap" >
+  <div *ngFor="let item of trending | filter:search">
+    <div  class="col">
+      <div *ngIf="item.category=='Action'">
+        <div (click)="goToDtails(item.id)" class="card">     
+         <div class="row team-items">
+         <div class="item">
+              <div class="thumb">
+                  <img src="../../../assets/images/movies-images/{{item.img}}" alt="Thumb">
+                  <div class="overlay">
+                      <h4>{{item.name}}</h4>
+                      <p>{{item.category}} | {{item.country}} |{{item.releaseDate | date:'y'}}</p>
+                      <p>{{item.storyLine}}</p>
+                      <div class="social">
+                        <ul>
+                          <li>
+                            <a><i style="font-size: 40px;cursor: pointer;" class="fa fa-heart" aria-hidden="true"></i>
+                            </a><br><br><br><br><br><br>
+                          </li>
+                      </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          </div>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+</section>
+<br><h2 style="border-left: thick solid red;color: white;margin-left: 15px">&ensp;Horror Movies</h2><br>
+<section  id="team" class="team-area">
+  <div style="display:flex;flex-direction:row;flex-wrap: wrap" >
+    <div *ngFor="let item of trending | filter:search">
+      <div  class="col">
+        <div *ngIf="item.category=='Horror'">
+          <div (click)="goToDtails(item.id)" class="card">     
+           <div class="row team-items">
+           <div class="item">
+                <div class="thumb">
+                    <img src="../../../assets/images/movies-images/{{item.img}}" alt="Thumb">
+                    <div class="overlay">
+                        <h4>{{item.name}}</h4>
+                        <p>{{item.category}} | {{item.country}} |{{item.releaseDate | date:'y'}}</p>
+                        <p>{{item.storyLine}}</p>
+                        <div class="social">
+                          <ul>
+                            <li>
+                              <a><i style="font-size: 40px;cursor: pointer;" class="fa fa-heart" aria-hidden="true"></i>
+                              </a><br><br><br><br><br><br>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+          </div>
+      </div>
+      </div>
+  </div>
+  </div>
+ </section>
+<br><h2 style="border-left: thick solid red;color: white;margin-left: 15px">&ensp;Comedy Movies</h2><br>
+<section  id="team" class="team-area">
+  <div style="display:flex;flex-direction:row;flex-wrap: wrap" >
+    <div *ngFor="let item of trending | filter:search">
+      <div  class="col">
+        <div *ngIf="item.category=='Comedy'">
+          <div (click)="goToDtails(item.id)" class="card">     
+           <div class="row team-items">
+           <div class="item">
+                <div class="thumb">
+                    <img src="../../../assets/images/movies-images/{{item.img}}" alt="Thumb">
+                    <div class="overlay">
+                        <h4>{{item.name}}</h4>
+                        <p>{{item.category}} | {{item.country}} |{{item.releaseDate | date:'y'}}</p>
+                        <p>{{item.storyLine}}</p>
+                        <div class="social">
+                          <ul>
+                            <li>
+                              <a><i style="font-size: 40px;cursor: pointer;" class="fa fa-heart" aria-hidden="true"></i>
+                              </a><br><br><br><br><br><br>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+          </div>
+      </div>
+      </div>
+  </div>
+  </div>
+  </section>
+<br><h2 style="border-left: thick solid red;color: white;margin-left: 15px">&ensp;Drama Movies</h2><br>
+<section  id="team" class="team-area">
+  <div style="display:flex;flex-direction:row;flex-wrap: wrap" >
+    <div *ngFor="let item of trending | filter:search">
+      <div  class="col">
+        <div *ngIf="item.category=='Drama'">
+          <div (click)="goToDtails(item.id)" class="card">     
+           <div class="row team-items">
+           <div class="item">
+                <div class="thumb">
+                    <img src="../../../assets/images/movies-images/{{item.img}}" alt="Thumb">
+                    <div class="overlay">
+                        <h4>{{item.name}}</h4>
+                        <p>{{item.category}} | {{item.country}} |{{item.releaseDate | date:'y'}}</p>
+                        <p>{{item.storyLine}}</p>
+                        <div class="social">
+                          <ul>
+                            <li>
+                              <a><i style="font-size: 40px;cursor: pointer;" class="fa fa-heart" aria-hidden="true"></i>
+                              </a><br><br><br><br><br><br>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+          </div>
+      </div>
+      </div>
+  </div>
+  </div>
+  </section>
+<br><h2 style="border-left: thick solid red;color: white;margin-left: 15px">&ensp;Romance Movies</h2><br>
+<section  id="team" class="team-area">
+  <div style="display:flex;flex-direction:row;flex-wrap: wrap" >
+    <div *ngFor="let item of trending | filter:search">
+      <div  class="col">
+        <div *ngIf="item.category=='Romance'">
+          <div (click)="goToDtails(item.id)" class="card">     
+           <div class="row team-items">
+           <div class="item">
+                <div class="thumb">
+                    <img src="../../../assets/images/movies-images/{{item.img}}" alt="Thumb">
+                    <div class="overlay">
+                        <h4>{{item.name}}</h4>
+                        <p>{{item.category}} | {{item.country}} |{{item.releaseDate | date:'y'}}</p>
+                        <p>{{item.storyLine}}</p>
+                        <div class="social">
+                          <ul>
+                            <li>
+                              <a><i style="font-size: 40px;cursor: pointer;" class="fa fa-heart" aria-hidden="true"></i>
+                              </a><br><br><br><br><br><br>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+          </div>
+      </div>
+      </div>
+  </div>
+  </div>
+</section>
+<br><h2 style="border-left: thick solid red;color: white;margin-left: 15px">&ensp;Fantasy Movies</h2><br>
+<section  id="team" class="team-area">
+  <div style="display:flex;flex-direction:row;flex-wrap: wrap" >
+    <div *ngFor="let item of trending | filter:search">
+      <div  class="col">
+        <div *ngIf="item.category=='Fantasy'">
+          <div (click)="goToDtails(item.id)" class="card">     
+           <div class="row team-items">
+           <div class="item">
+                <div class="thumb">
+                    <img src="../../../assets/images/movies-images/{{item.img}}" alt="Thumb">
+                    <div class="overlay">
+                        <h4>{{item.name}}</h4>
+                        <p>{{item.category}} | {{item.country}} |{{item.releaseDate | date:'y'}}</p>
+                        <p>{{item.storyLine}}</p>
+                        <div class="social">
+                          <ul>
+                            <li>
+                              <a><i style="font-size: 40px;cursor: pointer;" class="fa fa-heart" aria-hidden="true"></i>
+                              </a><br><br><br><br><br><br>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+          </div>
+      </div>
+      </div>
+  </div>
+  </div>
+</section>
+<br><h2 style="border-left: thick solid red;color: white;margin-left: 15px">&ensp;Mystery Movies</h2><br>
+<section  id="team" class="team-area">
+  <div style="display:flex;flex-direction:row;flex-wrap: wrap" >
+    <div *ngFor="let item of trending | filter:search">
+      <div  class="col">
+        <div *ngIf="item.category=='Mystery'">
+          <div (click)="goToDtails(item.id)" class="card">     
+           <div class="row team-items">
+           <div class="item">
+                <div class="thumb">
+                    <img src="../../../assets/images/movies-images/{{item.img}}" alt="Thumb">
+                    <div class="overlay">
+                        <h4>{{item.name}}</h4>
+                        <p>{{item.category}} | {{item.country}} |{{item.releaseDate | date:'y'}}</p>
+                        <p>{{item.storyLine}}</p>
+                        <div class="social">
+                          <ul>
+                            <li>
+                              <a><i style="font-size: 40px;cursor: pointer;" class="fa fa-heart" aria-hidden="true"></i>
+                              </a><br><br><br><br><br><br>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+          </div>
+      </div>
+      </div>
+  </div>
+  </div>
+</section>
+

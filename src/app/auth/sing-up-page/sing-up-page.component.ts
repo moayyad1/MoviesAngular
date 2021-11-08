@@ -58,9 +58,6 @@ export class SingUpPageComponent implements OnInit {
   CreateCustomer(userSignUp: NgForm,imageFile:any) {
     // first creating record in Customer Table
 this.spinner.show();
-setTimeout(() => {
-  this.spinner.hide();
-}, 2000);
       const ImageName =imageFile[0].name
     
  this.uploadFile(imageFile)
@@ -105,18 +102,25 @@ setTimeout(() => {
                   'Post',
                   loginCustomer
                 )
-                ?.subscribe(
+                ?.subscribe(                 
                   (data) => {   
                     this.toaster.success('account created successfully')
+                    setTimeout(() => {
+                      this.toaster.success('account created successfully')
+                    }, 1500);
                   },
                   (err) => {
                     this.toaster.error("error while create account")
+                    setTimeout(() => {
+                      this.toaster.error("error while create account")
+                    }, 1500);
                   }
                 );
             });
         },
         (err) => {
           this.toaster.error("error while create account")
+        this.spinner.hide()
         }
       );
   }

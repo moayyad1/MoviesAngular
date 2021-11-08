@@ -8,7 +8,6 @@ section{
 	position: relative;
 	min-height: 100vh;
 	width: 100%;
-	background: #161616;
 	overflow: hidden;
 }
 section:before{
@@ -37,7 +36,7 @@ section .heading:before{
 	left: 50%;
 	transform: translateX(-50%);
 	bottom: 25%;
-	background: #fae9e9;
+	background: grey;
 }
 section .heading b{
 	color: #fff;
@@ -53,7 +52,7 @@ section .heading b{
 	position: relative;
 	width: 350px;
 	color: #fff;
-	background: #3F3351;
+	background: whitesmoke;
 	margin: 40px 10px;
 	padding: 30px 20px;
 	border-radius: 3px;
@@ -93,13 +92,13 @@ section .heading b{
 .wrapper .container .profile h2{
 	padding: 5px 0;
 	text-transform: capitalize;
-	color: #fff;
+	color: black;
 	letter-spacing: 1px;
 	text-align: center;
 }
 .wrapper .container p{
 	margin-top: 50px;
-	color: #fff;
+	color: black;
 	padding: 0 8px;
 	font-size: 15px;
 	opacity: 0.8;
@@ -121,10 +120,10 @@ section .heading b{
 }
 .wrapper .container .social i{
 	font-size: 1.2em;
-	color: orange;
+	color: white;
 	padding: 8px;
   margin-right: 10px;
-	background: rgba(255,255,255,0.08);
+	background: black;
 	border-radius: 4px;
 	box-shadow: 0 4px 4px rgba(0,0,0,0.5);
 }

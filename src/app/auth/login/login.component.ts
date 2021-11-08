@@ -83,7 +83,10 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('userToken',result.tokenValue)
           localStorage.setItem('userRole','2')
           this.mainRoute.navigate(["movies/home"])
-         
+          setTimeout(() => {
+            this.spinner.hide();
+          }, 1000);
+          this.toast.success("Welcome " +this.userNameText + ' :)')
          break
         }
         case ('3'):{
@@ -96,12 +99,17 @@ export class LoginComponent implements OnInit {
      }
      else
      { //if data are incorrect show some failed animation     
-       this.loginAttemptresult = false 
+       this.loginAttemptresult = false ;
+       this.toast.error('Username or Password is incorrect')
+       setTimeout(() => {
+        this.spinner.hide();
+      }, 900);
      }
-     setTimeout(() => {
+   
+    },err=>{this.toast.error('Something went error,try again later!!')
+      setTimeout(() => {
       this.spinner.hide();
-    }, 1500);
-    },err=>{console.log(err)})
+    }, 1000);})
     if (this.rememberMe){   
     }
   }

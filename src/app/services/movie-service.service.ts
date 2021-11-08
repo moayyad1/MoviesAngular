@@ -22,7 +22,7 @@ export class MovieServiceService
   {
     return this.http.get(this.baseUrl+"WebSite/GetWebSite")
   }
-  getTrending()
+  getallmovies()
   {
     return this.http.get(this.baseUrl+"movie/GetCatMovie")
   }
@@ -39,5 +39,9 @@ export class MovieServiceService
   }
 SaveMassege(data:any){
     return this.http.post(this.baseUrl+"ContactUs/insertContactUs",data)
+}
+GetEvaluation()
+{
+  return this.http.get(this.baseUrl+"Evaluation/GetEvaluation");
 }
 }

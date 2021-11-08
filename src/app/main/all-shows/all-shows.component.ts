@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MovieServiceService } from 'src/app/services/movie-service.service';
 @Component({
-  selector: 'app-trending',
-  templateUrl: './trending.component.html',
-  styleUrls: ['./trending.component.css']
+  selector: 'app-all-shows',
+  templateUrl: './all-shows.component.html',
+  styleUrls: ['./all-shows.component.css']
 })
-export class TrendingComponent implements OnInit {
+export class AllShowsComponent implements OnInit {
+
+search:any
 trending:any=[{}];
 user:any={};
   constructor(private movieService:MovieServiceService,private route:Router) { }
@@ -17,7 +19,7 @@ user:any={};
   }
   getTrending()
   {  
-    this.movieService.getTrending().subscribe((res:any) => { (this.trending=res) },
+    this.movieService.getallmovies().subscribe((res:any) => { (this.trending=res) },
     err => { console.log(err) }) 
   }
   goToDtails(id:any)
@@ -30,4 +32,5 @@ user:any={};
   {
     this.user=localStorage.getItem('userToken');
   }
+
 }

@@ -4,11 +4,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import {ToastrModule, ToastNoAnimation,ToastNoAnimationModule} from 'ngx-toastr';
+import {ToastrModule, ToastNoAnimationModule} from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -17,7 +19,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     HttpClientModule,
     ToastNoAnimationModule.forRoot(),
     ToastrModule.forRoot(),
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    Ng2SearchPipeModule
     ],
   providers: [],
   bootstrap: [AppComponent]

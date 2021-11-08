@@ -38,5 +38,8 @@ this.route.navigate(["movies/best"])
     localStorage.removeItem('userToken')
     this.route.navigate([''])
   }
-
+  goToUserProfile()
+  {
+    this.route.navigate(['movies/user_profile'])
+  }
 }

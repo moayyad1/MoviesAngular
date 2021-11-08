@@ -1,7 +1,6 @@
 <section
   style="background-image: url('https://wallpapercave.com/wp/wp5697600.jpg')"
-  class="home"
->
+  class="home">
   <div class="headerbg">
     <header>
       <div *ngFor="let item of websiteData" class="container">
@@ -13,16 +12,17 @@
           <nav>
             <ul id="menuitem">
               <li><a routerLink="/movies/home">Home</a></li>
-              <li><a href="product.html">Movies</a></li>
-              <li><a href="index.html">Tv Shows</a></li>
+              <li><a routerLink="/movies/all_shows">All Movie Shows</a></li>
+              <li><a routerLink="/movies/top_rated">Top Rated Movies</a></li>
+              <li><a routerLink="/movies/newest_movies">Newest Movies</a></li>
               <li><a routerLink="/movies/contact">Contact Us</a></li>
               <li><a routerLink="/movies/about">About Us</a></li>
             </ul>
           </nav>
           <span class="fa fa-bars"></span>
           <div class="subscribe flex">
-            <i class="fas fa-search"></i>
-            <i id="palybtn" class="fas fa-user"> </i>
+            <i class="fas fa-ssearch"></i>
+            <i (click)="goToUserProfile()" id="palybtn" class="fas fa-user"> </i>
             <button (click)="logOutBtn()">Log out</button>
           </div>
         </div>
@@ -45,9 +45,10 @@
             <div><p>{{item.category}}</p></div>
           </div>
           <p>{{item.storyLine}}</p>
-          <div class="button flex">
-            <button (click)="goToDtails()" style="padding: 10px 10px 10px 10px;width: 15%;">PLAY NOW <i class="fa fa-play" aria-hidden="true"></i>
-            </button>
+          <div  class="button flex">
+            <button (click)="goToDtails()" style="padding: 10px 10px 10px 10px;width: 15%;margin-right: 40px;">PLAY NOW <i class="fa fa-play" aria-hidden="true"></i></button>
+            <button style="padding: 10px 10px 10px 10px;width: 15%;">TRENDING <i class="fa fa-free-code-camp" aria-hidden="true"></i>
+            </button>     
           </div>
         </div>
       </div>

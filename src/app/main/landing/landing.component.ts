@@ -60,6 +60,10 @@ this.route.navigate(["best"])
         return basePath+value;
         
         }
+        goToUserProfile()
+        {
+          this.route.navigate(['movies/user_profile'])
+        }
 }
     
 

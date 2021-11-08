@@ -7,7 +7,6 @@
                   <div class="sign-in-from w-100 m-auto">
                      <h3 class="mb-3 text-center" style="color: white;">Sign in</h3>
                      <form #userPost="ngForm" (ngSubmit)="loginSubmit(userPost)"class="mt-4" >
-                         <i  *ngIf="!loginAttemptresult " style="color: red;font-weight: bolder;">Incorrect Username or password</i>
                         <div style="border: 1px solid white;" class="form-group">                                 
                            <input  [(ngModel)]='userNameText' (input)='changeLoginState()' name="userName" [ngStyle]="{'border':getBorderColor()}" class="form-control mb-0" id="exampleInputEmail1" placeholder="Username" autocomplete="off"  required>
                         </div><br>

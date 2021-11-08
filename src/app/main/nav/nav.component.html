@@ -7,8 +7,9 @@
       <nav>
         <ul id="menuitem">
           <li><a routerLink="/movies/home">Home</a></li>
-          <li><a >Movies</a></li>
-          <li><a >Tv Shows</a></li>
+          <li><a routerLink="/movies/all_shows">All Movie Shows</a></li>
+          <li><a routerLink="/movies/top_rated">Top Rated Movies</a></li>
+          <li><a routerLink="/movies/newest_movies" >Newest Movies</a></li>
           <li><a routerLink="/movies/contact">Contact Us</a></li>
           <li><a routerLink="/movies/about">About Us</a></li>
         </ul>
@@ -16,8 +17,8 @@
       <span class="fa fa-bars" onclick="menutoggle()"></span>
 
       <div class="subscribe flex">
-        <i style="color: white;" class="fas fa-search"></i>
-        <i style="color: white;" id="palybtn" class="fas fa-user"></i>
+        <i class="fas fa-ssearch"></i>
+        <i (click)="goToUserProfile()" style="color: white;" id="palybtn" class="fas fa-user"></i>
         <button (click)="logOutBtn()">Logout</button>
       </div>
     </div>

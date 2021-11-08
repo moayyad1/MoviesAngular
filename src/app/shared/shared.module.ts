@@ -10,6 +10,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { VgCoreModule } from '@videogular/ngx-videogular/core';
 import { YouTubePlayerModule } from "@angular/youtube-player";
 import {MatProgressSpinnerModule} from'@angular/material/progress-spinner';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -26,7 +27,7 @@ import {MatProgressSpinnerModule} from'@angular/material/progress-spinner';
     MatProgressSpinnerModule
    ],
    exports:[
-     FormsModule,
+    FormsModule,
     CommonModule,
     MatInputModule,
     MatFormFieldModule,
@@ -37,7 +38,7 @@ import {MatProgressSpinnerModule} from'@angular/material/progress-spinner';
     HttpClientModule,
     YouTubePlayerModule,
     MatProgressSpinnerModule
-   ],
+     ],
    providers: [HttpClient]
 
 })

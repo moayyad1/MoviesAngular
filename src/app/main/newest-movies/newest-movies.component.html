@@ -1,0 +1,27 @@
+<app-nav></app-nav>
+<br> <h2 style="border-left: thick solid red;;color: white;margin-left: 30px;">&ensp;Newest Movies</h2><br>
+<div style="margin-left: 16px;" class="container-fluid">
+    <div style="display:flex;flex-direction:row;flex-wrap: wrap">
+        <div *ngFor="let item of moviesData" >
+            <div *ngIf="item.releaseDate >= '2021'">
+            <div (click)="goToDtails(item.id)" class="flip">
+            <div class="front" style="background-image: url('../../../assets/images/movies-images/{{item.img}}')"  >
+            </div>
+            <h4>{{item.name}}</h4>
+            <p style="font-size: 1.1rem;color: gray;font-family: 'Raleway', sans-serif;">{{item.releaseDate | date:'y'}}<span style="color: red;">|</span> {{item.country}} <span style="color: red;">|</span> {{item.category}}</p>
+            <!-- <i style="color: #f9be30;font-size: 1.4rem;" class="fa fa-star" aria-hidden="true"></i><i  style="color: #f9be30;font-size: 1.4rem"  class="fa fa-star" aria-hidden="true"></i><i  style="color: #f9be30;font-size: 1.4rem"  class="fa fa-star" aria-hidden="true"></i><i  style="color: #f9be30;font-size: 1.4rem"  class="fa fa-star" aria-hidden="true"></i><i style="font-size: 1.4rem" class="fa fa-star" aria-hidden="true"></i> -->
+            <div class="back">               
+                <div style="position: absolute;top: 20px;left: 5px;">
+                <h5 style="color: cyan;">Story :</h5>
+                <p style="font-family: 'Roboto', sans-serif;" >{{item.storyLine}}</p><hr style="color: cadetblue;">
+                 <p>{{item.category}}</p><hr style="color: cadetblue;">
+                 <p>Price : {{item.price}}$</p><br>
+                </div>
+            </div >
+        </div>
+    </div>
+
+    </div>    
+    </div>
+    </div>
+<app-footer></app-footer>
