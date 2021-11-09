@@ -8,12 +8,13 @@ import {
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { NgxSpinner } from 'ngx-spinner';
+import { Toast, ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuardGuard implements CanActivate {
-  constructor( private route: Router) {}
+  constructor( private route: Router,private toatstr:ToastrService) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -41,14 +42,14 @@ export class AuthGuardGuard implements CanActivate {
       
       else {
         //this will appear if he tries to access by url , need token so routing him to login page
-        alert('login pls');
+        this.toatstr.error("Please Login to access the page")
         this.route.navigate([''])
          return false;
       }
     }
     //if maybe an admin tries to get to customer by using url
     else {
-      alert('this is only for customers ');
+      this.toatstr.error("this page only for customers")
       return false;
     }
   }

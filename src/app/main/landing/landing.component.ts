@@ -8,6 +8,7 @@ import { MovieServiceService } from 'src/app/services/movie-service.service';
 })
 export class LandingComponent implements OnInit {
   constructor(private route:Router,private movieService:MovieServiceService) { }
+  search:any;
   Movielanding:any = [];
   Moviecat:any = [{}];
   websiteData:any = [{}];
@@ -17,7 +18,6 @@ export class LandingComponent implements OnInit {
     this.getAllcat();
     this.getWebSiteDetails();
     this.getAllMovies();
-
   }
   gotobest()
   {

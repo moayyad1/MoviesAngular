@@ -1,0 +1,38 @@
+<app-nav></app-nav>
+<h2 style="border-left: thick solid red;color: white;margin-left: 15px">&ensp;All Horror Movies <div style="display: inline-block;" class="search-box">
+    <button style="font-size: 30px;" class="btn-search"><i  class="fas fa-search"></i></button>
+    <input  type="text" class="input-search" placeholder="movie name to search..." [(ngModel)]="search">
+  </div></h2><br>
+<section id="team" class="team-area">
+  <div style="display:flex;flex-direction:row;flex-wrap: wrap" >
+    <div *ngFor="let item of allMovies | filter:search" >
+      <div *ngIf="item.category=='Horror'" class="col">
+        <div >
+          <div  (click)="goToDtails(item.id)" class="card">     
+           <div class="row team-items">
+           <div class="item">
+                <div class="thumb">
+                    <img src="../../../assets/images/movies-images/{{item.img}}" alt="Thumb">
+                    <div class="overlay">
+                        <h4>{{item.name}}</h4>
+                        <p>{{item.category}} | {{item.country}} |{{item.releaseDate | date:'y'}}</p>
+                        <p>{{item.storyLine}}</p>
+                        <div class="social">
+                          <ul>
+                            <li>
+                              <a><i style="font-size: 40px;cursor: pointer;" class="fa fa-heart" aria-hidden="true"></i>
+                              </a><br><br><br><br><br><br>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+          </div>
+      </div>
+      </div>
+  </div>
+  </div>
+ </section>
+ <app-footer></app-footer>

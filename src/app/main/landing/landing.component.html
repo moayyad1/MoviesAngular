@@ -12,8 +12,8 @@
           <nav>
             <ul id="menuitem">
               <li><a routerLink="/movies/home">Home</a></li>
-              <li><a routerLink="/movies/all_shows">All Movie Shows</a></li>
-              <li><a routerLink="/movies/top_rated">Top Rated Movies</a></li>
+              <li><a routerLink="/movies/all_shows">All Shows</a></li>
+              <li><a routerLink="/movies/top_rated">Top Rated</a></li>
               <li><a routerLink="/movies/newest_movies">Newest Movies</a></li>
               <li><a routerLink="/movies/contact">Contact Us</a></li>
               <li><a routerLink="/movies/about">About Us</a></li>
@@ -47,7 +47,7 @@
           <p>{{item.storyLine}}</p>
           <div  class="button flex">
             <button (click)="goToDtails()" style="padding: 10px 10px 10px 10px;width: 15%;margin-right: 40px;">PLAY NOW <i class="fa fa-play" aria-hidden="true"></i></button>
-            <button style="padding: 10px 10px 10px 10px;width: 15%;">TRENDING <i class="fa fa-free-code-camp" aria-hidden="true"></i>
+            <button style="cursor:default;padding: 10px 10px 10px 10px;width: 15%;background-color: white;color: black;">TRENDING <i style="color: red;" class="fa fa-free-code-camp" aria-hidden="true"></i>
             </button>     
           </div>
         </div>

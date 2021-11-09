@@ -19,6 +19,13 @@ import { StarsComponent } from './stars/stars.component';
 import { AllShowsComponent } from './all-shows/all-shows.component';
 import { TopRatedComponent } from './top-rated/top-rated.component';
 import { UserProfileComponent } from '../user-profile/user-profile.component';
+import { HorrorCategoryComponent } from './specific-category/horror-category/horror-category.component';
+import { ActionCategoryComponent } from './specific-category/action-category/action-category.component';
+import { ComedyCategoryComponent } from './specific-category/comedy-category/comedy-category.component';
+import { DramaCategoryComponent } from './specific-category/drama-category/drama-category.component';
+import { FantasyCategoryComponent } from './specific-category/fantasy-category/fantasy-category.component';
+import { MysteryCategoryComponent } from './specific-category/mystery-category/mystery-category.component';
+import { RomanceCategoryComponent } from './specific-category/romance-category/romance-category.component';
 @NgModule({
   declarations: [ 
     LandingComponent,
@@ -36,7 +43,14 @@ import { UserProfileComponent } from '../user-profile/user-profile.component';
     StarsComponent,
     AllShowsComponent,
     TopRatedComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    HorrorCategoryComponent,
+    ActionCategoryComponent,
+    ComedyCategoryComponent,
+    DramaCategoryComponent,
+    FantasyCategoryComponent,
+    MysteryCategoryComponent,
+    RomanceCategoryComponent
   ],
   imports: [
     CommonModule,
