@@ -1,3 +1,4 @@
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MovieServiceService } from 'src/app/services/movie-service.service';
@@ -17,6 +18,9 @@ FantasyMovies:any=[{}];
 MysteryMovies:any=[{}];
 RomanceMovies:any=[{}];
 user:any={};
+userNameText:any;
+userId:any;
+data:any=[{}]
   constructor(private movieService:MovieServiceService,private route:Router) { }
 
   ngOnInit(): void {
@@ -95,5 +99,4 @@ GoToMystery()
 {
 this.route.navigate(['movies/mystery_movies'])
 }
-
 }

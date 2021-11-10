@@ -6,11 +6,7 @@
     background-color: #161616;
   }
 
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
+
 
 .team-area .single-item {
   margin-bottom: 15px;
@@ -65,7 +61,7 @@ ul {
 }
 
 .team-area .item:hover .thumb .overlay {
-  top: 70%;
+  top: 45%;
   transform: translate(-50%, -50%);
   left: 50%;
 }

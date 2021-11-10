@@ -2,13 +2,13 @@
  <br><h2 style="border-left: thick solid red;color: white;margin-left: 30px;">&ensp;Top Rated Movies</h2>
 <div class="row">
 <div class="col">
-    <div class="card">
+    <div *ngFor="let item of GetMovies" class="card">
         <a href="#">
-          <div class="img1"><img src="../../../assets/images/movies-images/"></div>
-          <div class="img2"><img src="../../../assets/images/movies-images/"></div>
-          <div class="title">name</div><br><br>
-          <a href="#"><div class="catagory">% <i style="color: green;" class="fa fa-arrow-circle-up" aria-hidden="true"></i></div></a>
-          <a href="#"><div class="views">$
+          <div class="img1"><img src="../../../assets/images/movies-images/{{item.img}}"></div>
+          <div class="img2"><img src="../../../assets/images/movies-images/{{item.img}}"></div>
+          <div class="title">{{item.name}}</div><br><br>
+          <a href="#"><div class="catagory">{{item.stars}}% <i style="color: green;" class="fa fa-arrow-circle-up" aria-hidden="true"></i></div></a>
+          <a href="#"><div class="views">{{item.price}}$
           </div></a>
         </a>
  </div>

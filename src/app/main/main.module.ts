@@ -28,6 +28,7 @@ import { MysteryCategoryComponent } from './specific-category/mystery-category/m
 import { RomanceCategoryComponent } from './specific-category/romance-category/romance-category.component';
 import { AdminComponent } from './Admin-Dashboard/admin/admin.component';
 import { CauroselComponent } from './caurosel/caurosel.component';
+import { MovieTrailerComponent } from './movie-trailer/movie-trailer.component';
 @NgModule({
   declarations: [ 
     LandingComponent,
@@ -54,7 +55,8 @@ import { CauroselComponent } from './caurosel/caurosel.component';
     MysteryCategoryComponent,
     RomanceCategoryComponent,
     AdminComponent,
-    CauroselComponent
+    CauroselComponent,
+    MovieTrailerComponent
   ],
   imports: [
     CommonModule,

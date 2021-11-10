@@ -44,4 +44,8 @@ GetEvaluation()
 {
   return this.http.get(this.baseUrl+"Evaluation/GetEvaluation");
 }
+CustomerList(data:any)
+{
+  return this.http.post(this.baseUrl+"CustomerList/InsertCustomerList",data);
+}
 }
