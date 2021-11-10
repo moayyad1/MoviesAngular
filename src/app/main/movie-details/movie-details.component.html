@@ -41,9 +41,32 @@
     <p style="margin-left: 0px;font-size: 24px">Story</p> <br>{{MovieById.storyLine}}
 </div>
 
-<div style="margin-left: 0px;" class="movie-cast">
-         <app-stars></app-stars>
+<div *ngFor="let item of GetEvaluation" style="margin-left: 0px;" class="movie-cast">
+    <div *ngIf="item.id==MovieById.id && item.eval!=0" style="margin-bottom:50px;margin-top: -40px;width: 50%;margin: auto;padding: 20px;padding: 10px ; box-shadow: 2px 2px 2px 2px black;" >
+        <div >
+        <span style="color: white;font-size: 1.4rem;text-align: center;white-space: nowrap"> <i style="color: greenyellow;font-size: 20px" *ngIf="item.eval>=75" class="fa fa-arrow-up"></i> <i style="color: red;font-size: 20px;" *ngIf="item.eval < 75" class="fa fa-arrow-down"></i><span style="color: darkgoldenrod;">{{item.eval | number:'1.0-1'}}%</span> of viewers liked this movie</span><br><br> 
+        <div style="margin: auto;width: 35%;"> 
+            <span style="font-size: 21px;">Your rate </span>
+            <br><i style="font-size: 25px;margin-right: 20px;" class="fa fa-thumbs-up rate-like" aria-hidden="true"></i> 
+            <i style="font-size: 25px;" class="fa fa-thumbs-down rate-dis" aria-hidden="true"></i></div>
+        </div>
+    </div>
 </div>
+<div  *ngFor="let item of GetEvaluation" style="margin-left: 0px;" class="movie-cast">
+<div *ngIf="item.id==MovieById.id && item.eval==0" style="margin-bottom:50px;margin-top: -40px;width: 50%;margin: auto;padding: 20px;white-space: nowrap;padding: 10px ; box-shadow: 2px 2px 2px 2px black;" >
+    <div>
+    <span  style="color: white;font-size: 1.4rem;text-align: center;white-space: nowrap"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>This movie has not been rated yet</span><br><br>
+    <div style="margin:auto;"> 
+        <div style="margin: auto;width: 35%;">
+            <span style="font-size: 21px;">Your rate </span>
+            <br><i style="font-size: 25px;margin-right: 20px;" class="fa fa-thumbs-up rate-like" aria-hidden="true"></i> 
+            <i style="font-size: 25px;" class="fa fa-thumbs-down rate-dis" aria-hidden="true"></i></div>
+        </div>    
+    </div>
+</div>
+</div>
+
+
 </div>
 </div>
 
@@ -60,7 +83,7 @@
             <video id="singleVideo" preload="auto" controls>
               <source src="../../../assets/Videos/{{MovieById.video}}" type="video/mp4">
             </video>
-          </vg-player> 
+          </vg-player>
       </div>
 </div>
 <br><br>

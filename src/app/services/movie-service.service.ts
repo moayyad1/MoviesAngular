@@ -43,7 +43,7 @@ SaveMassege(data:any){
 }
 GetEvaluation()
 {
-  return this.http.get(this.baseUrl+"Movie/GetMoviesEval");
+  return this.http.get(this.baseUrl+"movie/GetMoviesEval");
 }
 CustomerList(data:any)
 {

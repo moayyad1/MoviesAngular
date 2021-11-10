@@ -15,7 +15,6 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CarouselComponent } from './carousel/carousel.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { CommentsComponent } from './comments/comments.component';
-import { StarsComponent } from './stars/stars.component';
 import { AllShowsComponent } from './all-shows/all-shows.component';
 import { TopRatedComponent } from './top-rated/top-rated.component';
 import { UserProfileComponent } from '../user-profile/user-profile.component';
@@ -40,7 +39,6 @@ import { RomanceCategoryComponent } from './specific-category/romance-category/r
     CarouselComponent,
     MovieDetailsComponent,
     CommentsComponent,
-    StarsComponent,
     AllShowsComponent,
     TopRatedComponent,
     UserProfileComponent,
