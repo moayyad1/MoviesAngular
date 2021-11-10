@@ -47,13 +47,11 @@ export class DashboardComponent implements OnInit {
    servie.requestCall("https://localhost:44391/api/Movie/getMovie","Get")?.subscribe(
     data=>{
      this.newistMovies=data
-    
-     
+      
      this.newistMovies.sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime());
      console.warn((this.newistMovies));
     
-     
-      
+
      
     }
    )

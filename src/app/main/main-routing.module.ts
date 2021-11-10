@@ -15,10 +15,6 @@ import { FantasyCategoryComponent } from './specific-category/fantasy-category/f
 import { RomanceCategoryComponent } from './specific-category/romance-category/romance-category.component';
 import { MysteryCategoryComponent } from './specific-category/mystery-category/mystery-category.component';
 
-
-import { CarouselComponent } from './carousel/carousel.component';
-
-
 const routes: Routes = [
   {path:'home',component:HomeComponent},
   {path:'newest_movies',component:newestmoviesComponent},
