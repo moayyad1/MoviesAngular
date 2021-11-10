@@ -34,13 +34,7 @@ const routes: Routes = [
   {path:'fantasy_movies',component:FantasyCategoryComponent},
   {path:'romance_movies',component:RomanceCategoryComponent},
   {path:'mystery_movies',component:MysteryCategoryComponent},
-  //admin
-  {path:'admin_dashboard',component:AdminComponent},
-  {path:'user_profile',component:UserProfileComponent},
-  {path:'movies_table',component:MoviesComponent},
-  //end admin
-  {path:'ss',component:CarouselComponent}
-  // {path:'user_profile',component:AccountSettingComponent}
+
 ];
 
 @NgModule({
