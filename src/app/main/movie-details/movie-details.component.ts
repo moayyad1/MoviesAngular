@@ -25,4 +25,5 @@ export class MovieDetailsComponent implements OnInit {
     this.moviedetails.getMovieDetailsById(this.MovieId).subscribe((res:any) => { (this.MovieById=res) },
     err => { console.log(err) })
   }
+
 }

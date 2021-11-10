@@ -8,7 +8,6 @@ import { MovieServiceService } from 'src/app/services/movie-service.service';
 })
 export class categoriesComponent implements OnInit {
 search:any;
-search2:any
 allMovies:any=[{}];
 HorrorMovies:any=[{}];
 actionMovies:any=[{}];

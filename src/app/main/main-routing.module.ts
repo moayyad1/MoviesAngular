@@ -14,6 +14,9 @@ import { DramaCategoryComponent } from './specific-category/drama-category/drama
 import { FantasyCategoryComponent } from './specific-category/fantasy-category/fantasy-category.component';
 import { RomanceCategoryComponent } from './specific-category/romance-category/romance-category.component';
 import { MysteryCategoryComponent } from './specific-category/mystery-category/mystery-category.component';
+import { AdminComponent } from './Admin-Dashboard/admin/admin.component';
+import { UserProfileComponent } from './Admin-Dashboard/user-profile/user-profile.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
@@ -29,7 +32,10 @@ const routes: Routes = [
   {path:'drama_movies',component:DramaCategoryComponent},
   {path:'fantasy_movies',component:FantasyCategoryComponent},
   {path:'romance_movies',component:RomanceCategoryComponent},
-  {path:'mystery_movies',component:MysteryCategoryComponent}
+  {path:'mystery_movies',component:MysteryCategoryComponent},
+  {path:'admin_dashboard',component:AdminComponent},
+  {path:'user_profile',component:UserProfileComponent},
+  {path:'ss',component:CarouselComponent}
   // {path:'user_profile',component:AccountSettingComponent}
 ];
 
