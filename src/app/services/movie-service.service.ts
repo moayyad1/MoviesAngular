@@ -9,6 +9,7 @@ export class MovieServiceService
   constructor(private http:HttpClient) { }
   selectedmovie:any={};
   movieIdDetails:number=0;
+  movieTrailerId:string='';
   private baseUrl="https://localhost:44391/api/";
   getAllMovies()
   {
@@ -42,7 +43,7 @@ SaveMassege(data:any){
 }
 GetEvaluation()
 {
-  return this.http.get(this.baseUrl+"Evaluation/GetEvaluation");
+  return this.http.get(this.baseUrl+"Movie/GetMoviesEval");
 }
 CustomerList(data:any)
 {

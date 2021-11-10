@@ -27,8 +27,6 @@ import { FantasyCategoryComponent } from './specific-category/fantasy-category/f
 import { MysteryCategoryComponent } from './specific-category/mystery-category/mystery-category.component';
 import { RomanceCategoryComponent } from './specific-category/romance-category/romance-category.component';
 import { AdminComponent } from './Admin-Dashboard/admin/admin.component';
-import { CauroselComponent } from './caurosel/caurosel.component';
-import { MovieTrailerComponent } from './movie-trailer/movie-trailer.component';
 import { MoviesComponent } from './Admin-Dashboard/movies/movies.component';
 import { UpdateComponent } from './Admin-Dashboard/update/update.component';
 @NgModule({
@@ -57,8 +55,6 @@ import { UpdateComponent } from './Admin-Dashboard/update/update.component';
     MysteryCategoryComponent,
     RomanceCategoryComponent,
     AdminComponent,
-    CauroselComponent,
-    MovieTrailerComponent,
     MoviesComponent,
     UpdateComponent
   ],
