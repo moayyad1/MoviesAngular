@@ -74,10 +74,19 @@ export class LoginComponent implements OnInit {
       {
         case ('1'):{
          //route here for Admin
+        
+         localStorage.setItem('userToken',result.tokenValue)
          localStorage.setItem('userRole','1')
-      
-         break
+         this.mainRoute.navigate(["Admin"])
+         setTimeout(() => {
+           this.spinner.hide();
+         }, 1000);
+            this.toast.success("Welcome " +this.userNameText + ' :)')
+            break
         }
+      
+         
+        
         case ('2'):{
           //route here for Customer
           localStorage.setItem('userToken',result.tokenValue)

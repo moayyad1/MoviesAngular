@@ -1,19 +1,12 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  RouterStateSnapshot,
-  UrlTree,
-} from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
-import { NgxSpinner } from 'ngx-spinner';
-import { Toast, ToastrService } from 'ngx-toastr';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class AuthGuardGuard implements CanActivate {
+export class AdminGuardGuard implements CanActivate {
   constructor( private route: Router,private toatstr:ToastrService) {}
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -25,19 +18,23 @@ export class AuthGuardGuard implements CanActivate {
     | UrlTree {
     let token: any = localStorage.getItem('userToken');
     //appply path to all paths of movies
-    if (state.url.indexOf('movies') >= 0) {
+    if (state.url.indexOf('Admin') >= 0) {
       //if there is a token in local storage
       if (token) {
         let role = localStorage.getItem('userRole');
 
         //check his role if it 2 'customer'
-        if ((role == '2')) {
+        if ((role == '1')) {
           return true;
         }
 
         //if role isnt customer maybe admin/accontant
-        else
-           return false;
+        else{
+          this.toatstr.error("Access Denied this for Admins")
+          this.route.navigate([''])
+          return false;
+        }
+          
       }
       
       else {
@@ -53,4 +50,5 @@ export class AuthGuardGuard implements CanActivate {
       return false;
     }
   }
+  
 }

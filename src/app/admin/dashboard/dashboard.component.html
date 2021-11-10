@@ -233,16 +233,16 @@
                       <th>Image</th>
                       <th>ID</th>
                       <th>Name</th>
-                      <th>Category</th>
+                      <th>price</th>
                       <th>Views</th>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td><img style="border-radius: 50%;" src="../../../../assets/images/moayyad.PNG" alt="" width="30%"></td>
-                        <td>1</td>
-                        <td>Dakota Rice</td>
-                        <td>Dakota Rice</td>
-                        <td>15</td>
+                      <tr *ngFor='let movie of trendingMovies, let i = index'>
+                        <td *ngIf='i<5'><img style="border-radius:20%;margin: 0 !important;padding:  0 !important;" src="../../../../assets/images/movies-images/{{movie.img}}" alt="" height="80" width="90"></td>
+                        <td *ngIf='i<5'>{{movie.movieId}}</td>
+                        <td *ngIf='i<5'>{{movie.name}}</td>
+                        <td *ngIf='i<5'>{{movie.price}}</td>
+                        <td *ngIf='i<5'>{{movie.purchaseCount}}</td>
                       </tr> 
                     </tbody>
                   </table>
