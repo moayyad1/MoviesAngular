@@ -29,6 +29,8 @@ import { RomanceCategoryComponent } from './specific-category/romance-category/r
 import { AdminComponent } from './Admin-Dashboard/admin/admin.component';
 import { CauroselComponent } from './caurosel/caurosel.component';
 import { MovieTrailerComponent } from './movie-trailer/movie-trailer.component';
+import { MoviesComponent } from './Admin-Dashboard/movies/movies.component';
+import { UpdateComponent } from './Admin-Dashboard/update/update.component';
 @NgModule({
   declarations: [ 
     LandingComponent,
@@ -56,7 +58,9 @@ import { MovieTrailerComponent } from './movie-trailer/movie-trailer.component';
     RomanceCategoryComponent,
     AdminComponent,
     CauroselComponent,
-    MovieTrailerComponent
+    MovieTrailerComponent,
+    MoviesComponent,
+    UpdateComponent
   ],
   imports: [
     CommonModule,
