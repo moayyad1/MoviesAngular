@@ -6,7 +6,8 @@ import { MainModule } from './main/main.module';
 
 const routes: Routes = [
   {
-    path:'movies',loadChildren:()=>MainModule,canActivate:[AuthGuardGuard]
+    path:'movies',loadChildren:()=>MainModule,canActivate:[AuthGuardGuard],
+    
   },
   {
     path:'',loadChildren:()=>AuthModule

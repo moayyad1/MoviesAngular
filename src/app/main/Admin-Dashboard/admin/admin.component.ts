@@ -12,8 +12,8 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  GoToUSer()
+  GoToMovies()
   {
-   this.route.navigate(['movies/user_profile'])
+   this.route.navigate(['movies/movies_table'])
   }
 }
