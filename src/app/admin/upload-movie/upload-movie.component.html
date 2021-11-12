@@ -1,11 +1,11 @@
 <div class="dialogContent" style="width:100%;height: 100%">
     <div class="login-box ">
         <h2>Upload Movie</h2>
-        <form #MovieData='ngForm' (ngSubmit)="uploadMovie(MovieData)">
+        <form #MovieData='ngForm' (ngSubmit)="uploadMovie(MovieData,movieimage.files,videoFile.files)">
          <div class="row">
           <div class="user-box col ">
             <input ngModel type="text" name="Name" required style="text-align: center;">
-            <label class="offset-5">Username</label>
+            <label class="offset-5">Movie Name</label>
          
           </div>
           <div class="user-box col">
@@ -26,7 +26,7 @@
            </div>
            <div class="user-box col">
           
-            <select ngModel  style="background-color: silver;width: 160px; height: 30px;margin-top: 15px; margin-left: 50px; " name="Category" required aria-placeholder="Category">
+            <select ngModel  style="background-color: silver;width: 160px; height: 30px;margin-top: 15px; margin-left: 50px; " name="categoryId" required aria-placeholder="Category">
                 <option value="" disabled selected hidden>Movie Category</option>
                 <option *ngFor='let cat of listCategory, let i = index' value="{{cat.id}}">{{cat.name}}</option>
             </select>
@@ -54,6 +54,7 @@
             type="file"
             ngModel
             id="profilePic"
+            #movieimage
             name="Img"
             #profilePic
             placeholder="choose File"
@@ -67,6 +68,7 @@
             type="file"
             ngModel
             id="profilePic"
+            #videoFile
             name="Video"
             #profilePic
             placeholder="choose File"
@@ -76,20 +78,30 @@
          </div>
         
         </div>
-        <div class="row">
-            <div class="user-box col">
-                <label class="offset-5">StoryLineuage</label>
-                <textarea ngModel type="text" name="StoryLine" required></textarea>
-              
-             </div>
+        <div class="row" style="margin-top: 20px;">
+            
+            <label class="offset-5" style="color: white;margin-right: 20px;">story Line </label>
+                <div class="col">
+                <textarea class="offset-4" cols="30" rows="4" ngModel type="text" name="StoryLine" required></textarea>
+               </div>
+             
         </div>
-          <button >
+       <div class="row">
+        <button type="button" (click)="close()" class="" >
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Cancel
+          </button>
+          <button type="submit" class="successBtn" style="background-color: rgb(74, 238, 68);" [disabled]='!MovieData.valid' >
             <span></span>
             <span></span>
             <span></span>
             <span></span>
             Upload
           </button>
+       </div>
         </form>
       </div>
 </div>
