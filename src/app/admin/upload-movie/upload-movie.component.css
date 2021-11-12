@@ -22,8 +22,8 @@ html {
     top: 50%;
     left: 50%;
     width: 900px;
-    height: 500px;
-    height: 700;
+    height: 700px;
+   
     padding: 40px;
     transform: translate(-50%, -50%);
     background: rgba(0, 0, 0, 0.5);
@@ -37,6 +37,9 @@ html {
     padding: 0;
     color: #fff;
     text-align: center;
+  }
+  .button:hover{
+      background-color: rgb(33, 235, 33);
   }
   
   .login-box .user-box {
@@ -110,12 +113,15 @@ html {
     text-align: center;
     font-size: 12px;
   }
-  
+  button{
+      background-color: rgb(243, 89, 89);
+  }
   .login-box form button {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
-    color: #03e9f4;
+    color: #000000;
+    
     font-size: 16px;
     text-decoration: none;
     text-transform: uppercase;
@@ -126,11 +132,10 @@ html {
   }
   
   .login-box button:hover {
-    background: #35e252;
-    color: #fff;
+    background: #c02b2b;
+    color: rgb(0, 0, 0);
     border-radius: 5px;
-    box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
-      0 0 100px #03e9f4;
+    box-shadow: 0 0 5px #d1ebec
   }
   
   .login-box button span {

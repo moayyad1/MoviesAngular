@@ -8,6 +8,7 @@ export class MyServiceService {
   apiUrl='https://localhost:44391/api/'
   display_image:any
   constructor(private http:HttpClient) { }
+
   uploadAttachment(file:FormData){
     const headerDict = {
     'Content-Type': 'application/json',
@@ -25,6 +26,43 @@ export class MyServiceService {
     
     })
     }
+
+    uploadMovieImage(file:FormData){
+      const headerDict = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+      }
+      const requestOptions = {
+      headers: new HttpHeaders(headerDict),
+      };
+      this.http.post(this.apiUrl +'Movie/uploadVideoImage',file).subscribe((data: any) => {
+        console.log("image Uploaded: "+data);
+      debugger
+      if(data){
+      console.log(data);}
+      }, err => {
+      
+      })
+      }
+  
+
+    uploadMovie(file:FormData){
+      const headerDict = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+      }
+      const requestOptions = {
+      headers: new HttpHeaders(headerDict),
+      };
+      this.http.post(this.apiUrl +'Movie/uploadVideo',file).subscribe((data: any) => {
+     
+      debugger
+      if(data){
+      console.log("vidoer Uploaded: "+data);}
+      }, err => {
+      
+      })
+      }
 
   requestCall(apiUrl:string , method:string,Data?:any){
 

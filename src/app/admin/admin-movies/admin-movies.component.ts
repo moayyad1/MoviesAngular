@@ -15,12 +15,11 @@ export class AdminMoviesComponent implements OnInit {
   }
   Update(){
    const dialogvar= this.myDialog.open(UploadMovieComponent, {  
-      height: '700px',  
+      height: '800px',  
       width: '1400px',  
     })
 
-   
-    
+       
   }
 
 }

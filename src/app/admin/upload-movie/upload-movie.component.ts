@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { MyServiceService } from 'src/app/shared/my-service.service';
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from 'ngx-toastr';
+import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 
 @Component({
   selector: 'app-upload-movie',
@@ -12,15 +13,50 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class UploadMovieComponent implements OnInit {
   listCategory:any=[]
-  constructor(private service:MyServiceService ) { 
+  constructor(private service:MyServiceService ,public myDialog:MatDialog) { 
     service.requestCall("https://localhost:44391/api/Category/GetCategory","Get")?.subscribe(data=>{this.listCategory=data})
   }
 
   ngOnInit(): void {
   }
+  close(){
+ this.myDialog.closeAll()
+  }
+  uploadImageVideo(files:any) {
+    if (files.length === 0) {
+    return;
+    }
+    let fileToUpload = <File>files[0];
+    const formData = new FormData();
+    formData.append('file', fileToUpload, fileToUpload.name);
+    this.service.uploadMovieImage(formData);
+    }
+    uploadVideo(files:any) {
+      if (files.length === 0) {
+      return;
+      }
+      let fileToUpload = <File>files[0];
+      const formData = new FormData();
+      formData.append('file', fileToUpload, fileToUpload.name);
+      this.service.uploadMovie(formData);
+      }
+  uploadMovie(movieData:NgForm ,imageFile:any,vidoeFile:any){
+    movieData.value.categoryId=parseInt( movieData.value.categoryId)
+    movieData.value.Img=imageFile[0].name
+    movieData.value.Video=vidoeFile[0].name
 
-  uploadMovie(movieData:NgForm){
-    console.warn(movieData.value);
+   
+    this.service.requestCall("https://localhost:44391/api/Movie/InsertMovie","Post",movieData.value)?.subscribe(
+      data=>{
+          this.uploadImageVideo(imageFile)
+          this.uploadVideo(vidoeFile)
+
+          alert("Success")
+
+      },
+
+      err=>{}
+    )
     
 
   }
