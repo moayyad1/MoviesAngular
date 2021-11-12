@@ -1,0 +1,95 @@
+<div class="dialogContent" style="width:100%;height: 100%">
+    <div class="login-box ">
+        <h2>Upload Movie</h2>
+        <form #MovieData='ngForm' (ngSubmit)="uploadMovie(MovieData)">
+         <div class="row">
+          <div class="user-box col ">
+            <input ngModel type="text" name="Name" required style="text-align: center;">
+            <label class="offset-5">Username</label>
+         
+          </div>
+          <div class="user-box col">
+            <input ngModel type="text" name="Language" required>
+           <label class="offset-5">Language</label>
+         </div>
+        
+        </div>
+        <div class="row">
+            <div class="user-box col ">
+              <input ngModel type="text" name="TrailerUrl" required style="text-align: center;">
+              <label class="offset-5">TrailerUrl</label>
+           
+            </div>
+            <div class="user-box col">
+              <input ngModel type="text" name="Country" required>
+             <label class="offset-5">Country</label>
+           </div>
+           <div class="user-box col">
+          
+            <select ngModel  style="background-color: silver;width: 160px; height: 30px;margin-top: 15px; margin-left: 50px; " name="Category" required aria-placeholder="Category">
+                <option value="" disabled selected hidden>Movie Category</option>
+                <option *ngFor='let cat of listCategory, let i = index' value="{{cat.id}}">{{cat.name}}</option>
+            </select>
+
+           
+         </div>
+          
+          </div>
+          <div class="row">
+            <div class="user-box col ">
+              <input ngModel type="date" name="ReleaseDate" required style="text-align: center;" pattern="">
+              <label class="offset-5">Release : Date</label>
+           
+            </div>
+            <div class="user-box col">
+              <input ngModel type="number" name="Price" required>
+             <label class="offset-5">Price</label>
+           </div>
+          
+          </div>
+        <div class="row">
+         <div class="col">
+            <label class="" style="color: white;margin-right: 20px;">Movie Image</label>
+            <input
+            type="file"
+            ngModel
+            id="profilePic"
+            name="Img"
+            #profilePic
+            placeholder="choose File"
+            style="color: gray"
+            value="Movie Image"
+          />
+         </div>
+         <div class="col">
+            <label class="" style="color: white; margin-right: 20px;">MovieVideo </label>
+            <input
+            type="file"
+            ngModel
+            id="profilePic"
+            name="Video"
+            #profilePic
+            placeholder="choose File"
+            style="color: gray"
+            value="Movie Image"
+          />
+         </div>
+        
+        </div>
+        <div class="row">
+            <div class="user-box col">
+                <label class="offset-5">StoryLineuage</label>
+                <textarea ngModel type="text" name="StoryLine" required></textarea>
+              
+             </div>
+        </div>
+          <button >
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Upload
+          </button>
+        </form>
+      </div>
+</div>

@@ -8,9 +8,11 @@ import {ToastrModule, ToastNoAnimationModule} from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+   
   ],
   imports: [
     BrowserModule,

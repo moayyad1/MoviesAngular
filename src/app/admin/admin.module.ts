@@ -5,6 +5,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UpdateComponent } from './update/update.component';
 import { AdminMoviesComponent } from './admin-movies/admin-movies.component';
 import { AdminSideBarComponent } from './admin-side-bar/admin-side-bar.component';
+import { UploadMovieComponent } from './upload-movie/upload-movie.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -12,11 +14,13 @@ import { AdminSideBarComponent } from './admin-side-bar/admin-side-bar.component
     DashboardComponent, 
     UpdateComponent,
     AdminMoviesComponent,
-    AdminSideBarComponent
+    AdminSideBarComponent,
+    UploadMovieComponent
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    SharedModule
   ]
 })
 export class AdminModule { }

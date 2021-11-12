@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminMoviesComponent } from './admin-movies/admin-movies.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UpdateComponent } from './update/update.component';
+import {MatDialogModule} from '@angular/material/dialog';
+
 const routes: Routes = [
   {path:'',component:DashboardComponent},
   {path:'test',component:AdminMoviesComponent},
@@ -11,7 +13,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes),MatDialogModule],
   exports: [RouterModule]
 })
 export class AdminRoutingModule { }
