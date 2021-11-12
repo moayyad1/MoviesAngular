@@ -7,6 +7,8 @@ import { AdminMoviesComponent } from './admin-movies/admin-movies.component';
 import { AdminSideBarComponent } from './admin-side-bar/admin-side-bar.component';
 import { UploadMovieComponent } from './upload-movie/upload-movie.component';
 import { SharedModule } from '../shared/shared.module';
+import { AccountantComponent } from './accountant/accountant.component';
+import { UploadeAccountantComponent } from './uploade-accountant/uploade-accountant.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { SharedModule } from '../shared/shared.module';
     UpdateComponent,
     AdminMoviesComponent,
     AdminSideBarComponent,
-    UploadMovieComponent
+    UploadMovieComponent,
+    AccountantComponent,
+    UploadeAccountantComponent
   ],
   imports: [
     CommonModule,

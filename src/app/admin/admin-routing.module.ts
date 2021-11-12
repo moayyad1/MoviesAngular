@@ -4,11 +4,13 @@ import { AdminMoviesComponent } from './admin-movies/admin-movies.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UpdateComponent } from './update/update.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { AccountantComponent } from './accountant/accountant.component';
 
 const routes: Routes = [
   {path:'',component:DashboardComponent},
-  {path:'test',component:AdminMoviesComponent},
+  {path:'AdminMovies',component:AdminMoviesComponent},
   {path:'AdminUpdate',component:UpdateComponent},
+  {path:'AdminAccountant',component:AccountantComponent}
 
 ];
 
