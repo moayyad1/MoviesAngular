@@ -1,0 +1,215 @@
+<div class="all">
+    <div class="container" >
+    <h2>Create a new account</h2>
+    <form class="mt-4" #addAccountant="ngForm"(ngSubmit)="createAccountant(addAccountant, profilePic.files)">
+      <div class="form-group">
+        <fieldset class="form-fieldset ui-input __first"></fieldset>
+        <input
+          required
+          style="text-align: center"
+          type="text"
+          [(ngModel)]="firstName"
+          [ngStyle]="{ border: getColor(1) }"
+          class="form-control mb-0"
+          id="firstname"
+          name="firstName"
+          placeholder="First Name"
+          autocomplete="off"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          required
+          style="text-align: center"
+          type="text"
+          [(ngModel)]="lastName"
+          [ngStyle]="{ border: getColor(2) }"
+          class="form-control mb-0"
+          id="lastname"
+          name="lastName"
+          placeholder="last Name"
+          autocomplete="off"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          ngModel
+          required
+          style="text-align: center"
+          type="text"
+          [ngStyle]="{ border: getColor(2) }"
+          class="form-control mb-0"
+          id="phone"
+          name="phone"
+          placeholder="Phone Number"
+          autocomplete="off"
+          required
+        />
+      </div>
+      
+      <div class="form-group">
+        <input
+          required
+          style="text-align: center"
+          ngModel
+          [ngStyle]="{ border: getColor(3) }"
+          [(ngModel)]="userName"
+          type="text"
+          ngModel
+          class="form-control mb-0"
+          id="UserName"
+          name="UserName"
+          placeholder="Username"
+          autocomplete="off"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          required
+          style="text-align: center"
+          ngModel
+          [ngStyle]="{ border: getColor(3) }"
+          
+          type="number"
+          ngModel
+          class="form-control mb-0"
+          id="salary"
+          name="salary"
+          placeholder="salary"
+          autocomplete="off"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <select 
+          required
+          style="text-align: center"
+          ngModel
+          [ngStyle]="{ border: getColor(3) }"
+
+          type="text"
+          ngModel
+          class="form-control mb-0"
+          id="gender"
+          name="gender"
+          placeholder="Gender"
+          autocomplete="off"
+          required
+        >
+        <option value="M">M</option>
+        <option value="F">F</option>
+      </select>
+      </div>
+      <div class="form-group">
+        <i
+          class="help-block"
+          style="margin-left: 140px; color: red"
+          *ngIf="!email.valid && email.touched"
+          >Email is in invalid Format</i
+        >
+        <i
+          class="help-block row offset-3"
+          style="color: red"
+          *ngIf="!EmailIsValid && email.touched"
+          >Email is Already Registered</i
+        >
+        <input
+          required
+          #email="ngModel"
+          (input)="checkEmail(email.valid)"
+          [(ngModel)]="userEmail"
+          [ngStyle]="{ border: getEmailBorderColor() }"
+          style="text-align: center"
+          email
+          class="form-control mb-0"
+          name="email"
+          id="email"
+          placeholder="Enter email"
+          autocomplete="off"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <i
+          class="help-block row offset-3"
+          style="color: red"
+          *ngIf="!passwordValid"
+          >Passwords doesnt match</i
+        >
+        <i
+          class="help-block row offset-3"
+          style="color: red"
+          *ngIf="!passwordfield.valid && passwordfield.touched"
+          >Passwords Must be at least 8 Charachters
+        </i>
+
+        <input
+          required
+          style="text-align: center"
+          [ngStyle]="{ border: getBorderColor() }"
+          [ngStyle]="{ border: checkLength(passwordfield.valid) }"
+          (input)="getBorderColor()"
+          [(ngModel)]="password"
+          type="password"
+          #passwordfield="ngModel"
+          ngModel
+          class="form-control mb-0"
+          id="Password"
+          name="Password"
+          placeholder="Password"
+          required
+          minlength="8"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          style="text-align: center"
+          [ngStyle]="{ border: getBorderColor() }"
+          (input)="getBorderColor()"
+          type="password"
+          [(ngModel)]="ConfirmedPassword"
+          class="form-control mb-0"
+          name="confirmUserPassword"
+          id="confirmUserPassword"
+          placeholder="confirm Password"
+          required
+          minlength="8"
+        />
+      </div>
+      <div
+        class="form-group"
+        style="border: 0.5px solid gray; margin-top: 20px"
+      >
+        <div class="mb-3 offset-4">
+          <label
+            for="formFile"
+            style="color: white"
+            class="form-label"
+            >A Lovely Image Of You :</label
+          ><br />
+          <input
+            type="file"
+            ngModel
+            id="profilePic"
+            name="profilePic"
+            #profilePic
+            placeholder="choose File"
+            style="color: gray"
+          />
+
+        </div>
+      </div>
+
+      
+
+      <input             
+        type="submit"
+        
+        class="btn btn-hover offset-4"
+        value="sign Up"
+      />
+    </form>
+  </div></div>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { LoginComponent } from 'src/app/auth/login/login.component';
+import { UploadMovieComponent } from '../upload-movie/upload-movie.component';
 @Component({
   selector: 'app-admin-movies',
   templateUrl: './admin-movies.component.html',
@@ -6,12 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminMoviesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public myDialog:MatDialog) { }
 
   ngOnInit(): void {
   }
   Update(){
-    
+   const dialogvar= this.myDialog.open(UploadMovieComponent, {  
+      height: '800px',  
+      width: '1400px',  
+    })
+
+       
   }
 
 }

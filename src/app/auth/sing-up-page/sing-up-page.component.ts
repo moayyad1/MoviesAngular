@@ -13,7 +13,7 @@ export class SingUpPageComponent implements OnInit {
   holderList: any = [];
   EmailList: any = [];
   checkBoxValue = false;
-  imageurl=`C:/Users/lenovo/Documents/MoviesAPI-master/Movies.API/resc/images`
+
   @ViewChild('termsBox') myCheckbox: any;
   myform: any;
   password = null;
@@ -34,7 +34,7 @@ export class SingUpPageComponent implements OnInit {
   firstName = '';
   lastName = '';
   constructor(private myService: MyServiceService,private toaster:ToastrService,private spinner:NgxSpinnerService) {
-    this.imageurl=''
+   
     myService
       .requestCall('https://localhost:44391/api/Customer/getCustomer', 'Get')
       ?.subscribe((data) => {
@@ -61,7 +61,7 @@ this.spinner.show();
       const ImageName =imageFile[0].name
     
  this.uploadFile(imageFile)
- this.imageurl+=ImageName
+
     
     let customerObject = {
       firstName: userSignUp.value.firstName,
