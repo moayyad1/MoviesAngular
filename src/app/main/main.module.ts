@@ -14,7 +14,6 @@ import { TestimonialComponent } from './testimonial/testimonial.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CarouselComponent } from './carousel/carousel.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
-import { CommentsComponent } from './comments/comments.component';
 import { AllShowsComponent } from './all-shows/all-shows.component';
 import { TopRatedComponent } from './top-rated/top-rated.component';
 import { UserProfileComponent } from '../user-profile/user-profile.component';
@@ -25,6 +24,7 @@ import { DramaCategoryComponent } from './specific-category/drama-category/drama
 import { FantasyCategoryComponent } from './specific-category/fantasy-category/fantasy-category.component';
 import { MysteryCategoryComponent } from './specific-category/mystery-category/mystery-category.component';
 import { RomanceCategoryComponent } from './specific-category/romance-category/romance-category.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [ 
     LandingComponent,
@@ -38,7 +38,6 @@ import { RomanceCategoryComponent } from './specific-category/romance-category/r
     TestimonialComponent,
     CarouselComponent,
     MovieDetailsComponent,
-    CommentsComponent,
     AllShowsComponent,
     TopRatedComponent,
     UserProfileComponent,
@@ -54,7 +53,8 @@ import { RomanceCategoryComponent } from './specific-category/romance-category/r
     CommonModule,
     MainRoutingModule,
     SharedModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    FormsModule
   ] 
 })
 export class MainModule { }

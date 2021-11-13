@@ -49,21 +49,54 @@ this.route.navigate(["best"])
       }    
       
       logOutBtn(){
-    
-        localStorage.removeItem('userToken')
-        this.route.navigate([''])
+        localStorage.removeItem('userToken');
+        localStorage.removeItem('CustomerId');
+        this.route.navigate(['']);
       }
 
       getImagePath(value:string ){
 
         let basePath="../../../../assets/images/Uploaded File/";
-        return basePath+value;
-        
+        return basePath+value;       
         }
         goToUserProfile()
         {
           this.route.navigate(['movies/user_profile'])
         }
+       GoAction()
+       {
+         this.route.navigate(['movies/action_movies'])
+       }
+
+       GoHorror()
+       {
+         this.route.navigate(['movies/horror_movies'])
+       }
+
+       GoDrama()
+       {
+         this.route.navigate(['movies/drama_movies'])
+       }
+
+       GoComedy()
+       {
+         this.route.navigate(['movies/comedy_movies'])
+       }
+
+       GoFantasy()
+       {
+         this.route.navigate(['movies/fantasy_movies'])
+       }
+
+       GoMystery()
+       {
+         this.route.navigate(['movies/mystery_movies'])
+       }
+
+       GoRomance()
+       {
+         this.route.navigate(['movies/romance_movies'])
+       }
 }
     
 

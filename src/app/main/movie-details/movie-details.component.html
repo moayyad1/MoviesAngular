@@ -1,8 +1,6 @@
 <div style="margin-top: -30px">
     <app-nav></app-nav>
 </div>
-  <!-- <h1 style="text-align: center;color: aliceblue"><span style="border-bottom:1px solid snow;">Movie Details</span> </h1> -->
-
 <div class="container">
 
 <div class="poster">
@@ -10,10 +8,13 @@
 </div>
 
 <div class="info">
-<div class="movie-title">{{MovieById.name}}<br> <button class="mybtn success">Favourites <i class="fa fa-heart red"></i> </button> <button class="mybtn danger">Watch Trailer <i class="fa fa-play-circle-o red "></i></button> <button class="mybtn warning ">Buy Movie <i class="fa fa-shopping-cart red"></i></button><h1 style="color: aliceblue;"></h1>
-
+<div class="movie-title">{{MovieById.name}}<br>
+     <button (click)="AddToFav()" class="mybtn success">Favourites <i class="fa fa-heart red"></i></button>
+      <!-- <button class="mybtn success">In your Favourites <i class="fa fa-heart red"></i></button> -->
+    <button  class="mybtn warning ">Buy Movie <i class="fa fa-shopping-cart red"></i></button>
 </div>
 
+<!-- *ngIf="item3.movieId!=MovieById.id" -->
 <div class="movie-detail">
     <div class="set">
         <label>Release Date</label>
@@ -40,53 +41,103 @@
 <div class="movie-description">
     <p style="margin-left: 0px;font-size: 24px">Story</p> <br>{{MovieById.storyLine}}
 </div>
-
-<div *ngFor="let item of GetEvaluation" style="margin-left: 0px;" class="movie-cast">
+<div *ngFor="let item of GetEvaluation" style="width: 110%;" class="movie-cast">
     <div *ngIf="item.id==MovieById.id && item.eval!=0" style="margin-bottom:50px;margin-top: -40px;width: 50%;margin: auto;padding: 20px;padding: 10px ; box-shadow: 2px 2px 2px 2px black;" >
         <div >
-        <span style="color: white;font-size: 1.4rem;text-align: center;white-space: nowrap"> <i style="color: greenyellow;font-size: 20px" *ngIf="item.eval>=75" class="fa fa-arrow-up"></i> <i style="color: red;font-size: 20px;" *ngIf="item.eval < 75" class="fa fa-arrow-down"></i><span style="color: darkgoldenrod;">{{item.eval | number:'1.0-1'}}%</span> of viewers liked this movie</span><br><br> 
-        <div style="margin: auto;width: 35%;"> 
-            <span style="font-size: 21px;">Your rate </span>
-            <br><i style="font-size: 25px;margin-right: 20px;" class="fa fa-thumbs-up rate-like" aria-hidden="true"></i> 
-            <i style="font-size: 25px;" class="fa fa-thumbs-down rate-dis" aria-hidden="true"></i></div>
+        <span style="color: white;font-size: 1.4rem;text-align: center;white-space: nowrap"><i style="color: greenyellow;font-size: 20px" *ngIf="item.eval>=75" class="fa fa-arrow-up"></i> <i style="color: red;font-size: 20px;" *ngIf="item.eval < 75" class="fa fa-arrow-down"></i><span style="color: darkgoldenrod;">{{item.eval | number:'1.0-1'}}%</span> of viewers liked this movie</span><br><br> 
+        <div *ngFor="let pay of Payments" style="margin-left: 110px;width: 35%;display: inline;"> 
+            <h3 *ngIf="pay.movieId!=MovieById.id" style="color: white;text-align: center;font-size: 1.4rem">Buy Movie So You Can Rate It <i style="font-size: 35px;color: darkgoldenrod;" class="fa fa-exclamation-circle" aria-hidden="true"></i> </h3>
+             <div>
+            <div *ngIf="customerId == pay.customerId && pay.movieId==MovieById.id">
+            <i   (click)="addLike()" class="fa fa-thumbs-up rate-like positive"></i> 
+            <!-- <i style="color: green;"  (click)="addLike()" class="fa fa-thumbs-up rate-like positive"></i>  -->
+            <!-- <i   (click)="addLike()" class="fa fa-thumbs-up rate-like negative"></i>  -->
+           <i  (click)="addDisLike()" class="fa fa-thumbs-down rate-dis negative"></i>
+        </div></div>
+        </div>
         </div>
     </div>
 </div>
-<div  *ngFor="let item of GetEvaluation" style="margin-left: 0px;" class="movie-cast">
+
+<div *ngFor="let item of GetEvaluation" style="width: 110%;">
 <div *ngIf="item.id==MovieById.id && item.eval==0" style="margin-bottom:50px;margin-top: -40px;width: 50%;margin: auto;padding: 20px;white-space: nowrap;padding: 10px ; box-shadow: 2px 2px 2px 2px black;" >
     <div>
-    <span  style="color: white;font-size: 1.4rem;text-align: center;white-space: nowrap"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>This movie has not been rated yet</span><br><br>
+    <span style="color: white;font-size: 1.4rem;text-align: center;white-space: nowrap">Not Rated Yet <i style="font-size: 35px;color: darkgoldenrod;" class="fa fa-exclamation-circle" aria-hidden="true"></i></span><br><br>
     <div style="margin:auto;"> 
-        <div style="margin: auto;width: 35%;">
-            <span style="font-size: 21px;">Your rate </span>
-            <br><i style="font-size: 25px;margin-right: 20px;" class="fa fa-thumbs-up rate-like" aria-hidden="true"></i> 
-            <i style="font-size: 25px;" class="fa fa-thumbs-down rate-dis" aria-hidden="true"></i></div>
+        <div *ngFor="let pay of Payments" style="margin-left: 120px;width: 35%;display: inline;">
+            <h3 *ngIf="pay.movieId!=MovieById.id" style="color: white;text-align: center;font-size: 1.4rem">Buy Movie So You Can Rate It <i style="font-size: 35px;color: darkgoldenrod;" class="fa fa-exclamation-circle" aria-hidden="true"></i> </h3>
+            <div *ngIf="customerId == pay.customerId && pay.movieId==MovieById.id">
+            <i (click)="addLike()" class="fa fa-thumbs-up rate-like positive"></i> 
+            <i (click)="addDisLike()" class="fa fa-thumbs-down rate-dis negative"></i>
+        </div> 
+    </div>
         </div>    
     </div>
 </div>
 </div>
-
-
 </div>
 </div>
 
-<div style="width: 50%;margin-left:25%;">    
-    <p style="color: white;font-size: 1.4rem;text-align: center;">Movie Trailer</p>
+<div style="width: 50%;margin-left:25.5%;margin-top: 0%;"><h3 style="color: white;text-align: center;">Trailer</h3> 
     <youtube-player style="margin-left:20%;" videoId="{{MovieById.trailer}}" suggestedQuality="highres" [height]="350" [width]="600" [startSeconds]="0" ></youtube-player>
 </div>
 
 <br>
-<div class="videoPlayer">
-    <p>Watch Movie</p>
-    <div class="player-wrapper">
-        <vg-player>
-            <video id="singleVideo" preload="auto" controls>
-              <source src="../../../assets/Videos/{{MovieById.video}}" type="video/mp4">
-            </video>
-          </vg-player>
-      </div>
-</div>
+<div *ngFor="let pay of Payments" class="videoPlayer">
+    <h3 *ngIf="pay.movieId!=MovieById.id" style="color: white;text-align: center;">Buy Movie So You Can Watch It <i style="font-size: 35px;color: darkgoldenrod;" class="fa fa-exclamation-circle" aria-hidden="true"></i> </h3>
+    <div *ngIf="customerId == pay.customerId && pay.movieId==MovieById.id">
+        <h3 style="text-align: center;color: white;">Watch</h3>
+    <vg-player >
+        <video #myMedia  id="singleVideo" preload="auto" controls>
+          <source src="../../../assets/Videos/{{MovieById.video}}" type="video/mp4">
+          <source src="../../../assets/Videos/{{MovieById.video}}" type="video/ogg">
+          <source src="../../../assets/Videos/{{MovieById.video}}" type="video/webm">
+        </video>
+      </vg-player>
+</div></div>
 <br><br>
-<app-comments></app-comments>
+
+<div class="container bootstrap snippets bootdey">
+    <div class="row">
+		<div class="col-md-12">
+		    <div class="blog-comment">
+				<h3 class="text-success">Latest Comments</h3>
+
+                <hr/>        
+				<ul  class="comments">       
+				<li  class="clearfix">
+                 <div *ngFor="let item1 of Customers"name>
+                  <div *ngFor="let item2 of Comments">
+                <div *ngIf="customerId==item2.customerId && item2.movieId==MovieById.id"> 
+				  <img src="../../../assets/images/customerImages/{{item1.img}}" class="avatar" alt="">
+				  <div style="width: 700px;" class="post-comments">
+				      <p class="meta">{{item2.time | date:'medium'}} <a style="color: green;font-size: 15px;" >{{item1.firstName}} {{item1.lastName}}</a> says : <i class="pull-right"><a></a></i></p>
+				      <p style="width: 100%;">
+                        {{item2.message}}
+				      </p>
+				  </div></div>
+				</div></div></li>
+                <form class="mt-4" #userComment="ngForm"(ngSubmit)="CreateComment(userComment)">
+                    <div *ngFor="let pay of Payments" class="form-group">
+                      <input *ngIf="pay.movieId==MovieById.id" required style="text-align: center;margin-left: 33%; width:500px ;height:100px;" type="text" ngModel [(ngModel)]="message" class="form-control mb-0" id="message" name="message" placeholder="Enter Your Comment"required/>                   
+                    <div style="margin-left:32%">
+                    <input *ngIf="pay.movieId==MovieById.id" type="submit" class="mybtn danger" value="Comment"/>  
+                    <h4 style="white-space: nowrap;" *ngIf="pay.movieId!=MovieById.id">Buy Movie So You Can Comment <i style="font-size: 35px;color: darkgoldenrod;" class="fa fa-exclamation-circle" aria-hidden="true"></i></h4>     
+                </div></div>
+                    </form>
+				</ul>         
+			</div>
+		</div>
+	</div>
+</div>
+<br> 
+
+              
+
 <app-footer></app-footer>
+
+
+
+
+
 

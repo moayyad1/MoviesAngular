@@ -1,12 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { NgxSpinnerService, Spinner } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieServiceService
 {
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private toast:ToastrService,private spinner:NgxSpinnerService) { }
   selectedmovie:any={};
   movieIdDetails:number=0;
   movieTrailerId:string='';
@@ -48,5 +50,25 @@ GetEvaluation()
 CustomerList(data:any)
 {
   return this.http.post(this.baseUrl+"CustomerList/InsertCustomerList",data);
+}
+GetComments()
+{
+  return this.http.get(this.baseUrl+"Comments/GetComments");
+}
+GetCustomers()
+{
+  return this.http.get(this.baseUrl+"Customer/GetCustomer");
+}
+GetPayments()
+{
+  return this.http.get(this.baseUrl+"Payment/GetPayment");
+}
+GetFavourites()
+{
+  return this.http.get(this.baseUrl+"CustomerList/GetCustomerList");
+}
+GetAllEval()
+{  return this.http.get(this.baseUrl+"Evaluation/GetEvaluation");
+
 }
 }

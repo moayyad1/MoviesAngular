@@ -330,3 +330,50 @@ h1 {
   border-bottom:1px solid rgba(255,255,255,.5);
   transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
 }
+.dropbtn {
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 90px;
+  height: 50px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 90px;
+  top: 27px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 
+      0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+    width: 100px;
+
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 5px 26px;
+  text-decoration: none;
+  display: block;
+  width: 103px;
+}
+
+.dropdown-content a:hover {
+  background-color: gold
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: green;
+}

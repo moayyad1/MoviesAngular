@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {ToastrModule, ToastNoAnimationModule} from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { VgCoreModule, } from '@videogular/ngx-videogular/core';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ToastNoAnimationModule.forRoot(),
     ToastrModule.forRoot(),
     NgxSpinnerModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    VgCoreModule
     ],
   providers: [],
   bootstrap: [AppComponent]

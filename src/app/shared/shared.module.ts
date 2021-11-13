@@ -11,7 +11,7 @@ import { VgCoreModule } from '@videogular/ngx-videogular/core';
 import { YouTubePlayerModule } from "@angular/youtube-player";
 import {MatProgressSpinnerModule} from'@angular/material/progress-spinner';
 import {MatDialogModule} from '@angular/material/dialog';
-
+import { NgSelectModule } from '@ng-select/ng-select';
 @NgModule({
   declarations: [],
   imports: [
@@ -26,7 +26,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     HttpClientModule,
     YouTubePlayerModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    NgSelectModule
    ],
    exports:[
     FormsModule,
@@ -40,7 +41,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     HttpClientModule,
     YouTubePlayerModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    NgSelectModule
     ],
    providers: [HttpClient]
 

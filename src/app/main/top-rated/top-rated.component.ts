@@ -13,7 +13,6 @@ export class TopRatedComponent implements OnInit {
    ngOnInit(): void {     
     this.AllMovies();
     this.GetEval();
-
   }
   
   AllMovies()   
