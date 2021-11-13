@@ -19,12 +19,15 @@ export class MovieDetailsComponent implements OnInit {
   Customers:any=[{}];
   Payments:any=[{}];
   Favourites:any=[{}];
-  allEval:any=[{}];
+  CustomerData:any=[{}];
+  isUserOwnMovie:any;
+  InFavouraties:any;
+  CusVisaNumber:any;
   customerId:any=localStorage.getItem('CustomerId');
   constructor(public moviedetails:MovieServiceService,private spinner:NgxSpinnerService,private dialog:MatDialog,private myService:MyServiceService,private toast:ToastrService) 
   { 
-    
    this.MovieId=moviedetails.movieIdDetails;
+   console.warn(this.isUserOwnMovie);
   }
   ngOnInit(): void {
     this.GetMovieById();
@@ -33,6 +36,10 @@ export class MovieDetailsComponent implements OnInit {
     this.GetComments(); 
     this.GetPayments();
     this.GetFavourites();
+    this.IsUserOwnIt();
+    this.IsInFavouraties();
+    this.GetCustomerById();
+    this.Updatewallet();
   }
 
   GetMovieById()
@@ -68,11 +75,6 @@ export class MovieDetailsComponent implements OnInit {
   GetFavourites()
   {
     this.moviedetails.GetFavourites().subscribe((res:any) =>{(this.Favourites=res)},
-    err => {console.log(err)})
-  }
-  GetAllEval()
-  {
-    this.moviedetails.GetAllEval().subscribe((res:any) =>{(this.allEval=res)},
     err => {console.log(err)})
   }
   message='';
@@ -167,15 +169,74 @@ AddToFav()
         this.spinner.hide();
       }, 1500);
       this.toast.success('added to your Favourites');
-      this.GetFavourites();
-             
+      this.IsInFavouraties();           
     },
     (err) => {
       setTimeout(() => {
         this.spinner.hide();
       }, 1500);
-      this.toast.error('Error While add to Favourites');
-      this.GetFavourites();    
+      this.toast.error('Error While add to Favourites');   
+    }
+  );
+}
+IsUserOwnIt()
+{
+  this.moviedetails.IsUserOwnIt(this.customerId,this.MovieId).subscribe((res:any) =>{(this.isUserOwnMovie=res)},
+  err => {console.log(err)})
+}
+IsInFavouraties()
+{
+  this.moviedetails.IsInFavouraties(this.customerId,this.MovieId).subscribe((res:any) =>{(this.InFavouraties=res)},
+  err => {console.log(err)})
+}
+GetCustomerById()
+{
+  this.moviedetails.GetCustomerById(this.customerId).subscribe((res:any) =>{(this.CustomerData=res)},
+  err => {console.log(err)})
+}
+Updatewallet()
+{
+  let updatewalletObject={
+   Id:parseInt(this.customerId),
+   firstName:this.CustomerData.firstName,
+   lastName:this.CustomerData.lastName,
+   phone:this.CustomerData.phone,
+   email:this.CustomerData.email,
+   gender:this.CustomerData.gender,
+   img:this.CustomerData.img,
+   wallet:(this.CustomerData.wallet)-this.MovieById.price,
+   visaCard:this.CustomerData.visaCard,
+  };
+  this.myService.requestCall("https://localhost:44391/api/Customer/UpdateCustomer",'put',updatewalletObject)?.subscribe(                 
+    (data) => {},
+    (err) => {}
+  );
+}
+BuyMovie()
+{
+  this.spinner.show()
+  let buyObject = {
+    customerId:parseInt(this.customerId),
+    movieId:this.MovieId,
+    watched:0,
+    visaCard:this.CustomerData.visaCard,
+    value:this.MovieById.price,
+  };
+  this.myService.requestCall("https://localhost:44391/api/Payment/InsertPayment",'Post',buyObject)?.subscribe(                 
+    (data) => {  
+      this.Updatewallet(); 
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 1500);
+      this.toast.success('movie was successfully purchased');  
+      this.IsUserOwnIt();
+   
+    },
+    (err) => {
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 1500);
+      this.toast.error('Error While purchasing')
     }
   );
 }

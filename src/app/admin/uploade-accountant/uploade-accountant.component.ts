@@ -43,6 +43,7 @@ export class UploadeAccountantComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
   }
   uploadFile(files:any) {
     if (files.length === 0) {
@@ -53,9 +54,6 @@ export class UploadeAccountantComponent implements OnInit {
     formData.append('file', fileToUpload, fileToUpload.name);
     this.myService.uploadAttachment(formData);
     }
-
-
-
 
   createAccountant(addAccountant: NgForm,imageFile:any) {
       this.spinner.show();
@@ -90,11 +88,12 @@ export class UploadeAccountantComponent implements OnInit {
             )
             ?.subscribe((data) => {
               this.holderList = data;
+              debugger
               const accountantId = this.holderList.id;
               let loginCustomer = {
                 userName: addAccountant.value.UserName,
                 password: addAccountant.value.Password,
-                departmentId: 3,
+                departmentId: 4,
                 accountantId: accountantId,
                 customerId: null,
                 verification: null,
@@ -102,13 +101,16 @@ export class UploadeAccountantComponent implements OnInit {
               this.myService
                 .requestCall(
                   'https://localhost:44391/api/Login/InsertLogin',
+                  
                   'Post',
                   loginCustomer
                 )
-                ?.subscribe(                 
+               
+                ?.subscribe(    
                   (data) => {   
                     this.toaster.success('account created successfully')
                     this.spinner.hide();
+                    debugger
                   },
                   (err) => {
                     this.toaster.error("error while create account")
@@ -124,6 +126,7 @@ export class UploadeAccountantComponent implements OnInit {
         this.spinner.hide()
         }
       );
+
   }
 
   getColor(id: any) {

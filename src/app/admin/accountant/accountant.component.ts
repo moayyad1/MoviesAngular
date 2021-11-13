@@ -49,9 +49,10 @@ export class AccountantComponent implements OnInit {
 Upload(){
   const dialogvar= this.myDialog.open(UploadeAccountantComponent, {  
      height: '700px',  
-     width: '700px',  
-     
-   })
+     width: '700px',   
+   }
+   )
+   dialogvar.afterClosed().subscribe(()=> this.getAccountant());
 }
 
 Delete(id:any){

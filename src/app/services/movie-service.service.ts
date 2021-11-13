@@ -33,10 +33,6 @@ export class MovieServiceService
   {
     return this.http.get(this.baseUrl+"movie/GetMovieByID/"+Id)
   }
-  IsUserOwnIt(Id:number)
-  {
-   return this.http.get(this.baseUrl+"Payment/IsUserOwnIt/"+Id)
-  }
   getTestimoniall(){
     return this.http.get(this.baseUrl+"Testimonial/GetActiveTestimonial");
   }
@@ -67,8 +63,16 @@ GetFavourites()
 {
   return this.http.get(this.baseUrl+"CustomerList/GetCustomerList");
 }
-GetAllEval()
-{  return this.http.get(this.baseUrl+"Evaluation/GetEvaluation");
-
+IsUserOwnIt(customerId:number,movieId:number)
+{
+ return this.http.get('https://localhost:44391/api/Payment/IsUserOwnIt/'+customerId+'/'+movieId);
+}
+IsInFavouraties(customerId:number,movieId:number)
+{
+ return this.http.get('https://localhost:44391/api/CustomerList/IsInFavouraties/'+customerId+'/'+movieId);
+}
+GetCustomerById(customerId:number)
+{
+ return this.http.get('https://localhost:44391/api/Customer/GetCustomerById/'+customerId);
 }
 }
