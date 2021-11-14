@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { data } from 'jquery';
+import { MovieServiceService } from 'src/app/services/movie-service.service';
 import { MyServiceService } from 'src/app/shared/my-service.service';
 
 @Component({
@@ -15,8 +15,11 @@ export class DashboardComponent implements OnInit {
   categoriesCount = 0;
   newistMovies: any[] = [];
   trendingMovies: any[] = [];
-
-  constructor(private route: Router, private servie: MyServiceService) {
+  AllMovies:any=[{}];
+  topRated:any=[{}];
+  GetAllMovies:any=[{}];
+  GetEvaluation:any=[{}];
+  constructor(private route: Router, private servie: MyServiceService,private service: MovieServiceService) {
     servie
       .requestCall(
         'https://localhost:44391/api/Payment/GetSumOfpayments',
@@ -60,15 +63,41 @@ export class DashboardComponent implements OnInit {
       servie
       .requestCall('https://localhost:44391/api/payment/getTrending', 'Get')
       ?.subscribe((data) => {
-        this.trendingMovies = data;
-
-      
-        
+        this.trendingMovies = data;      
+      });
+      servie.requestCall('https://localhost:44391/api/movie/GetCatMovie', 'Get')
+      ?.subscribe((data) => {
+        this.AllMovies = data;
       });
   }
 
-  ngOnInit(): void {}
+  // AllMoviess()   
+  // {
+  //   this.service.getAllMovies().subscribe((res:any) => {(this.GetAllMovies=res);
+  //     this.GetAllMovies.forEach((mov:any) => {
+  //       this.GetEvaluation.forEach((evalu:any) => {
+  //       if(mov.Id==evalu.id)
+  //       {
+  //         this.GetAllMovies.push(mov);
+  //       }
+  //     });
+  //   }); },
+
+  //   err => { console.log(err) })  
+  // }
+  // GetEval()
+  // {
+  //   this.service.GetEvaluation().subscribe((res:any) =>{(this.GetEvaluation=res)},
+  //   err => { console.log(err) })
+  // }
+
+
+  ngOnInit(): void {
+    // this.GetEval();
+    // this.AllMoviess();
+  }
   GoToMovies() {
     this.route.navigate(['Admin/moviesData']);
   }
+  
 }

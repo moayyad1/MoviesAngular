@@ -23,6 +23,7 @@ export class MovieDetailsComponent implements OnInit {
   isUserOwnMovie:any;
   InFavouraties:any;
   CusVisaNumber:any;
+  checkWallet:any;
   customerId:any=localStorage.getItem('CustomerId');
   constructor(public moviedetails:MovieServiceService,private spinner:NgxSpinnerService,private dialog:MatDialog,private myService:MyServiceService,private toast:ToastrService) 
   { 
@@ -39,7 +40,7 @@ export class MovieDetailsComponent implements OnInit {
     this.IsUserOwnIt();
     this.IsInFavouraties();
     this.GetCustomerById();
-    this.Updatewallet();
+    this.checkWallet=(this.MovieById.price >= this.CustomerData.wallet) 
   }
 
   GetMovieById()
@@ -197,49 +198,52 @@ GetCustomerById()
 Updatewallet()
 {
   let updatewalletObject={
-   Id:parseInt(this.customerId),
-   firstName:this.CustomerData.firstName,
-   lastName:this.CustomerData.lastName,
-   phone:this.CustomerData.phone,
-   email:this.CustomerData.email,
-   gender:this.CustomerData.gender,
-   img:this.CustomerData.img,
-   wallet:(this.CustomerData.wallet)-this.MovieById.price,
-   visaCard:this.CustomerData.visaCard,
+   id:parseInt(this.customerId),
+   firstName:this.CustomerData.firstName.toString(),
+   lastName:this.CustomerData.lastName.toString(),
+   phone:this.CustomerData.phone.toString(),
+   email:this.CustomerData.email.toString(),
+   gender:this.CustomerData.gender.toString(),
+   img:this.CustomerData.img.toString(),
+   wallet:parseInt(this.CustomerData.wallet)-parseInt(this.MovieById.price),
+   visaCard:this.CustomerData.visaCard.toString(),
   };
-  this.myService.requestCall("https://localhost:44391/api/Customer/UpdateCustomer",'put',updatewalletObject)?.subscribe(                 
-    (data) => {},
-    (err) => {}
-  );
+   this.myService.requestCall('https://localhost:44391/api/Customer/UpdateCustomer','Put',updatewalletObject)?.subscribe();
 }
 BuyMovie()
 {
-  this.spinner.show()
-  let buyObject = {
-    customerId:parseInt(this.customerId),
-    movieId:this.MovieId,
-    watched:0,
-    visaCard:this.CustomerData.visaCard,
-    value:this.MovieById.price,
-  };
-  this.myService.requestCall("https://localhost:44391/api/Payment/InsertPayment",'Post',buyObject)?.subscribe(                 
-    (data) => {  
-      this.Updatewallet(); 
-      setTimeout(() => {
-        this.spinner.hide();
-      }, 1500);
-      this.toast.success('movie was successfully purchased');  
-      this.IsUserOwnIt();
-   
-    },
-    (err) => {
-      setTimeout(() => {
-        this.spinner.hide();
-      }, 1500);
-      this.toast.error('Error While purchasing')
-    }
-  );
-}
+  if(this.checkWallet)
+  {
+    this.spinner.show()
+    let buyObject = {
+      customerId:parseInt(this.customerId),
+      movieId:this.MovieId,
+      watched:0,
+      visaCard:this.CustomerData.visaCard,
+      value:this.MovieById.price,
+    };
+    this.myService.requestCall("https://localhost:44391/api/Payment/InsertPayment",'Post',buyObject)?.subscribe(                 
+      (data) => {  
+        setTimeout(() => {
+          this.spinner.hide();
+        }, 1500);
+        this.toast.success('movie was successfully purchased' + this.MovieById.price + " $ Discount from your wallet ");  
+        this.toast.info(this.MovieById.price + " $ Discount from your wallet ");  
+        this.IsUserOwnIt();
+      },
+      (err) => {
+        setTimeout(() => {
+          this.spinner.hide();
+        }, 1500);
+        this.toast.error('Error While purchasing')
+      }
+    );
+    this.Updatewallet();
+  }
+  else{
+    this.toast.warning(" Movie Price = " +this.MovieById.price+ "$ Which is bigger than Your Wallet balance!!");  
+  }
+  }
 }
 
 

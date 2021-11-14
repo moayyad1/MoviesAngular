@@ -1,6 +1,5 @@
-<section
-  style="background-image: url('https://wallpapercave.com/wp/wp5697600.jpg')"
-  class="home">
+<div *ngFor="let item of GetAllTrending;let i=index">
+<section *ngIf="i < 1" style="background-image: url('../../../assets/images/movies-images/{{item.img}}');background-size: cover;" class="home">
   <div class="headerbg">
     <header>
       <div *ngFor="let item of websiteData" class="container">
@@ -65,29 +64,30 @@ width="90" height="50"></a>
       </div>
     </header>
 <br><br><br><br>
-    <div *ngFor="let item of Movielanding;let i=index" class="home_content mtop">
-      <div *ngIf="i < 1" class="container">
-        <div class="left">
-          <h1>{{item.name}}</h1>
+<div *ngFor="let item1 of GetAllTrending;let i=index">
+    <div  *ngFor="let item2 of Movielanding;let j=index" class="home_content mtop">
+      <div *ngIf="item1.Id==item2.Id" class="container">
+        <div *ngIf="i < 1 &&j < 1" class="left">
+          <h1>{{item1.name}}</h1>
           <div class="time flex">
-            <p>{{item.price}}$</p>
+            <p>{{item1.price}}$</p>
             <i class="fas fa-circle"></i>
-            <div><p>{{item.language}}</p></div>
+            <div><p >{{item2.language}}</p></div>
             <i class="fas fa-circle"></i>
-            <p>{{item.country}}</p>
+            <p>{{item1.country}}</p>
             <i class="fas fa-circle"></i>
-            <p>{{item.releaseDate | date:'y'}}</p>
-            <i class="fas fa-circle"></i>
-            <div><p>{{item.category}}</p></div>
+            <p>{{item1.releaseDate | date:'y'}}</p>
+            <div><p>{{item1.category}}</p></div>
           </div>
-          <p>{{item.storyLine}}</p>
+          <p *ngIf="i < 1 &&j < 1 && item1.Id==item2.Id">{{item2.storyLine}}</p>
           <div  class="button flex">
-            <button (click)="goToDtails()" style="padding: 10px 10px 10px 10px;width: 15%;margin-right: 40px;">PLAY NOW <i class="fa fa-play" aria-hidden="true"></i></button>
+            <button (click)="goToDtailsmain(item1.movieId)" style="padding: 10px 10px 10px 10px;width: 15%;margin-right: 40px;">PLAY NOW <i class="fa fa-play" aria-hidden="true"></i></button>
             <button style="cursor:default;padding: 10px 10px 10px 10px;width: 15%;background-color: white;color: black;">TRENDING <i style="color: red;" class="fa fa-free-code-camp" aria-hidden="true"></i>
             </button>     
           </div>
         </div>
       </div>
-    </div>
+    </div></div>
   </div>
 </section>
+</div>
