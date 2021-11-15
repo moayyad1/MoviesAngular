@@ -10,6 +10,9 @@ import { SharedModule } from '../shared/shared.module';
 import { AccountantComponent } from './accountant/accountant.component';
 import { UploadeAccountantComponent } from './uploade-accountant/uploade-accountant.component';
 import { UpdateAccountantComponent } from './update-accountant/update-accountant.component';
+import { FinancialsComponent } from './financials/financials.component';
+import { PaymentsComponent } from './payments/payments.component';
+import { NgxPrintModule} from 'ngx-print';
 
 
 @NgModule({
@@ -22,11 +25,14 @@ import { UpdateAccountantComponent } from './update-accountant/update-accountant
     AccountantComponent,
     UploadeAccountantComponent,
     UpdateAccountantComponent
+    FinancialsComponent,
+    PaymentsComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    SharedModule
+    SharedModule,
+    NgxPrintModule
   ]
 })
 export class AdminModule { }

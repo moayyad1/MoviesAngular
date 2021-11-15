@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MovieServiceService } from 'src/app/services/movie-service.service';
 @Component({
   selector: 'app-top-rated',
@@ -8,7 +9,7 @@ import { MovieServiceService } from 'src/app/services/movie-service.service';
 export class TopRatedComponent implements OnInit {
   GetEvaluation:any=[{}];
   GetAllMovies:any=[{}];
-  constructor(private service:MovieServiceService) { 
+  constructor(private service:MovieServiceService,private route:Router) { 
   }
    ngOnInit(): void {     
     this.AllMovies();
@@ -33,6 +34,11 @@ export class TopRatedComponent implements OnInit {
   {
     this.service.GetEvaluation().subscribe((res:any) =>{(this.GetEvaluation=res)},
     err => { console.log(err) })
+  }
+  goToDtails(id:any)
+  {
+   this.service.movieIdDetails=id;
+   this.route.navigate(["movies/movie-details"]);
   }
 }
 

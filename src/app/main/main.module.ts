@@ -16,7 +16,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { AllShowsComponent } from './all-shows/all-shows.component';
 import { TopRatedComponent } from './top-rated/top-rated.component';
-import { UserProfileComponent } from '../user-profile/user-profile.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 import { HorrorCategoryComponent } from './specific-category/horror-category/horror-category.component';
 import { ActionCategoryComponent } from './specific-category/action-category/action-category.component';
 import { ComedyCategoryComponent } from './specific-category/comedy-category/comedy-category.component';
@@ -25,6 +25,11 @@ import { FantasyCategoryComponent } from './specific-category/fantasy-category/f
 import { MysteryCategoryComponent } from './specific-category/mystery-category/mystery-category.component';
 import { RomanceCategoryComponent } from './specific-category/romance-category/romance-category.component';
 import { FormsModule } from '@angular/forms';
+import {VgCoreModule} from '@videogular/ngx-videogular/core';
+import {VgControlsModule} from '@videogular/ngx-videogular/controls';
+import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
+import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
+
 @NgModule({
   declarations: [ 
     LandingComponent,
@@ -48,13 +53,18 @@ import { FormsModule } from '@angular/forms';
     FantasyCategoryComponent,
     MysteryCategoryComponent,
     RomanceCategoryComponent,
+    
   ],
   imports: [
     CommonModule,
     MainRoutingModule,
     SharedModule,
     Ng2SearchPipeModule,
-    FormsModule
+    FormsModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
   ] 
 })
 export class MainModule { }

@@ -63,24 +63,66 @@
 </div>
 </div>
 
-<div style="width: 50%;margin-left:25.5%;margin-top: 0%;"><h3 style="color: white;text-align: center;">Trailer</h3> 
+<!-- <div style="width: 50%;margin-left:25.5%;margin-top: 0%;"><h3 style="color: white;text-align: center;">Trailer</h3> 
     <youtube-player style="margin-left:20%;" videoId="{{MovieById.trailer}}" suggestedQuality="highres" [height]="350" [width]="600" [startSeconds]="0" ></youtube-player>
-</div>
+</div> -->
 
 <br>
 <hr style="width: 30%;margin: auto;">
 <h3 *ngIf="!isUserOwnMovie" style="color: white;text-align: center">Buy Movie So You Can Watch It <i style="font-size: 35px;color: darkgoldenrod;" class="fa fa-exclamation-circle" aria-hidden="true"></i> </h3>
 <hr style="width: 30%;margin: auto;">
 <div *ngIf="isUserOwnMovie" class="videoPlayer">
-    <div  >
+    <div >
         <h3 style="text-align: center;color: white;">Watch</h3>
-    <vg-player >
+    <!-- <vg-player >
         <video #myMedia  id="singleVideo" preload="auto" controls>
-          <source src="../../../assets/Videos/{{MovieById.video}}" type="video/mp4">
-          <source src="../../../assets/Videos/{{MovieById.video}}" type="video/ogg">
-          <source src="../../../assets/Videos/{{MovieById.video}}" type="video/webm">
-        </video>
-      </vg-player>
+            <source src="../../../assets/Videos/{{MovieById.video}}" type="video/mp4">
+            <source src="../../../assets/Videos/{{MovieById.video}}" type="video/ogg">
+            <source src="../../../assets/Videos/{{MovieById.video}}" type="video/webm">
+          </video>
+        </vg-player> -->
+
+        <vg-player style="box-shadow: 6px 11px  whitesmoke">
+            <vg-overlay-play></vg-overlay-play>
+            <vg-buffering></vg-buffering>
+        
+            <vg-scrub-bar>
+              <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+              <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+            </vg-scrub-bar>
+        
+            <vg-controls>
+              <vg-play-pause></vg-play-pause>
+              <vg-playback-button></vg-playback-button>
+        
+              <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+        
+              <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
+        
+              <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+              <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+        
+              <vg-track-selector></vg-track-selector>
+              <vg-mute></vg-mute>
+              <vg-volume></vg-volume>
+        
+              <vg-fullscreen></vg-fullscreen>
+            </vg-controls>
+        
+            <video  [vgMedia]="$any(media)" #media id="singleVideo" preload="auto" crossorigin>
+              <source src="../../../assets/Videos/{{MovieById.video}}" type="video/mp4">
+              <source src="../../../assets/Videos/{{MovieById.video}}" type="video/ogg">
+              <source src="../../../assets/Videos/{{MovieById.video}}" type="video/webm">
+        
+              <track kind="subtitles" label="English" src="http://static.videogular.com/assets/subs/pale-blue-dot.vtt"
+                srclang="en" default>
+              <track kind="subtitles" label="Español" src="http://static.videogular.com/assets/subs/pale-blue-dot-es.vtt"
+                srclang="es">
+            </video>
+          </vg-player>
+
+
+      
 </div></div>
 <br><br>
 
