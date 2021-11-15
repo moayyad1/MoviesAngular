@@ -12,6 +12,7 @@ export class MovieServiceService
   selectedmovie:any={};
   movieIdDetails:number=0;
   movieTrailerId:string='';
+  accountantId:number=0;
   private baseUrl="https://localhost:44391/api/";
   getAllMovies()
   {

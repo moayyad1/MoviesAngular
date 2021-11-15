@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { MyServiceService } from 'src/app/shared/my-service.service';
+import { NgxSpinnerService } from "ngx-spinner";
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-update',
@@ -7,9 +12,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateComponent implements OnInit {
 
-  constructor() { }
+
+  constructor() {
+
+   
+   }
 
   ngOnInit(): void {
+
   }
+ 
 
 }
