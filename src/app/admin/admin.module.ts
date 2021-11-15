@@ -9,6 +9,9 @@ import { UploadMovieComponent } from './upload-movie/upload-movie.component';
 import { SharedModule } from '../shared/shared.module';
 import { AccountantComponent } from './accountant/accountant.component';
 import { UploadeAccountantComponent } from './uploade-accountant/uploade-accountant.component';
+import { FinancialsComponent } from './financials/financials.component';
+import { PaymentsComponent } from './payments/payments.component';
+import { NgxPrintModule} from 'ngx-print';
 
 
 @NgModule({
@@ -19,12 +22,15 @@ import { UploadeAccountantComponent } from './uploade-accountant/uploade-account
     AdminSideBarComponent,
     UploadMovieComponent,
     AccountantComponent,
-    UploadeAccountantComponent
+    UploadeAccountantComponent,
+    FinancialsComponent,
+    PaymentsComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    SharedModule
+    SharedModule,
+    NgxPrintModule
   ]
 })
 export class AdminModule { }

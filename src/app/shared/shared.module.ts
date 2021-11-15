@@ -12,6 +12,7 @@ import { YouTubePlayerModule } from "@angular/youtube-player";
 import {MatProgressSpinnerModule} from'@angular/material/progress-spinner';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NgSelectModule } from '@ng-select/ng-select';
+import {NgxPrintModule} from 'ngx-print';
 @NgModule({
   declarations: [],
   imports: [
@@ -27,6 +28,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     YouTubePlayerModule,
     MatProgressSpinnerModule,
     MatDialogModule,
+    NgxPrintModule,
     NgSelectModule
    ],
    exports:[
@@ -42,6 +44,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     YouTubePlayerModule,
     MatProgressSpinnerModule,
     MatDialogModule,
+    NgxPrintModule,
     NgSelectModule
     ],
    providers: [HttpClient]
