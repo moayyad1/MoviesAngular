@@ -1,5 +1,7 @@
+
 <div *ngFor="let item of GetAllTrending;let i=index">
-<section *ngIf="i < 1" style="background-image: url('../../../assets/images/movies-images/{{item.img}}');background-size: cover;" class="home">
+<section *ngIf="i < 1"  class="home">
+  <!-- style="background-image: url('../../../assets/images/movies-images/{{item.img}}');background-size: cover;" -->
   <div class="headerbg">
     <header>
       <div *ngFor="let item of websiteData" class="container">
@@ -19,6 +21,7 @@
               <li><p style="position: absolute;right: 305px;top:25px">Categories</p></li>
             </ul>
           </nav>
+          
           <span class="fa fa-bars"></span>
           <div class="subscribe flex">
             <i class="fas fa-ssearch"></i>
@@ -28,32 +31,19 @@
               </button>             
               <div class="dropdown-content">
                 <a (click)="GoAction()">
-                  action <img src="https://cdn-icons-png.flaticon.com/512/1424/1424747.png"
-    width="90" height="50"></a>
+                  action </a>
                   <a (click)="GoHorror()">
-                    Horror<img src=
-        "https://cdn-icons-png.flaticon.com/512/1424/1424704.png"
-                      width="90" height="50"></a>
+                    Horror</a>
         
                   <a (click)="GoDrama()">
-                      Drama<img src=
-        "https://cdn-icons-png.flaticon.com/512/4987/4987504.png"
-        width="90" height="50"></a>
+                      Drama</a>
                   <a style="font-size: 20px;" (click)="GoComedy()">
-                    Comedy<img src=
-        "https://cdn-icons.flaticon.com/png/512/3244/premium/3244327.png?token=exp=1636662730~hmac=ceebb11a7c774b6360d8f7753efb30c5"
-        width="90" height="50"></a>
+                    Comedy</a>
                   <a (click)="GoFantasy()">
-                      Fantasy<img src=
-        "https://cdn-icons-png.flaticon.com/512/2589/2589282.png"
-        width="90" height="50"></a>
+                      Fantasy</a>
         <a (click)="GoMystery()">
-          Mystery<img src=
-"https://cdn-icons-png.flaticon.com/512/2589/2589364.png"
-width="90" height="50"></a>
-<a style="font-size: 17px;" (click)="GoRomance()">Romance<img src=
-"https://cdn-icons-png.flaticon.com/512/3378/3378973.png"
-width="90" height="50"></a>
+          Mystery</a>
+<a (click)="GoRomance()">Romanc</a>
               </div>
           </div>
         </i>
@@ -63,31 +53,38 @@ width="90" height="50"></a>
         </div>
       </div>
     </header>
-<br><br><br><br>
-<div *ngFor="let item1 of GetAllTrending;let i=index">
-    <div  *ngFor="let item2 of Movielanding;let j=index" class="home_content mtop">
-      <div *ngIf="item1.Id==item2.Id" class="container">
-        <div *ngIf="i < 1 &&j < 1" class="left">
-          <h1>{{item1.name}}</h1>
-          <div class="time flex">
-            <p>{{item1.price}}$</p>
-            <i class="fas fa-circle"></i>
-            <div><p >{{item2.language}}</p></div>
-            <i class="fas fa-circle"></i>
-            <p>{{item1.country}}</p>
-            <i class="fas fa-circle"></i>
-            <p>{{item1.releaseDate | date:'y'}}</p>
-            <div><p>{{item1.category}}</p></div>
-          </div>
-          <p *ngIf="i < 1 &&j < 1 && item1.Id==item2.Id">{{item2.storyLine}}</p>
-          <div  class="button flex">
-            <button (click)="goToDtailsmain(item1.movieId)" style="padding: 10px 10px 10px 10px;width: 15%;margin-right: 40px;">PLAY NOW <i class="fa fa-play" aria-hidden="true"></i></button>
-            <button style="cursor:default;padding: 10px 10px 10px 10px;width: 15%;background-color: white;color: black;">TRENDING <i style="color: red;" class="fa fa-free-code-camp" aria-hidden="true"></i>
-            </button>     
-          </div>
-        </div>
+    <div class="intro">
+      <img src="../../../assets/images/movies-images/{{item.img}}" alt="The Grey" class="intro-image"> 
+        <div  *ngFor="let item1 of GetAllTrending;let i=index">
+          <div  *ngFor="let item2 of Movielanding;let j=index" class="home_content mtop">
+            <div *ngIf="item1.Id==item2.Id" class="container">
+              <div *ngIf="i < 1 &&j < 1" class="left">
+                <div class="intro-text">
+                <br><br><h2 style="text-align: justify;text-justify: inter-word;font-size: 45px;">{{item1.name}}</h2>
+                <div class="time flex">
+                  <p>{{item1.price}}$</p>
+                  <i class="fas fa-circle"></i>
+                 <p>{{item2.language}}</p>
+                  <i class="fas fa-circle"></i>
+                  <p>{{item1.country}}</p>
+                  <i class="fas fa-circle"></i>
+                  <p>{{item1.releaseDate | date:'y'}}</p>
+                  <i class="fas fa-circle"></i>
+                 <p>{{item2.category}}</p>
+                </div>
+                <p style="text-align: justify;text-justify: inter-word;" *ngIf="i < 1 &&j < 1 && item1.Id==item2.Id">{{item2.storyLine}}</p>             
+              </div>
+              <div style="margin-left: 30px;" class="button flex">
+                <button (click)="goToDtailsmain(item1.movieId)" style="padding: 15px 15px 15px 15px;width: 20%;margin-right: 40px;white-space: nowrap;border-radius: 3%;">PLAY NOW <i class="fa fa-play" aria-hidden="true"></i></button>
+                <button style="padding: 15px 15px 15px 15px;cursor:default;width: 20%;background-color: white;color: black;white-space: nowrap;border-radius: 3%;">TRENDING <i style="color: red;" class="fa fa-free-code-camp" aria-hidden="true"></i>
+                </button>     
+              </div>
+            </div>
+          </div></div>
       </div>
-    </div></div>
+    </div>
+<br><br><br><br>
+
   </div>
 </section>
 </div>

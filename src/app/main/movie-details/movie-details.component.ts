@@ -6,6 +6,7 @@ import { Component } from "@angular/core";
 import { NgForm } from '@angular/forms';
 import { MyServiceService } from 'src/app/shared/my-service.service';
 import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-movie-details',
   templateUrl: './movie-details.component.html',
@@ -40,7 +41,7 @@ export class MovieDetailsComponent implements OnInit {
     this.IsUserOwnIt();
     this.IsInFavouraties();
     this.GetCustomerById();
-    this.checkWallet=(this.MovieById.price >= this.CustomerData.wallet) 
+    
   }
 
   GetMovieById()
@@ -212,7 +213,7 @@ Updatewallet()
 }
 BuyMovie()
 {
-  if(this.checkWallet)
+  if(parseInt(this.MovieById.price) <= parseInt(this.CustomerData.wallet))
   {
     this.spinner.show()
     let buyObject = {
@@ -227,7 +228,7 @@ BuyMovie()
         setTimeout(() => {
           this.spinner.hide();
         }, 1500);
-        this.toast.success('movie was successfully purchased' + this.MovieById.price + " $ Discount from your wallet ");  
+        this.toast.success('movie was successfully purchased ' + this.MovieById.price + " $ Discount from your wallet ");  
         this.toast.info(this.MovieById.price + " $ Discount from your wallet ");  
         this.IsUserOwnIt();
       },
@@ -239,7 +240,7 @@ BuyMovie()
       }
     );
     this.Updatewallet();
-  }
+    }
   else{
     this.toast.warning(" Movie Price = " +this.MovieById.price+ "$ Which is bigger than Your Wallet balance!!");  
   }
