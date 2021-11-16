@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {NgxPrintModule} from 'ngx-print';
 import { MyServiceService } from 'src/app/shared/my-service.service';
+import * as XLSX from 'xlsx';
+import  jspdf from 'jspdf';
+import html2canvas from 'html2canvas';
+
 
 
 @Component({
@@ -12,6 +16,10 @@ import { MyServiceService } from 'src/app/shared/my-service.service';
 export class PaymentsComponent implements OnInit {
 paymentList:any=[]
 searchList:any=[]
+startDate:Date=new Date
+endDate:Date=new Date
+searchValue=''
+fileName=''//this will be used to name the file when eporting PDF/Excel
 
 
   constructor(private myService:MyServiceService,private printer:NgxPrintModule) {
@@ -62,6 +70,9 @@ searchList:any=[]
 resetSearch()
 {
   this.searchList=this.paymentList
+  this.searchValue=''
+  this.startDate=new Date()
+  this.endDate=new Date()
 }
 
 //searhcing in list 
@@ -85,6 +96,60 @@ resetSearch()
     
     
   }
+  findbetweenDate(){
+    this.searchList=this.paymentList
+    this.searchValue=''
 
+    this.searchList.forEach((element:any) => {
+      element.newDate = new Date(element.time)
+       });
+
+  console.warn(this.startDate+'/  '+this.endDate);
+ let list:any=[]
+    this.searchList.filter((m:any) => {
+     
+      if(new Date(this.startDate)<=new Date(m.time) && new Date(this.endDate)>= new Date(m.time))
+      {
+        list.push(m)
+      }
+  });
+
+  this.searchList=list
+  
+
+ 
+
+
+  }
+
+  exportexcel(): void
+  {
+    this.fileName='PaymentRecordsXML'
+    /* pass here the table id */
+    let element = document.getElementById('excel-table');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+ 
+  }
+
+  
+  generatePDF() {
+    let data :any = document.getElementById('print-section');
+    html2canvas(data).then(canvas => {
+      var imgWidth = 208;
+      var imgHeight = canvas.height * imgWidth / canvas.width;
+      const contentDataURL = canvas.toDataURL('image/png')
+      var pdf = new jspdf();
+      var position = 0;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
+      pdf.save('newPDF.pdf');
+    });
+  }
 
 }
