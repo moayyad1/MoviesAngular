@@ -13,6 +13,7 @@ import { UpdateAccountantComponent } from './update-accountant/update-accountant
 import { PaymentsComponent } from './payments/payments.component';
 import { NgxPrintModule} from 'ngx-print';
 import { FinancialsComponent } from './financials/financials.component';
+import { UpdateMovieComponent } from './update-movie/update-movie.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { FinancialsComponent } from './financials/financials.component';
     UploadeAccountantComponent,
     UpdateAccountantComponent,
     FinancialsComponent,
-    PaymentsComponent
+    PaymentsComponent,
+    UpdateMovieComponent
   ],
   imports: [
     CommonModule,
