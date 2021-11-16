@@ -17,8 +17,6 @@ export class HomeComponent implements OnInit {
     this.myScriptFile=document.createElement("script")
     this.myScriptFile.src="../../../../assets/jsFile/navSlider.js"
     this.seconScript=document.createElement("script")
-  
-    
      document.body.appendChild(this.myScriptFile)
   }
 
