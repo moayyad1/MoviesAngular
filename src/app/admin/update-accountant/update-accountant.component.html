@@ -1,10 +1,19 @@
 <div class="all">
     <div class="container" >
-    <h1 style="color:blueviolet ;">Update account</h1>
-    <form style="padding-bottom: 50px;" class="mt-4" #addAccountant="ngForm"(ngSubmit)="updateAccountant(addAccountant)">
+    
+      <div style="background-color: #8D399F;" class="card-header card-header-primary">
+        <div class="">
+          <div class="">
+            <h4 style="color: white;" class="card-title">Accountant</h4>
+            <p class="card-category">update Accountant</p>
+          </div>
+      </div>
+      </div>
+    <form style="padding-bottom: 50px;" class="mt-4"(ngSubmit)="updateAccountant()">
       <div class="row">
         <div class="form-group col">
           <fieldset class="form-fieldset ui-input __first"></fieldset>
+          <label>First Name</label>
           <input
             required
             style="text-align: center"
@@ -21,6 +30,7 @@
           />
         </div>
                 <div class="form-group col">
+                  <label>Last Name</label>
           <input
             required
             style="text-align: center"
@@ -41,6 +51,7 @@
       
       
       <div class="form-group">
+        <label>Phone number</label>
         <input
           ngModel
           required
@@ -56,25 +67,27 @@
           required
         />
       </div><br>
+      <div>
+        <label>salary</label>
+        <div class="form-group">
+          <input
+            required
+            style="text-align: center"
+            ngModel
+            [ngStyle]="{ border: getColor(3) }"
+            type="number"
+            [(ngModel)]="salary"
+            class="form-control mb-0"
+            id="salary"
+            name="salary"
+            placeholder="salary"
+            autocomplete="off"
+            required
+          /></div>
       
-      
-      <div class="form-group">
-        <input
-          required
-          style="text-align: center"
-          ngModel
-          [ngStyle]="{ border: getColor(3) }"
-          type="number"
-          [(ngModel)]="salary"
-          class="form-control mb-0"
-          id="salary"
-          name="salary"
-          placeholder="salary"
-          autocomplete="off"
-          required
-        />
       </div><br>
       <div class="form-group">
+        <label>Gender</label>
         <select 
           required
           style="text-align: center"
@@ -89,6 +102,8 @@
           autocomplete="off"
           required
         >
+
+
         <option value="" disabled selected hidden>Gender</option>
         <option value="M">Male</option>
         <option value="F">Female</option>
@@ -97,7 +112,7 @@
     
         
       
-
+      
 
       
 
@@ -108,4 +123,5 @@
         value="Update"
       />
     </form>
-  </div></div>
+
+  

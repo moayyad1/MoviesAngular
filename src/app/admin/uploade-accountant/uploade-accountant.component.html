@@ -1,6 +1,13 @@
 <div class="all">
     <div class="container" >
-    <h1 style="color:blueviolet ;">Add new account</h1>
+      <div style="background-color: #8D399F;" class="card-header card-header-primary">
+        <div class="">
+          <div class="">
+            <h4 style="color: white;" class="card-title">Accountant</h4>
+            <p class="card-category">Add Accountant</p>
+          </div>
+      </div>
+    </div>
     <form style="padding-bottom: 50px;" class="mt-4" #addAccountant="ngForm"(ngSubmit)="createAccountant(addAccountant, profilePic.files)">
       <div class="row">
         <div class="form-group col">
@@ -73,7 +80,6 @@
             *ngIf="!passwordfield.valid && passwordfield.touched"
             >Passwords Must be at least 8 Charachters
           </i>
-  
           <input
             required
             style="text-align: center"

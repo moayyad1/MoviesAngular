@@ -95,7 +95,7 @@ export class UpdateAccountantComponent implements OnInit {
   }
 
 
-  updateAccountant(addAccountant: NgForm){
+  updateAccountant(){
 
     this.spinner.show();
     let AccountantObject = {
@@ -103,7 +103,7 @@ export class UpdateAccountantComponent implements OnInit {
       firstName: this.firstName,
       lastName: this.lastName,
       phone: this.phone,
-      email: this.accountant.Email,
+      email: this.accountant.email,
       gender: this.gender,
       img: this.accountant.img,
       salary: parseInt(this.salary),
