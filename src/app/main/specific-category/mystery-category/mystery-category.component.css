@@ -24,8 +24,9 @@ ul {
   box-shadow: 6px 12px 13px 6px black;
 }
 .team-area .item .thumb:hover {
-  box-shadow: 0px 5px 5px 7px gold;
-
+  opacity: 1;
+  transform: scale(1.2); z-index: 999;
+  border-right: 10px solid gold;
 }
 
 .team-area .item .thumb::after {
@@ -91,11 +92,14 @@ ul {
   height: 350px;
 }
 
-i {
-  color: white;
-  }
-i:hover {
-color: orangered;
+i
+{
+  font-size: 35px;
+  color: whitesmoke;
+}
+i:hover
+{
+  color:gold;
 }
 /* search  */
 .search-box{

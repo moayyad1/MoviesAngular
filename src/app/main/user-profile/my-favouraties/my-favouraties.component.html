@@ -1,27 +1,45 @@
 <app-nav></app-nav>
-<div class="wrapper">
-    <section *ngFor="let item1 of GetAllMovies" class="content_section">
-        <!-- <div  class="playlist_one">
-            <h4 style="color: white;" class="playlist_title">My Movies</h4>
-            <div class="videos">
-                <div class="video" style="background-image: url(images/img.jpg);">
-                    <i class="fas fa-play-circle"></i>    <!--  Here there is an icon-->
-                <!-- </div>
-            </div>
-        </div> --> -->
-            <div *ngFor="let item2 of GetFav">
-        <div *ngIf="customerId==customerId && item2.customerId==customerId && item2.movieId==item1.id" class="playlist_two">
-            <h4 *ngIf="customerId==customerId && item2.customerId==customerId && item2.movieId==item1.id" style="color: white;" class="playlist_title">My Favouraties</h4>
-            <div *ngIf="customerId==customerId && item2.customerId==customerId && item2.movieId==item1.id" class="videos">
-                <div *ngIf="customerId==customerId && item2.customerId==customerId && item2.movieId==item1.id" class="video" style="background-image: url(../../../../assets/images/movies-images/{{item1.img}});">   
-                    <i *ngIf="customerId==customerId && item2.customerId==customerId && item2.movieId==item1.id" class="fas fa-play-circle"></i><!--  Here there is an icon-->
-                </div>
-            </div>
-        </div></div>
-    </section>
-</div>
+<br><h2 style="border-left: thick solid red;color: white;margin-left: 30px;">&ensp;Movies I own</h2>
+<div style="display:flex;flex-direction:row;flex-wrap: wrap">
+  <div *ngFor="let item1 of GetAllMovies">
+    <div *ngFor="let item2 of payments">
+        <div *ngFor="let item3 of Customers">
+      <div (click)="goToDtails(item1.id)" *ngIf="item3.id==customerId && item2.customerId==customerId && item2.movieId==item1.id" class="card">
+          <a>
+            <div class="img1"><img style="background-size:100% 100%;" src="../../../assets/images/movies-images/{{item1.img}}"></div>
+            <div class="img2"><img style="background-size:100% 100%;" src="../../../assets/images/movies-images/{{item1.img}}"></div>
+            <div class="title">{{item1.name}}</div><br><br>
+          </a>               
+
+   </div></div>
+  </div>
+    </div>
+  </div>
+ <br><h2 style="border-left: thick solid red;color: white;margin-left: 30px;">&ensp;My Favourites  Movies</h2>
+<div style="display:flex;flex-direction:row;flex-wrap: wrap">
+  <div style="margin-bottom: 50px;" *ngFor="let item1 of GetAllMovies">
+    <div  *ngFor="let item2 of GetFav">
+        <div  *ngFor="let item3 of Customers">
+            
+      <div (click)="goToDtails(item1.id)" *ngIf="item3.id==customerId && item2.customerId==customerId && item2.movieId==item1.id" class="card">
+          <a>
+            <div class="img1"><img style="background-size:100% 100%;" src="../../../assets/images/movies-images/{{item1.img}}"></div>
+            <div class="img2"><img style="background-size:100% 100%;" src="../../../assets/images/movies-images/{{item1.img}}"></div>
+            <div class="title">{{item1.name}}</div><br><br>
+          </a>
+          <a>        
+          </a>
+          </div> <button (click)="DeleteFromFav(item2.id)" class="deleteButton" *ngIf="item3.id==customerId && item2.customerId==customerId && item2.movieId==item1.id">Delete</button>
+
+        </div>
+  </div>
+    </div>
+  </div>
 
 
 
+
+
+
+  
 <app-footer></app-footer>
-

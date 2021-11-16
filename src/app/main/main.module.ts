@@ -33,6 +33,7 @@ import { MyFavouratiesComponent } from './user-profile/my-favouraties/my-favoura
 import { AddToWalletComponent } from './user-profile/add-to-wallet/add-to-wallet.component';
 import { ChangePasswordComponent } from './user-profile/change-password/change-password.component';
 import { MyMoviesComponent } from './user-profile/my-movies/my-movies.component';
+import { AddTestimonialComponent } from './user-profile/add-testimonial/add-testimonial.component';
 
 @NgModule({
   declarations: [ 
@@ -61,6 +62,7 @@ import { MyMoviesComponent } from './user-profile/my-movies/my-movies.component'
     AddToWalletComponent,
     ChangePasswordComponent,
     MyMoviesComponent,
+    AddTestimonialComponent,
     
   ],
   imports: [

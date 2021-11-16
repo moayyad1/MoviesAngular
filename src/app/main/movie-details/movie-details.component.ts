@@ -49,7 +49,7 @@ export class MovieDetailsComponent implements OnInit {
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
-    },1500);
+    },500);
     this.moviedetails.getMovieDetailsById(this.MovieId).subscribe((res:any) => { (this.MovieById=res) },
     err => { console.log(err) })
     this.moviedetails.movieTrailerId=this.MovieById.Trailer;
@@ -228,7 +228,7 @@ BuyMovie()
         setTimeout(() => {
           this.spinner.hide();
         }, 1500);
-        this.toast.success('movie was successfully purchased ' + this.MovieById.price + " $ Discount from your wallet ");  
+        this.toast.success('movie was successfully purchased');  
         this.toast.info(this.MovieById.price + " $ Discount from your wallet ");  
         this.IsUserOwnIt();
       },
@@ -245,6 +245,7 @@ BuyMovie()
     this.toast.warning(" Movie Price = " +this.MovieById.price+ "$ Which is bigger than Your Wallet balance!!");  
   }
   }
+
 }
 
 

@@ -55,4 +55,8 @@ this.route.navigate(["movies/best"])
   {
     this.route.navigate(['movies/change_pass']);
   }
+  gototestimonial()
+  {
+    this.route.navigate(['movies/add_testimonial']);
+  }
 }

@@ -3,6 +3,7 @@
     <div class="container">
         <div style="color: white;font-weight: bold;border-radius: 1%;" class="shadow rounded-lg d-block d-sm-flex">
             <div style="background-color: transparent" class="profile-tab-nav border-right">
+                
                 <div  class="p-4">
                     <div *ngFor="let item of Customers" class="img-circle text-center mb-3">
                     <img style="margin-top: -100px;" *ngIf="item.id==customerId" src="../../../assets/images/customerImages/{{item.img}}" alt="Image" class="shadow"> 

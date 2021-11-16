@@ -10,7 +10,7 @@
 <div class="info">
 <div class="movie-title">{{MovieById.name}}<br>
     <button *ngIf="InFavouraties" class="mybtn success">In Your Favourites<i style="color: hotpink;" class="fa fa-heart red"></i></button>
-     <button *ngIf="!InFavouraties" (click)="AddToFav()" class="mybtn success">Favourites <i class="fa fa-heart red"></i></button>
+    <button *ngIf="!InFavouraties" (click)="AddToFav()" class="mybtn success">Favourites <i class="fa fa-heart red"></i></button>
     <button *ngIf="!isUserOwnMovie" (click)="BuyMovie()"  class="mybtn warning ">Buy Movie <i class="fa fa-shopping-cart red"></i></button>
     <button *ngIf="isUserOwnMovie"  class="mybtn warning ">You own this movie<i style="color: greenyellow;" class="fa fa-shopping-cart red"></i></button>
 
@@ -68,19 +68,10 @@
 </div> -->
 
 <br>
-<hr style="width: 30%;margin: auto;">
 <h3 *ngIf="!isUserOwnMovie" style="color: white;text-align: center">Buy Movie So You Can Watch It <i style="font-size: 35px;color: darkgoldenrod;" class="fa fa-exclamation-circle" aria-hidden="true"></i> </h3>
-<hr style="width: 30%;margin: auto;">
 <div *ngIf="isUserOwnMovie" class="videoPlayer">
     <div >
         <h3 style="text-align: center;color: white;">Watch</h3>
-    <!-- <vg-player >
-        <video #myMedia  id="singleVideo" preload="auto" controls>
-            <source src="../../../assets/Videos/{{MovieById.video}}" type="video/mp4">
-            <source src="../../../assets/Videos/{{MovieById.video}}" type="video/ogg">
-            <source src="../../../assets/Videos/{{MovieById.video}}" type="video/webm">
-          </video>
-        </vg-player> -->
 
         <vg-player style="box-shadow: 6px 11px  whitesmoke">
             <vg-overlay-play></vg-overlay-play>
