@@ -7,11 +7,15 @@ import { SingUpPageComponent } from './sing-up-page/sing-up-page.component';
 import {ToastrModule, ToastNoAnimation,ToastNoAnimationModule} from 'ngx-toastr';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { HomeComponent } from './home/home.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
-    SingUpPageComponent
+    SingUpPageComponent,
+    HomeComponent,
+    NavBarComponent
       
   ],
   imports: [

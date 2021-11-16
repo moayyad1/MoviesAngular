@@ -86,12 +86,31 @@
                                   <i  class="material-icons">search</i>
                               </span>
                             </div>
-                            <input type="text"  ngModel (input)='searchInTable(userPost)' name='textName'class="form-control col-2" placeholder="ID / Name ..." style="width: 50px !important;">
-                            <button type="submit" class="btnr-success col-2 offset-3" style="width: 160px;height: 40px; border-radius: 10%; margin-left: 30px;">search</button>
+                            <input type="text"  [(ngModel)]='searchValue' (input)='searchInTable(userPost)' name='textName'class="form-control col-2" placeholder="ID / Name ..." style="width: 50px !important;">
                             <button type="button" (click)="resetSearch()" class="btnr-warning col-2 offset-3" style="width: 160px;height: 40px; border-radius: 10%; margin-left: 30px;">Reset</button>
-                        </div>
+                        
+                            
+                          </div>
                      </form>
                 </div>
+                <div class="row offset-4">
+                  <div class="example-container col-2">
+                    <mat-form-field >
+                      <mat-label style="color: rgb(184, 179, 179);">Enter Start Date</mat-label>
+                      <input [(ngModel)]='startDate' style="color: rgb(184, 179, 179); width: 180px; height: 40px;border:1px solid gray; padding-left: 9px;" matInput placeholder="pat@example.com"  name="StartDate"  type="date" required>
+                    </mat-form-field>
+                  </div>
+                  <div class=" col-2" >
+                    <mat-form-field >
+                      <mat-label style="color: rgb(184, 179, 179);">Enter End Date</mat-label>
+                      <input [(ngModel)]='endDate' style="color: rgb(184, 179, 179); width: 180px; height: 40px;border:1px solid gray; padding-left: 9px;" matInput placeholder="pat@example.com" name="EndDate" type="date" required>
+                    </mat-form-field>
+                  </div>
+                  <button type="button" (click)='findbetweenDate()' class="btnr-success col-2 offset-3" style="width: 160px;height: 40px; border-radius: 10%; margin-left: 30px;">Find</button>
+                                                 
+                  
+                </div>
+
               <div class="col-md-8 offset-2" id='print-section'>
                 <div class="card ">
                   <div class="card-header card-header-primary" style="    background: linear-gradient(
@@ -101,7 +120,7 @@
                   </div>
                   <div class="card-body">
                     <div class="card-body table-responsive">
-                        <table class="table table-hover">
+                        <table class="table table-hover" id='excel-table'>
                           <thead class="tableHeaders">
                             <th>Payment No.</th>
                           
@@ -138,8 +157,8 @@
               <div class="col">
                   <div class="col" style="margin-top: 30px;">
                     <button styleSheetFile="assets\printingCss\printCss.css" printSectionId="print-section" ngxPrint class="btnr-warning functionBtn">Print table</button><br>
-                    <button class="btnr-warning functionBtn">Download PDF</button><br>
-                    <button class="btnr-warning functionBtn">Download Excel</button>
+                    <button class="btnr-warning functionBtn" (click)=' generatePDF()'>Download PDF</button><br>
+                    <button class="btnr-warning functionBtn" (click)='exportexcel()'>Download Excel</button>
                   </div>
               </div>
             

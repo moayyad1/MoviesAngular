@@ -19,7 +19,7 @@ export class MyServiceService {
     };
     this.http.post(this.apiUrl +'Customer/uploadImage',file).subscribe((data: any) => {
     this.display_image=data.image;
-    debugger
+    
     if(data){
     console.log(data);}
     }, err => {
@@ -37,7 +37,7 @@ export class MyServiceService {
       };
       this.http.post(this.apiUrl +'Movie/uploadVideoImage',file).subscribe((data: any) => {
         console.log("image Uploaded: "+data);
-      debugger
+      
       if(data){
       console.log(data);}
       }, err => {
@@ -56,7 +56,7 @@ export class MyServiceService {
       };
       this.http.post(this.apiUrl +'Movie/uploadVideo',file).subscribe((data: any) => {
      
-      debugger
+      
       if(data){
       console.log("vidoer Uploaded: "+data);}
       }, err => {

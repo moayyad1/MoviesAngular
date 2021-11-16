@@ -69,21 +69,32 @@
               <div class="col-md-8">
                 <div class="card">
                   <div class="card-header card-header-primary">
-                    <div class="row">
-                      <div class="col-md-4">
+                    <div class="">
+                      <div class="">
                         <h4 class="card-title">Movies</h4>
-                        <p class="card-category">movies details{{categoryId}}</p>
+                        <p class="card-category">movies details</p>
                       </div>
-                      
-                      <div class="form-group col-md-4">
-                        <label for="inputState">Categorys</label>
-                        <select [(ngModel)]="categoryId" id="inputState" class="form-control">
-                          <option *ngFor="let item of Categorys" value="{{item.id}}" selected>{{item.name}}</option>
-                        </select>
+                      <div style="display: flex;flex-direction:row; justify-content:space-evenly">
+
+
+                        <div class="form-group">
+                          <label for="inputState">Categorys</label>
+                          <select [(ngModel)]="categoryId" id="inputState" class="form-control">
+                            <option style="color: black;" value="0" >ALL</option>
+                            <option style="color: black;" *ngFor="let item of Categorys" value="{{item.id}}" >{{item.name}}</option>
+                          </select>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="inputState">search</label>
+                          <input [(ngModel)]="nameSearch" (ngModelChange)="search()" id="inputState" class="form-control" placeholder='search...'>
+                            
+                          
+                        </div>
+                          
                       </div>
+                     
                     </div>
-                      
-                    
 
 
                   </div>
@@ -101,12 +112,12 @@
                           </thead>
                           <tbody>
                               <tr *ngFor="let item of allMovies">
-                                <td *ngIf="item.categoryId == categoryId" ><img style="border-radius:20%;margin: 0 !important;padding:  0 !important;" src="../../../assets/images/movies-images/{{item.img}}" alt="" height="80" width="90"></td>
-                                <td *ngIf="item.categoryId == categoryId"> {{item.name}} </td>
-                                <td *ngIf="item.categoryId == categoryId">{{item.language}}</td>
-                                <td *ngIf="item.categoryId == categoryId">{{item.price}}</td>
-                                <td *ngIf="item.categoryId == categoryId"><button (click)="Update()" class="btnr btnr-primary btnr-sm">Update</button></td>
-                                <td *ngIf="item.categoryId == categoryId"><button class="btnr btnr-default btnr-sm">Delete</button></td>
+                                <td *ngIf="item.categoryId == categoryId || categoryId == 0" ><img style="border-radius:20%;margin: 0 !important;padding:  0 !important;" src="../../../assets/images/movies-images/{{item.img}}" alt="" height="80" width="90"></td>
+                                <td *ngIf="item.categoryId == categoryId || categoryId == 0"> {{item.name}} </td>
+                                <td *ngIf="item.categoryId == categoryId || categoryId == 0">{{item.language}}</td>
+                                <td *ngIf="item.categoryId == categoryId || categoryId == 0">{{item.price}}</td>
+                                <td *ngIf="item.categoryId == categoryId || categoryId == 0"><button (click)="UpdateMovie(item.id)" class="btnr btnr-primary btnr-sm">Update</button></td>
+                                <td *ngIf="item.categoryId == categoryId || categoryId == 0"><button class="btnr btnr-default btnr-sm">Delete</button></td>
                             </tr> 
                           </tbody>
                         </table>
@@ -124,7 +135,7 @@
                     <h4 class="card-title">Add new</h4>
                     <p class="card-description">
                         To add a new movie, click on the button                    </p>
-                    <a class="btnr btnr-primary btnr-round"  (click)="Update()"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                    <a class="btnr btnr-primary btnr-round"  (click)="UploadMovie()"><i class="fa fa-plus" aria-hidden="true"></i></a>
                  
                   </div>
                 </div>
