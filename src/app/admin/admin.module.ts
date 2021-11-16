@@ -9,9 +9,10 @@ import { UploadMovieComponent } from './upload-movie/upload-movie.component';
 import { SharedModule } from '../shared/shared.module';
 import { AccountantComponent } from './accountant/accountant.component';
 import { UploadeAccountantComponent } from './uploade-accountant/uploade-accountant.component';
-import { FinancialsComponent } from './financials/financials.component';
+import { UpdateAccountantComponent } from './update-accountant/update-accountant.component';
 import { PaymentsComponent } from './payments/payments.component';
 import { NgxPrintModule} from 'ngx-print';
+import { FinancialsComponent } from './financials/financials.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { NgxPrintModule} from 'ngx-print';
     UploadMovieComponent,
     AccountantComponent,
     UploadeAccountantComponent,
+    UpdateAccountantComponent,
     FinancialsComponent,
     PaymentsComponent
   ],

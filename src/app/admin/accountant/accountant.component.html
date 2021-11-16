@@ -95,7 +95,7 @@
                               <td>{{item.gender}}</td>
                               <td>{{item.salary}}</td>
                               <td><img style="border-radius:20%;margin: 0 !important;padding:  0 !important;" src="../../../../assets/images/Accountant-images/{{item.img}}" alt="" height="80" width="90"></td>
-                              <td><button (click)="Update()" class="btnr btnr-primary btnr-sm">Update</button></td>
+                              <td><button (click)="Update(item.id)" class="btnr btnr-primary btnr-sm">Update</button></td>
                               <td><button (click)="Delete(item.id)" class="btnr btnr-default btnr-sm">Delete</button></td>
                             </tr> 
                           </tbody>
