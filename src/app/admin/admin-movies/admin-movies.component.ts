@@ -14,6 +14,8 @@ export class AdminMoviesComponent implements OnInit {
   allMovies:any=[{}];
   catMovies:any=[{}];
   Categorys:any=[{}];
+  nameSearch:string='';
+  searchResult:any=[{}];
   
   constructor(public myDialog:MatDialog,private service:MyServiceService) {
     
@@ -42,12 +44,33 @@ export class AdminMoviesComponent implements OnInit {
   }
   getCategory()
   {
+
     this.service.requestCall(
       'https://localhost:44391/api/Category/GetCategory',
       'Get')
       ?.subscribe((data) => {
         this.Categorys = data;
       });
+  }
+  
+  search()
+  {
+    let list:any =[];
+    if(this.nameSearch){
+
+      this.allMovies.forEach((element:any) => {
+        if(element.name.toString().toLowerCase().search(this.nameSearch.toLowerCase()) != -1){
+          console.log(element.name);
+          
+          list.push(element);
+        }
+      });
+      this.allMovies=list;
+    }
+    else{
+      this.getMovies();
+    }
+    
   }
   
 }
