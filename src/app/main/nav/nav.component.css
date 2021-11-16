@@ -214,7 +214,6 @@ header.sticky .subscribe {
   background-size: contain;
   width: 90px;
   height: 50px;
-  background-image: url(https://elikaaonline.com/wp-content/uploads/2021/03/netflix-logo.png);
 }
 
 .dropdown {
@@ -225,28 +224,31 @@ header.sticky .subscribe {
 .dropdown-content {
   display: none;
   position: absolute;
-  right: 125px;
+  right: 90px;
   top: 27px;
   background-color: #f9f9f9;
   box-shadow: 0px 8px 16px 
       0px rgba(0, 0, 0, 0.2);
-  z-index: 2;
-    width: 100px;
-
+  z-index: 1;
+    width: 160px;
 }
 
 .dropdown-content a {
   color: black;
   padding: 12px 16px;
+  margin-left: -10px;
+  white-space: nowrap;
   text-decoration: none;
+  font-weight: normal;
   display: block;
-  width: 100px;
-  z-index: 2;
+  font-size: 18px;
 
 }
 
 .dropdown-content a:hover {
-  background-color: gold
+  background-color: gold;
+  margin-left: 10px;
+  color: black;
 }
 
 .dropdown:hover .dropdown-content {

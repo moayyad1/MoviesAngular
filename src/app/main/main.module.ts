@@ -29,6 +29,10 @@ import {VgCoreModule} from '@videogular/ngx-videogular/core';
 import {VgControlsModule} from '@videogular/ngx-videogular/controls';
 import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
 import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
+import { MyFavouratiesComponent } from './user-profile/my-favouraties/my-favouraties.component';
+import { AddToWalletComponent } from './user-profile/add-to-wallet/add-to-wallet.component';
+import { ChangePasswordComponent } from './user-profile/change-password/change-password.component';
+import { MyMoviesComponent } from './user-profile/my-movies/my-movies.component';
 
 @NgModule({
   declarations: [ 
@@ -53,6 +57,10 @@ import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
     FantasyCategoryComponent,
     MysteryCategoryComponent,
     RomanceCategoryComponent,
+    MyFavouratiesComponent,
+    AddToWalletComponent,
+    ChangePasswordComponent,
+    MyMoviesComponent,
     
   ],
   imports: [

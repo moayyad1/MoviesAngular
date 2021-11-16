@@ -14,8 +14,7 @@ import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
 
 @NgModule({
   declarations: [
-    AppComponent,
-   
+    AppComponent,   
   ],
   imports: [
     BrowserModule,

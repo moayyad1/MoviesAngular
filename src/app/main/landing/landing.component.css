@@ -363,11 +363,13 @@ h1 {
   padding: 5px 26px;
   text-decoration: none;
   display: block;
-  width: 103px;
+  width: 150px;
 }
 
 .dropdown-content a:hover {
-  background-color: gold
+  background-color: gold;
+  margin-left: 10px;
+  color: black;
 }
 
 .dropdown:hover .dropdown-content {
@@ -418,6 +420,40 @@ h1 {
 }
 .intro-text p {
   opacity: 0;
+}
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  margin-left: -10px;
+  white-space: nowrap;
+  text-decoration: none;
+  font-weight: normal;
+  display: block;
+  font-size: 18px;
 }
 
 .intro-text h2 {

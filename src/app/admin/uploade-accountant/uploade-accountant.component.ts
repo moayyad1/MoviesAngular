@@ -60,7 +60,7 @@ export class UploadeAccountantComponent implements OnInit {
       const ImageName =imageFile[0].name
     
       this.uploadFile(imageFile);
-
+ 
     
     let AccountantObject = {
       firstName: addAccountant.value.firstName,

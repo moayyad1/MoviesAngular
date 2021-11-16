@@ -12,37 +12,25 @@
           <li><a routerLink="/movies/newest_movies" >Newest Movies</a></li>
           <li><a routerLink="/movies/contact">Contact Us</a></li>
           <li><a routerLink="/movies/about">About Us</a></li>
-          <li><p style="position: absolute;right: 302px;top:25px;color: white;font-size: 19px;">Categories</p></li>
         </ul>
       </nav>
-      <span class="fa fa-bars" onclick="menutoggle()"></span>
-
+      <span class="fa fa-bars" ></span>
       <div class="subscribe flex">
         <i class="fas fa-ssearch"></i>
         <i>  <div class="dropdown">
-          <button style="position: absolute;right: 130px;top:-24px;border-radius: 5%;" >
-            <i style="position: absolute;right: -20px;top:10px;font-size: 30px;" class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
+          <button style="position: absolute;right: 0px;top:-34px;border-radius: 5%;" >
+            <i style="position: absolute;right: 20px;top:-5px;font-size: 36px;" class="fa fa-user-circle" aria-hidden="true"></i>
           </button>             
-          <div class="dropdown-content">
-            <a (click)="GoAction()">
-              action </a>
-              <a (click)="GoHorror()">
-                Horror</a>
-    
-              <a (click)="GoDrama()">
-                  Drama</a>
-              <a style="font-size: 20px;" (click)="GoComedy()">
-                Comedy</a>
-              <a (click)="GoFantasy()">
-                  Fantasy</a>
-    <a (click)="GoMystery()">
-      Mystery</a>
-<a  (click)="GoRomance()">Romance</a>
-          </div>
+          <div style="margin-right: -109px;margin-top: -20px;" class="dropdown-content">
+            <a (click)="goToAccount()">My Information </a>
+              <a (click)="goToFav()">My Movies</a>
+
+              <a (click)="goaddBalance()">Add To my wallet</a>
+              <a (click)="goTochangePass()">Password Setting</a>
+              </div>
       </div>
     </i>
-        <i (click)="goToUserProfile()" style="color: white;" id="palybtn" class="fas fa-user"></i>
-        <button style="border-radius: 5%;" (click)="logOutBtn()">Logout</button>
+           <button style="border-radius: 5%;padding: 10px;" (click)="logOutBtn()">Log out</button>
       </div>
     </div>
   </div>

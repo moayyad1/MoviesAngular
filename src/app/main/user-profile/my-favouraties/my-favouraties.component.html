@@ -1,0 +1,27 @@
+<app-nav></app-nav>
+<div class="wrapper">
+    <section *ngFor="let item1 of GetAllMovies" class="content_section">
+        <!-- <div  class="playlist_one">
+            <h4 style="color: white;" class="playlist_title">My Movies</h4>
+            <div class="videos">
+                <div class="video" style="background-image: url(images/img.jpg);">
+                    <i class="fas fa-play-circle"></i>    <!--  Here there is an icon-->
+                <!-- </div>
+            </div>
+        </div> --> -->
+            <div *ngFor="let item2 of GetFav">
+        <div *ngIf="customerId==customerId && item2.customerId==customerId && item2.movieId==item1.id" class="playlist_two">
+            <h4 *ngIf="customerId==customerId && item2.customerId==customerId && item2.movieId==item1.id" style="color: white;" class="playlist_title">My Favouraties</h4>
+            <div *ngIf="customerId==customerId && item2.customerId==customerId && item2.movieId==item1.id" class="videos">
+                <div *ngIf="customerId==customerId && item2.customerId==customerId && item2.movieId==item1.id" class="video" style="background-image: url(../../../../assets/images/movies-images/{{item1.img}});">   
+                    <i *ngIf="customerId==customerId && item2.customerId==customerId && item2.movieId==item1.id" class="fas fa-play-circle"></i><!--  Here there is an icon-->
+                </div>
+            </div>
+        </div></div>
+    </section>
+</div>
+
+
+
+<app-footer></app-footer>
+

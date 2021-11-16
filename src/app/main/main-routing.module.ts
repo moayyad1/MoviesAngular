@@ -15,6 +15,9 @@ import { FantasyCategoryComponent } from './specific-category/fantasy-category/f
 import { RomanceCategoryComponent } from './specific-category/romance-category/romance-category.component';
 import { MysteryCategoryComponent } from './specific-category/mystery-category/mystery-category.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { MyFavouratiesComponent } from './user-profile/my-favouraties/my-favouraties.component';
+import { AddToWalletComponent } from './user-profile/add-to-wallet/add-to-wallet.component';
+import { ChangePasswordComponent } from './user-profile/change-password/change-password.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
@@ -31,8 +34,10 @@ const routes: Routes = [
   {path:'fantasy_movies',component:FantasyCategoryComponent},
   {path:'romance_movies',component:RomanceCategoryComponent},
   {path:'mystery_movies',component:MysteryCategoryComponent},
-  {path:'user_profile',component:UserProfileComponent}
-
+  {path:'user_profile',component:UserProfileComponent},
+  {path:'user_favouraties',component:MyFavouratiesComponent},
+  {path:'add_balance',component:AddToWalletComponent},
+  {path:'change_pass',component:ChangePasswordComponent}
 ];
 
 @NgModule({
