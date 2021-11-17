@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FinancialsComponent } from './financials/financials.component';
 import { PaymentsComponent } from './payments/payments.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -16,10 +17,12 @@ import { ProfileComponent } from './profile/profile.component';
     FinancialsComponent,
     PaymentsComponent,
     ProfileComponent
+    
   ],
   imports: [
     CommonModule,
-    AccountantRoutingModule
+    AccountantRoutingModule,
+    SharedModule
   ]
 })
 export class AccountantModule { }

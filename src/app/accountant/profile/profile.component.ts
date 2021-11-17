@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { MyServiceService } from 'src/app/shared/my-service.service';
+import { NgxSpinnerService } from "ngx-spinner";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +16,17 @@ export class ProfileComponent implements OnInit {
   login:any=[{}];
   accInfo:any={};
   accLogin:any={};
-  constructor(private Service:MyServiceService) {
+
+  firstName:any = '';
+  lastName:any = '';
+  phone:any = '';
+  email:any = '';
+  img:any = '';
+
+  conPassword:any = '';
+  newPassword:any = '';
+
+  constructor(private Service:MyServiceService,private toaster:ToastrService,private spinner:NgxSpinnerService) {
     
     
    }
@@ -30,7 +43,8 @@ export class ProfileComponent implements OnInit {
       this.login.forEach((item:any) => {
         if(item.userName==this.userName){
           this.accLogin=item;
-          
+          this.conPassword = item.password;
+          this.newPassword = item.password;
         }
       });
 
@@ -41,12 +55,69 @@ export class ProfileComponent implements OnInit {
         this.accountants.forEach((item:any) => {
           if(item.id==this.accLogin.accountantId){
             this.accInfo=item;
+            this.firstName=this.accInfo.firstName;
+            this.lastName=this.accInfo.lastName;
+            this.phone=this.accInfo.phone;
+            this.email=this.accInfo.email;
+            this.img=this.accInfo.img;
           }
         });
       });
     });
+
   }
 
+  updateProfile(){
+    this.spinner.show();
+    let newDate={
+      id: this.accInfo.id,
+      firstName: this.firstName,
+      lastName:this.lastName,
+      phone:this.phone,
+      email:this.email,
+      img:this.img,
+      gender:this.accInfo.gender,
+      wallet:this.accInfo.wallet,
+      salary:this.accInfo.salary
+    }
 
+    this.Service.requestCall(
+      'https://localhost:44391/api/Accountant/UpdateAccountant','Put',newDate
+    )?.subscribe((data) => {
+     this.toaster.success("updated successfully");
+     this.getInfo();
+     this.spinner.hide();
+    });
+
+    
+  }
+
+  updatePassword(){
+
+    if(this.conPassword == this.newPassword)
+    {
+      this.spinner.show();
+      let newDate={
+        id: this.accLogin.id,
+        userName: this.accLogin.userName,
+        password: this.newPassword,
+        departmentId:4,
+        accountantId:this.accInfo.id
   
+      }
+  
+      this.Service.requestCall(
+        'https://localhost:44391/api/Login/UpdateLogin','Put',newDate
+      )?.subscribe((data) => {
+       this.toaster.success("updated successfully");
+       this.getInfo();
+       this.spinner.hide();
+      });
+    }
+    else{
+      this.toaster.error("Passwords do not match");
+    }
+    
+
+  }
 }

@@ -36,81 +36,85 @@
                   
                   <div class="card-body">
                     <div class="card-body">
-                        <form>
+                        
+                      
+                      
+                      
+                      
+                      
+                      <form>
+                            
                             <div class="row">
-                              <div class="col-md-5">
+                              <div class="col-md-6">
+                                <label>first Name</label>
                                 <div class="form-group bmd-form-group">
-                                  <label class="bmd-label-floating">Company (disabled)</label>
-                                  <input type="text" class="form-control" disabled="">
+                                  <label class="bmd-label-floating"></label>
+                                  <input [(ngModel)]="firstName" name="firstName"id="firstName"class="form-control">
                                 </div>
                               </div>
-                              <div class="col-md-3">
+                              <div class="col-md-6">
+                                <label>Last Name</label>
                                 <div class="form-group bmd-form-group">
-                                  <label class="bmd-label-floating">Username</label>
-                                  <input type="text" class="form-control">
-                                </div>
-                              </div>
-                              <div class="col-md-4">
-                                <div class="form-group bmd-form-group">
-                                  <label class="bmd-label-floating">Email address</label>
-                                  <input type="email" class="form-control">
+                                  <label class="bmd-label-floating"></label>
+                                  <input [(ngModel)]="lastName" name="lastName" type="text" class="form-control">
                                 </div>
                               </div>
                             </div>
                             <div class="row">
                               <div class="col-md-6">
+                                <label>Phone</label>
                                 <div class="form-group bmd-form-group">
-                                  <label class="bmd-label-floating">Fist Name</label>
-                                  <input type="text" class="form-control">
+                                  <label class="bmd-label-floating"></label>
+                                  <input [(ngModel)]="phone" type="number" name="phone"id="firstName"class="form-control">
                                 </div>
                               </div>
                               <div class="col-md-6">
+                                <label>Email</label>
                                 <div class="form-group bmd-form-group">
-                                  <label class="bmd-label-floating">Last Name</label>
-                                  <input type="text" class="form-control">
+                                  <label class="bmd-label-floating"></label>
+                                  <input [(ngModel)]="email" name="email" type="text" class="form-control">
                                 </div>
                               </div>
+                              <button (click)="updateProfile()" type="submit" class="btn btn-round btn-primary pull-right">Update Profile</button>
+
                             </div>
-                            <div class="row">
-                              <div class="col-md-12">
-                                <div class="form-group bmd-form-group">
-                                  <label class="bmd-label-floating">Adress</label>
-                                  <input type="text" class="form-control">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
+
+                            <!-- <div class="row">
                               <div class="col-md-4">
                                 <div class="form-group bmd-form-group">
                                   <label class="bmd-label-floating">City</label>
                                   <input type="text" class="form-control">
                                 </div>
                               </div>
-                              <div class="col-md-4">
-                                <div class="form-group bmd-form-group">
-                                  <label class="bmd-label-floating">Country</label>
-                                  <input type="text" class="form-control">
-                                </div>
-                              </div>
-                              <div class="col-md-4">
-                                <div class="form-group bmd-form-group">
-                                  <label class="bmd-label-floating">Postal Code</label>
-                                  <input type="text" class="form-control">
-                                </div>
-                              </div>
-                            </div>
+                            </div> -->
+                              
+                              
+                            
                             <div class="row">
                               <div class="col-md-12">
                                 <div class="form-group">
-                                  <label>About Me</label>
+                                  <label>change password</label>
                                   <div class="form-group bmd-form-group">
-                                    <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                                    <textarea class="form-control" rows="5"></textarea>
+                                    <div class="row">
+                                      <div class="col-md-6">
+                                        <div class="form-group bmd-form-group">
+                                          <label>New Password</label>
+                                          <input [(ngModel)]="newPassword" type="password" name="oldPassword" class="form-control">
+                                    </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <div class="form-group bmd-form-group">
+                                        <label>Conform Password</label>
+                                        <input [(ngModel)]="conPassword" type="password" name="newPassword" class="form-control">
+                                  </div>
+                                  </div>
+                                  <button (click)="updatePassword()" type="submit" class="btn btn-round btn-primary pull-right">Update Password</button>
+
+                                </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
-                            <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
                             <div class="clearfix"></div>
                           </form>
                       </div>
@@ -118,17 +122,37 @@
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="card card-profile">
-                  <div class="card-avatar">
-                    
-                  </div>
-                  <div class="card-body">
-                    <h6 class="card-category"></h6>
-                    <h4 class="card-title">Add new</h4>
-                    <p class="card-description">
-                        To add a new movie, click on the button                    </p>
-                    <a class="btnr btnr-primary btnr-round"  ><i class="fa fa-plus" aria-hidden="true"></i></a>
-                 
+                <div class="">
+                  <div class="card card-profile">
+                    <div class="card-avatar">
+                      <a href="#pablo">
+                        <img class="img" src="../../../assets/images/EmployeeImages/{{accInfo.img}}">
+                      </a>
+                    </div>
+                    <div class="card-body">
+                      <table>
+                        <tr>
+                          <td><h4 class="card-title "><span class="text-primary">Name: </span></h4></td>
+                          <td><div style="width: 20px;"></div></td>
+                          <td><h4 class="card-title "> {{accInfo.firstName}} {{accInfo.lastName}}</h4></td>
+                        </tr>
+                        <tr>
+                          <td><h4 class="card-title "><span class="text-primary">Phone: </span></h4></td>
+                          <td><div style="width: 20px;"></div></td>
+                          <td><h4 class="card-title "> {{accInfo.phone}}</h4></td>
+                        </tr>
+                        <tr>
+                          <td><h4 class="card-title "><span class="text-primary">Email: </span></h4></td>
+                          <td><div style="width: 20px;"></div></td>
+                          <td><h4 class="card-title "> {{accInfo.email}}</h4></td>
+                        </tr>
+                      </table>
+
+
+
+                      <h6 class="card-title"></h6>
+                      <a  class="btn btn-primary btn-round"> UpLoad Image</a>
+                    </div>
                   </div>
                 </div>
               </div>
