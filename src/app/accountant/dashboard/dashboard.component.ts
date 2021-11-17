@@ -6,9 +6,10 @@ import { MyServiceService } from 'src/app/shared/my-service.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+
   totalProfit = 0;
   CustomersCount = 0;
   moveisCount = 0;
@@ -21,7 +22,6 @@ export class DashboardComponent implements OnInit {
   GetEvaluation:any=[{}];
   moviesEval:any=[{}];
   MinimalRated:any=[{}];
-
   constructor(private route: Router, private servie: MyServiceService,private service: MovieServiceService) {
     servie
       .requestCall(
@@ -70,35 +70,10 @@ export class DashboardComponent implements OnInit {
       ?.subscribe((data) => {
         this.AllMovies = data;
       });
-      
-  }
-
-  // AllMoviess()   
-  // {
-  //   this.service.getAllMovies().subscribe((res:any) => {(this.GetAllMovies=res);
-  //     this.GetAllMovies.forEach((mov:any) => {
-  //       this.GetEvaluation.forEach((evalu:any) => {
-  //       if(mov.Id==evalu.id)
-  //       {
-  //         this.GetAllMovies.push(mov);
-  //       }
-  //     });
-  //   }); },
-
-  //   err => { console.log(err) })  
-  // }
-  // GetEval()
-  // {
-  //   this.service.GetEvaluation().subscribe((res:any) =>{(this.GetEvaluation=res)},
-  //   err => { console.log(err) })
-  // }
-
+   }
 
   ngOnInit(): void {
     this.GetMoviesEvalt();
-
-      
-    
   }
   GetMoviesEvalt(){
 
@@ -147,5 +122,4 @@ export class DashboardComponent implements OnInit {
 
       });
   }
-  
 }

@@ -1,0 +1,242 @@
+<section style="background-color: brown !important;">
+  
+    <div style="height: 1000px;" class="dark-edition">
+      <div class="wrapper ">
+        <app-accountant-sid-bar></app-accountant-sid-bar>
+        <div class="main-panel">
+    
+          <div class="content">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                  <div class="card card-stats">
+                    <div class="card-header card-header-warning card-header-icon">
+                      <div class="card-icon">
+                        <i class="fa fa-money"></i>
+                      </div>
+                      <p class="card-category">Profits</p>
+                      <h3 class="card-title">{{totalProfit}}
+                        <small>$</small>
+                      </h3>
+                    </div>
+                    <div class="card-footer">
+                      <div class="stats">
+                        <i class="material-icons text-warning"></i>
+                        <a href="#pablo" class="warning-link"></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                  <div class="card card-stats">
+                    <div class="card-header card-header-success card-header-icon">
+                      <div class="card-icon">
+                        <i class="fa fa-film"></i>
+                      </div>
+                      <p class="card-category">Movies</p>
+                      <h3 class="card-title">{{moveisCount}}</h3>
+                    </div>
+                    <div class="card-footer">
+                      <div class="stats">
+                        <i class="material-icons"></i> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                  <div class="card card-stats">
+                    <div class="card-header card-header-danger card-header-icon">
+                      <div class="card-icon">
+                        <i class="fa fa-user-circle-o"></i>
+                      </div>
+                      <p class="card-category">Customers</p>
+                      <h3 class="card-title">{{CustomersCount}}</h3>
+                    </div>
+                    <div class="card-footer">
+                      <div class="stats">
+                        <i class="material-icons"></i>  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                  <div class="card card-stats">
+                    <div class="card-header card-header-info card-header-icon">
+                      <div class="card-icon">
+                        <i class="fa fa-th-large"></i>
+                      </div>
+                      <p class="card-category">Category</p>
+                      <h3 class="card-title">{{categoriesCount}}</h3>
+                    </div>
+                    <div class="card-footer">
+                      <div class="stats">
+                        <i class="material-icons"></i> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6 col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-success ">
+                      <h4 class="card-title">Top rated movies</h4>
+                      <p class="card-category"></p>
+                    </div>
+                    <div class="card-body table-responsive">
+    
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="col-lg-6 col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-success ">
+                      <h4 class="card-title">Top rated movies</h4>
+                      <p class="card-category"></p>
+                    </div>
+                    <div class="card-body table-responsive">
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+    
+              <div class="row">
+                <div class="col-lg-6 col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-success ">
+                      <h4 class="card-title">Top rated movies</h4>
+                      <p class="card-category"></p>
+                    </div>
+                    <div class="card-body table-responsive">
+                      <div >
+                        <div >
+                          <div >
+                      <table class="table table-hover">
+                        <thead class="text-warning">
+                          <th>Image</th>
+                          <th>Name</th>
+                          <th>Rateing</th>
+                        </thead>                 
+                        <tbody>
+                          <tr *ngFor='let movie of topRated, let i = index'>
+                            <td><img style="border-radius:20%;margin: 0 !important;padding:  0 !important;" src="../../../assets/images/movies-images/{{movie.img}}" alt="" height="80" width="90"></td>
+                            <td>{{movie.name}}</td>
+                            <td>{{movie.eval}}%</td>
+                          </tr>
+                        </tbody>
+                      </table></div></div></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-danger  ">
+                      <h4 class="card-title">Minimal rated movies</h4>
+                      <p class="card-category"></p>
+                    </div>
+                    <div class="card-body table-responsive">
+                      <table class="table table-hover">
+                        <thead class="text-warning">
+                          <th>Image</th>
+                          <th>Name</th>
+                          <th>Rateing</th>
+                        </thead>                 
+                        <tbody>
+                          <tr *ngFor='let movie of MinimalRated, let i = index'>
+                            <td><img style="border-radius:20%;margin: 0 !important;padding:  0 !important;" src="../../../assets/images/movies-images/{{movie.img}}" alt="" height="80" width="90"></td>
+                            <td>{{movie.name}}</td>
+                            <td>{{movie.eval}}%</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6 col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-info  ">
+                      <h4 class="card-title">Newest Movies</h4>
+                      <p class="card-category"></p>
+                    </div>
+                    <div class="card-body table-responsive">
+                      <table class="table table-hover">
+                        <thead class="text-warning">
+                          <th>Image</th>
+                          <th>Name</th>
+                          <th>Price</th>
+                          <th>Date</th>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor='let movie of newistMovies, let i = index'>
+                            <td *ngIf='i<5'><img style="border-radius:20%;margin: 0 !important;padding:  0 !important;" src="../../../../assets/images/movies-images/{{movie.img}}" alt="" height="80" width="90"></td>
+                            <td *ngIf='i<5'>{{movie.name}}</td>
+                            <td *ngIf='i<5'>{{movie.price}}</td>
+                            <td *ngIf='i<5'>{{movie.releaseDate| date: 'longDate'}}</td>
+                          </tr> 
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-primary">
+                      <h4 class="card-title">trending</h4>
+                      <p class="card-category"></p>
+                    </div>
+                    <div class="card-body table-responsive">
+                      <table class="table table-hover">
+                        <thead class="text-warning">
+                          <th>Image</th>
+                          <th>Name</th>
+                          <th>price</th>
+                          <th>Date</th>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor='let movie of trendingMovies, let i = index'>
+                            <td *ngIf='i<5'><img style="border-radius:20%;margin: 0 !important;padding:  0 !important;" src="../../../../assets/images/movies-images/{{movie.img}}" alt="" height="80" width="90"></td>
+                            <td *ngIf='i<5'>{{movie.name}}</td>
+                            <td *ngIf='i<5'>{{movie.price}}</td>
+                            <td *ngIf='i<5'>{{movie.purchaseCount}}</td>
+                            <td *ngIf='i<5'>{{movie.releaseDate| date: 'longDate'}}</td>
+                          </tr> 
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+          
+        </div>
+      </div>
+     
+    </div>
+    
+    <!-- <div *ngFor="let item of moviesData" >
+      <div *ngIf="item.releaseDate >= '2021'">
+      <div (click)="goToDtails(item.id)" class="flip">
+      <div class="front" style="background-image: url('../../../assets/images/movies-images/{{item.img}}')"  >
+      </div>
+      <h4>{{item.name}}</h4>
+      <p style="font-size: 1.1rem;color: gray;font-family: 'Raleway', sans-serif;">{{item.releaseDate | date:'y'}}<span style="color: red;">|</span> {{item.country}} <span style="color: red;">|</span> {{item.category}}</p>
+    <i style="color: #f9be30;font-size: 1.4rem;" class="fa fa-star" aria-hidden="true"></i><i  style="color: #f9be30;font-size: 1.4rem"  class="fa fa-star" aria-hidden="true"></i><i  style="color: #f9be30;font-size: 1.4rem"  class="fa fa-star" aria-hidden="true"></i><i  style="color: #f9be30;font-size: 1.4rem"  class="fa fa-star" aria-hidden="true"></i><i style="font-size: 1.4rem" class="fa fa-star" aria-hidden="true"></i> -->
+      <!-- <div class="back">               
+          <div style="position: absolute;top: 20px;left: 5px;">
+          <h5 style="color: cyan;">Story :</h5>
+          <p style="font-family: 'Roboto', sans-serif;" >{{item.storyLine}}</p><hr style="color: cadetblue;">
+           <p>{{item.category}}</p><hr style="color: cadetblue;">
+           <p>Price : {{item.price}}$</p><br>
+          </div>
+      </div >
+    </div>
+    </div>
+    
+    </div> --> 
+    </section>

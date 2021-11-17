@@ -13,6 +13,8 @@ import { UpdateAccountantComponent } from './update-accountant/update-accountant
 import { PaymentsComponent } from './payments/payments.component';
 import { NgxPrintModule} from 'ngx-print';
 import { FinancialsComponent } from './financials/financials.component';
+import { TestimonialComponent } from './testimonial/testimonial.component';
+
 import { UpdateMovieComponent } from './update-movie/update-movie.component';
 
 
@@ -28,13 +30,14 @@ import { UpdateMovieComponent } from './update-movie/update-movie.component';
     UpdateAccountantComponent,
     FinancialsComponent,
     PaymentsComponent,
+    TestimonialComponent,
     UpdateMovieComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     SharedModule,
-    NgxPrintModule
+    NgxPrintModule,
   ]
 })
 export class AdminModule { }
