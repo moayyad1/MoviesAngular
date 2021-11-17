@@ -87,7 +87,11 @@
 
                         <div class="form-group">
                           <label for="inputState">search</label>
-                          <input [(ngModel)]="nameSearch" (ngModelChange)="search()" id="inputState" class="form-control" placeholder='search...'>
+                          <div style="display: flex;flex-direction:row;">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                            <input [(ngModel)]="nameSearch" (ngModelChange)="search()" id="inputState" class="form-control" placeholder=''>  
+                          </div>
+                          
                             
                           
                         </div>

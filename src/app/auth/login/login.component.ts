@@ -98,10 +98,16 @@ export class LoginComponent implements OnInit {
           this.toast.success("Welcome " +this.userNameText + ' :)')
          break
         }
-        case ('3'):{
+        case ('4'):{
            //route here for Accountant
-           localStorage.setItem('userRole','3')
+           localStorage.setItem('userRole','4');
+           this.mainRoute.navigate(["Accountant"])
+          setTimeout(() => {
+            this.spinner.hide();
+          }, 1000);
+          this.toast.success("Welcome " +this.userNameText + ' :)')
          break
+         
         }
          
       }      

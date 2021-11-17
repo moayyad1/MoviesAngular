@@ -1,26 +1,24 @@
 
 <div *ngFor="let item of GetAllTrending;let i=index">
 <section *ngIf="i < 1"  class="home">
-  <!-- style="background-image: url('../../../assets/images/movies-images/{{item.img}}');background-size: cover;" -->
-  <div class="headerbg">
+   <div class="headerbg">
     <header>
       <div *ngFor="let item of websiteData" class="container">
         <div class="navbar flex1">
           <div class="logo">
-            <a routerLink="/movies/home"
+             <a routerLink="/movies/home" 
               ><img src="../../../assets/images/movies-images/{{item.logoImg}}"alt=""/></a>
           </div>
-          <nav>
+          <nav >
             <ul id="menuitem">
-              <li><a routerLink="/movies/home">Home</a></li>
+              <li><a routerLink='/movies/home'>Home</a></li>
               <li><a routerLink="/movies/all_shows">All Shows</a></li>
               <li><a routerLink="/movies/top_rated">Top Rated</a></li>
               <li><a routerLink="/movies/newest_movies">Newest Movies</a></li>
               <li><a routerLink="/movies/contact">Contact Us</a></li>
               <li><a routerLink="/movies/about">About Us</a></li>
             </ul>
-          </nav>
-          
+          </nav>       
           <span class="fa fa-bars"></span>
           <div class="subscribe flex">
             <i class="fas fa-ssearch"></i>
@@ -28,12 +26,20 @@
               <button style="position: absolute;right: 0px;top:-34px;border-radius: 5%;" >
                 <i style="position: absolute;right: 20px;top:-5px;font-size: 36px;" class="fa fa-user-circle" aria-hidden="true"></i>
               </button>             
-              <div style="margin-right: -109px;margin-top: -20px;" class="dropdown-content">
-                <a (click)="goToAccount()">My Information </a>
-                  <a (click)="goToFav()">My Movies</a>
-                  <a (click)="goaddBalance()">Add To my wallet</a>
-                  <a (click)="gototestimonial()">Add testimonial</a>
-                  <!-- <a (click)="goTochangePass()">Password Setting</a> -->
+              <div style="margin-right: -109px;margin-top: -15px;" class="dropdown-content">
+                <a   (click)="goToAccount()">My Information <i class="fas fa-info-circle"></i>
+                </a>
+                  <a (click)="goToFav()">My Movies <i class="fas fa-film"></i>
+
+                  </a>
+                  <a (click)="goaddBalance()">Add To my wallet <i class="fas fa-wallet"></i>
+
+                  </a>
+                  <a (click)="goTochangePass()">Password Setting <i class="fas fa-key"></i>
+
+                  </a>
+                  <a (click)="gototestimonial()">Add testimonial <i class="far fa-star"></i>
+                  </a>
                   </div>
           </div>
         </i>
@@ -42,14 +48,14 @@
         </div>
       </div>
     </header>
-    <div class="intro">
+    <!-- <div class="intro">
       <img src="../../../assets/images/movies-images/{{item.img}}" alt="The Grey" class="intro-image"> 
         <div  *ngFor="let item1 of GetAllTrending;let i=index">
           <div  *ngFor="let item2 of Movielanding;let j=index" class="home_content mtop">
             <div *ngIf="item1.Id==item2.Id" class="container">
               <div *ngIf="i < 1 &&j < 1" class="left">
                 <div class="intro-text">
-                <br><br><h2 style="text-align: justify;text-justify: inter-word;font-size: 45px;">{{item1.name}}</h2>
+                <br><br><h2 style="text-align: justify;text-justify: inter-word;font-size: 45px;text-transform: uppercase;">{{item1.name}}</h2>
                 <div class="time flex">
                   <p>{{item1.price}}$</p>
                   <i class="fas fa-circle"></i>
@@ -71,9 +77,29 @@
             </div>
           </div></div>
       </div>
-    </div>
-<br><br><br><br>
+    </div> -->
 
-  </div>
+
+    <div  id="container">
+      <ul    id="slides">
+        <div *ngFor="let item1 of GetAllTrending;let i=index">
+        <li *ngIf="i<=4" (click)="goToDtailsmain(item1.movieId)" style="background-image: url('../../../assets/images/movies-images/{{item1.img}}');background-size: cover;" class="slide">
+          <h1 class="title"><span class="title-text">{{item1.name}}</span></h1> 
+        </li>
+      </div> </ul>
+      <ul id="slide-select">
+        <li class="selector"></li>
+        <li class="selector"></li>
+        <li class="selector"></li>
+        <li class="selector"></li>
+      </ul>
+    </div>
+    
+    </div> 
+
+
 </section>
 </div>
+
+
+

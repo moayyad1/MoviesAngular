@@ -19,6 +19,9 @@ export class DashboardComponent implements OnInit {
   topRated:any=[{}];
   GetAllMovies:any=[{}];
   GetEvaluation:any=[{}];
+  moviesEval:any=[{}];
+  MinimalRated:any=[{}];
+
   constructor(private route: Router, private servie: MyServiceService,private service: MovieServiceService) {
     servie
       .requestCall(
@@ -57,9 +60,7 @@ export class DashboardComponent implements OnInit {
             new Date(b.releaseDate).getTime() -
             new Date(a.releaseDate).getTime()
         );
-        console.warn(this.newistMovies);
       });
-
       servie
       .requestCall('https://localhost:44391/api/payment/getTrending', 'Get')
       ?.subscribe((data) => {
@@ -69,6 +70,7 @@ export class DashboardComponent implements OnInit {
       ?.subscribe((data) => {
         this.AllMovies = data;
       });
+      
   }
 
   // AllMoviess()   
@@ -93,11 +95,57 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.GetEval();
-    // this.AllMoviess();
+    this.GetMoviesEvalt();
+
+      
+    
   }
-  GoToMovies() {
-    this.route.navigate(['Admin/moviesData']);
+  GetMoviesEvalt(){
+
+    this.servie.requestCall('https://localhost:44391/api/movie/GetCatMovie', 'Get')
+      ?.subscribe((data) => {
+        this.AllMovies = data;
+      });
+
+    this.servie
+      .requestCall('https://localhost:44391/api/Movie/GetMoviesEval', 'Get')
+      ?.subscribe((data) => {
+        this.moviesEval = data;
+        let x=0;
+        let list:any=[];
+        this.AllMovies.forEach((mov:any) => {
+          this.moviesEval.forEach((evalu:any) => {
+            
+            if(mov.id==evalu.id &&evalu.eval>75  && x<6){
+              mov.eval=evalu.eval;
+              list.push(mov);
+              x=x+1;
+              
+            }
+          });
+
+         
+        });
+        this.topRated=list;
+
+        let j=0;
+        let listM:any=[];
+        this.AllMovies.forEach((mov:any) => {
+          this.moviesEval.forEach((evalu:any) => {
+            
+            if(mov.id==evalu.id &&evalu.eval<75  && j<6 && evalu.eval!=0){
+              mov.eval=Math.round(evalu.eval);
+              listM.push(mov);
+              j=j+1;
+              
+            }
+          });
+
+         
+        });
+        this.MinimalRated=listM;
+
+      });
   }
   
 }

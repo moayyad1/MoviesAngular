@@ -1,8 +1,4 @@
-.fnc {
-    /* you can add color names and their values here
-    and then simply add classes like .m--blend-$colorName to .fnc-slide 
-    to apply specific color for mask blend mode */
-  }
+
   .fnc-slider {
     overflow: hidden;
     box-sizing: border-box;
@@ -329,7 +325,6 @@
     transform: scaleX(0) !important;
   }
   
-  /* NOT PART OF COMMON SLIDER STYLES */
   body {
     margin: 0;
   }
@@ -465,9 +460,7 @@
   .example-slider .fnc-nav__control {
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
   }
-  
-  /* COLORFUL SWITCH STYLES 
-     ORIGINAL DEMO - https://codepen.io/suez/pen/WQjwOb */
+
   .colorful-switch {
     position: relative;
     width: 180px;

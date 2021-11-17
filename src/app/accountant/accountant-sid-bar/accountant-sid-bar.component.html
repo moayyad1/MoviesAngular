@@ -1,0 +1,39 @@
+<div style="height:100%;" class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
+    <div class="logo">
+        <h2 style="color: red;margin-left: 15px;"> <i class="fa fa-film" aria-hidden="true"></i>
+          Movies</h2>
+    </div>
+    <div class="sidebar-wrapper">
+      <ul class="nav">
+        <li class="nav-item   ">
+          <a class="nav-link"  routerLink='/Accountant'>
+            <i class="material-icons">dashboard</i>
+            <p>Dashboard</p>
+           
+          </a>
+        </li>
+
+        <li class="nav-item ">
+          <a class="nav-link"routerLink='/Accountant/Profile' >
+            <i class="fa fa-user"></i>
+            <p >My Profile</p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" routerLink='/Accountant/Financials'>
+            <i class="material-icons">library_books</i>
+            <p>Financials</p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link"  routerLink='/Accountant/Payments'>
+            <i class="material-icons">bubble_chart</i>
+            <p>Payments</p>
+          </a>
+        </li>
+        
+
+        <button class="btnr btnr-danger" style="border-radius: 5%;padding: 10px; margin-left: 50px;margin-top: 20px" (click)="logOutBtn()">Log out</button>
+      </ul>
+    </div>
+  </div>

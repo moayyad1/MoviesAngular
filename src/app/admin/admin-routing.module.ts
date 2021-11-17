@@ -3,11 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminMoviesComponent } from './admin-movies/admin-movies.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UpdateComponent } from './update/update.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AccountantComponent } from './accountant/accountant.component';
 import { FinancialsComponent } from './financials/financials.component';
 import { PaymentsComponent } from './payments/payments.component';
 import { UsersComponent } from './users/users.component';
+import { TestimonialComponent } from './testimonial/testimonial.component';
 
 const routes: Routes = [
   {path:'',component:DashboardComponent},
@@ -16,7 +17,9 @@ const routes: Routes = [
   {path:'AdminAccountant',component:AccountantComponent},
   {path:'Financials',component:FinancialsComponent},
   {path:'Users',component:UsersComponent},
-  {path:'Payments',component:PaymentsComponent}
+  {path:'Payments',component:PaymentsComponent},
+  {path:'Payments',component:PaymentsComponent},
+  {path:'Testimonial',component:TestimonialComponent}
 
 ];
 
@@ -24,4 +27,6 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes),MatDialogModule],
   exports: [RouterModule]
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {
+  
+ }

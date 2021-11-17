@@ -60,3 +60,4 @@ this.route.navigate(["movies/best"])
     this.route.navigate(['movies/add_testimonial']);
   }
 }
+

@@ -76,4 +76,8 @@ GetCustomerById(customerId:number)
 {
  return this.http.get('https://localhost:44391/api/Customer/GetCustomerById/'+customerId);
 }
+GetCategory()
+{
+  return this.http.get('https://localhost:44391/api/Category/GetCategory');
+}
 }

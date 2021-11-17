@@ -13,6 +13,8 @@ import { UpdateAccountantComponent } from './update-accountant/update-accountant
 import { PaymentsComponent } from './payments/payments.component';
 import { NgxPrintModule} from 'ngx-print';
 import { FinancialsComponent } from './financials/financials.component';
+import { TestimonialComponent } from './testimonial/testimonial.component';
+
 import { UpdateMovieComponent } from './update-movie/update-movie.component';
 import { UsersComponent } from './users/users.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -31,7 +33,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FinancialsComponent,
     PaymentsComponent,
     UpdateMovieComponent,
-    UsersComponent
+    UsersComponent,
+    TestimonialComponent,
+    UpdateMovieComponent
   ],
   imports: [
     CommonModule,

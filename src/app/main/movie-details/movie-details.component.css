@@ -1,3 +1,5 @@
+@import 'font-awesome/css/font-awesome.min.css';
+
 *{
     margin: 5px;
     padding: 0px;
@@ -95,9 +97,9 @@ text-align: center;
 }
 .videoPlayer
 {
-    width: 60%;
+    width: 90%;
     margin-bottom: 5%;
-    margin-left: 20%;
+    margin-left: 5%;
 }
 
 .mybtn {

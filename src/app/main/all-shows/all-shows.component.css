@@ -18,6 +18,7 @@
   overflow: hidden;
   z-index: 1; 
   box-shadow: 6px 12px 13px 6px black;
+  margin-left: 12px;
 }
 .team-area .item .thumb:hover {
   opacity: 1;
