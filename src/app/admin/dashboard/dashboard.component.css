@@ -22072,6 +22072,11 @@
       transform: scale(0.75);
     }
   }
-  
+   .card{
+  background: #c2b8b80d !important;
+}
+  .dark-edition {
+    background-color: #161616 !important;
+  }
   /*# sourceMappingURL=dashboard-free.css.map */
   

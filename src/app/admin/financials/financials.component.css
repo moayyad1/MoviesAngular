@@ -4849,7 +4849,10 @@ td{
     flex: 1 1 auto;
     padding: 1.25rem;
   }
-  
+   
+  .dark-edition {
+    background-color: #161616 !important;
+  }
   .card-title {
     margin-bottom: 0.75rem;
     font-weight: bold;

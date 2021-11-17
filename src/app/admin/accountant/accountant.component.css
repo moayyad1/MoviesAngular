@@ -14,7 +14,10 @@
  */
 /*     brand Colors              */
 
-
+ 
+.dark-edition {
+  background-color: #161616 !important;
+}
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons");
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css");
 .card {
@@ -19687,16 +19690,12 @@
   
   .dark-edition .btnr.btnr-primary {
     color: #fff;
-    background-color: #913f9e;
+    background-color: #ef3939 !important;
     border-color: #913f9e;
-    box-shadow: 0 2px 2px 0 rgba(145, 63, 158, 0.14), 0 3px 1px -2px rgba(145, 63, 158, 0.2), 0 1px 5px 0 rgba(145, 63, 158, 0.12);
+   
   }
   
-  .dark-edition .btnr.btnr-primary:hover {
-    color: #fff;
-    background-color: #9b43a9;
-    border-color: #692e72;
-  }
+
   
   .dark-edition .btnr.btnr-primary:focus,
   .dark-edition .btnr.btnr-primary.focus,
