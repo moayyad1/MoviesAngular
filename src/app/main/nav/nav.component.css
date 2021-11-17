@@ -231,6 +231,7 @@ header.sticky .subscribe {
       0px rgba(0, 0, 0, 0.2);
   z-index: 1;
     width: 160px;
+    min-width: 190px;
 }
 
 .dropdown-content a {

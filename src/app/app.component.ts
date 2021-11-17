@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'test';
+  myScriptFile:HTMLScriptElement;
+ 
+  seconScript:HTMLScriptElement;
+  constructor() {        
+       this.myScriptFile=document.createElement("script")
+       this.myScriptFile.src="../../../../assets/jsFile/homePageSlider.js"
+       this.seconScript=document.createElement("script")
+        document.body.appendChild(this.myScriptFile)
+}
 }

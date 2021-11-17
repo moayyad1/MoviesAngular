@@ -7,15 +7,21 @@ import { MovieServiceService } from 'src/app/services/movie-service.service';
   styleUrls: ['./all-shows.component.css']
 })
 export class AllShowsComponent implements OnInit {
-
 search:any
 trending:any=[{}];
 user:any={};
-  constructor(private movieService:MovieServiceService,private route:Router) { }
+categories:any=[{}];
+categoryId:any;
+  constructor(private movieService:MovieServiceService,private route:Router) {
 
+    }
+    
   ngOnInit(): void {
     this.getTrending();
     this.IsUserOwnIt();
+    this.GetCategory();
+    console.warn(this.categories);
+    
   }
   getTrending()
   {  
@@ -31,6 +37,11 @@ user:any={};
   IsUserOwnIt()
   {
     this.user=localStorage.getItem('userToken');
+  }
+  GetCategory()
+  {
+    this.movieService.GetCategory().subscribe((res:any) => { (this.categories=res);     console.warn(this.trending) },
+    err => { console.log(err) })
   }
 
 }

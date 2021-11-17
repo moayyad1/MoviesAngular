@@ -29,7 +29,7 @@ import {NgxPrintModule} from 'ngx-print';
     MatProgressSpinnerModule,
     MatDialogModule,
     NgxPrintModule,
-    NgSelectModule
+    NgSelectModule,
    ],
    exports:[
     FormsModule,
@@ -45,7 +45,7 @@ import {NgxPrintModule} from 'ngx-print';
     MatProgressSpinnerModule,
     MatDialogModule,
     NgxPrintModule,
-    NgSelectModule
+    NgSelectModule,
     ],
    providers: [HttpClient]
 

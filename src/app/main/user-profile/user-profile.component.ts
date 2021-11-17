@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
@@ -19,6 +19,13 @@ export class UserProfileComponent implements OnInit {
   CustomerData:any=[{}];
   Customers:any=[{}];
   customerId:any=localStorage.getItem('CustomerId');
+
+  UpdateDataForm: FormGroup = new FormGroup({
+    firstName: new FormControl('', [Validators.required]),
+    lastName: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required,Validators.email]),
+    phone: new FormControl('', [Validators.required]),
+    })
 
   ngOnInit(): void {
     this.GetCustomerById();
@@ -81,6 +88,4 @@ export class UserProfileComponent implements OnInit {
 
       );
   }
-
-  
-}
+  }
