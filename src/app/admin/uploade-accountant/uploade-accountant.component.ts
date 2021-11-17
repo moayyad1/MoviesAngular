@@ -85,7 +85,7 @@ export class UploadeAccountantComponent implements OnInit {
             )
             ?.subscribe((data) => {
               this.holderList = data;
-              debugger
+              
               const accountantId = this.holderList.id;
               let loginCustomer = {
                 userName: addAccountant.value.UserName,
@@ -107,7 +107,7 @@ export class UploadeAccountantComponent implements OnInit {
                   (data) => {   
                     this.toaster.success('account created successfully')
                     this.spinner.hide();
-                    debugger
+                    
                   },
                   (err) => {
                     this.toaster.error("error while create account")

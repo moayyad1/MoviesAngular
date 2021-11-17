@@ -15,6 +15,7 @@ import { NgxPrintModule} from 'ngx-print';
 import { FinancialsComponent } from './financials/financials.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 
+import { UpdateMovieComponent } from './update-movie/update-movie.component';
 
 
 @NgModule({
@@ -29,7 +30,11 @@ import { TestimonialComponent } from './testimonial/testimonial.component';
     UpdateAccountantComponent,
     FinancialsComponent,
     PaymentsComponent,
+<<<<<<< HEAD
     TestimonialComponent
+=======
+    UpdateMovieComponent
+>>>>>>> f29092d7f2be9e08f9f45c9ea3c363ab3e11f4a5
   ],
   imports: [
     CommonModule,

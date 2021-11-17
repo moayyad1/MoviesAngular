@@ -18,6 +18,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { MyFavouratiesComponent } from './user-profile/my-favouraties/my-favouraties.component';
 import { AddToWalletComponent } from './user-profile/add-to-wallet/add-to-wallet.component';
 import { ChangePasswordComponent } from './user-profile/change-password/change-password.component';
+import { AddTestimonialComponent } from './user-profile/add-testimonial/add-testimonial.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
@@ -37,7 +38,8 @@ const routes: Routes = [
   {path:'user_profile',component:UserProfileComponent},
   {path:'user_favouraties',component:MyFavouratiesComponent},
   {path:'add_balance',component:AddToWalletComponent},
-  {path:'change_pass',component:ChangePasswordComponent}
+  {path:'change_pass',component:ChangePasswordComponent},
+  {path:'add_testimonial',component:AddTestimonialComponent}
 ];
 
 @NgModule({
