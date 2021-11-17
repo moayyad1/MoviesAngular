@@ -30,11 +30,8 @@ import { UpdateMovieComponent } from './update-movie/update-movie.component';
     UpdateAccountantComponent,
     FinancialsComponent,
     PaymentsComponent,
-<<<<<<< HEAD
-    TestimonialComponent
-=======
+    TestimonialComponent,
     UpdateMovieComponent
->>>>>>> f29092d7f2be9e08f9f45c9ea3c363ab3e11f4a5
   ],
   imports: [
     CommonModule,
