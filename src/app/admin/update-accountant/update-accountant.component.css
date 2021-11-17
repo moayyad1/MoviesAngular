@@ -22070,32 +22070,6 @@ fieldset[disabled][disabled] .dark-edition .has-error .form-control,
 }
 
 
-@keyframes heartbeat {
-  0% {
-    transform: scale(0.75);
-  }
-
-  20% {
-    transform: scale(1);
-  }
-
-  40% {
-    transform: scale(0.75);
-  }
-
-  60% {
-    transform: scale(1);
-  }
-
-  80% {
-    transform: scale(0.75);
-  }
-
-  100% {
-    transform: scale(0.75);
-  }
-}
-
 /*# sourceMappingURL=dashboard-free.css.map */
 
 
@@ -22104,8 +22078,7 @@ fieldset[disabled][disabled] .dark-edition .has-error .form-control,
     font-family: "Avenir Next", "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     color: #ffffff;
-    line-height: 1.5;
-    height: 900px;
+
   }
   
   h1 {

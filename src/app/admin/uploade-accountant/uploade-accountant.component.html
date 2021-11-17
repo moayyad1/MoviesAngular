@@ -8,7 +8,7 @@
           </div>
       </div>
     </div>
-    <form style="padding-bottom: 50px;" class="mt-4" #addAccountant="ngForm"(ngSubmit)="createAccountant(addAccountant, profilePic.files)">
+    <form style="padding-bottom: 50px;" class="mt-4" #addAccountant="ngForm"(ngSubmit)="createAccountant(addAccountant)">
       <div class="row">
         <div class="form-group col">
           <fieldset class="form-fieldset ui-input __first"></fieldset>
@@ -17,7 +17,6 @@
             style="text-align: center"
             type="text"
             [(ngModel)]="firstName"
-            [ngStyle]="{ border: getColor(1) }"
             class="form-control mb-0"
             id="firstname"
             name="firstName"
@@ -32,7 +31,6 @@
             style="text-align: center"
             type="text"
             [(ngModel)]="lastName"
-            [ngStyle]="{ border: getColor(2) }"
             class="form-control mb-0"
             id="lastname"
             name="lastName"
@@ -42,14 +40,13 @@
           />
         </div>
       </div>
-      <br>
+
       <div class="row">
         <div class="form-group col">
           <input
             required
             style="text-align: center"
             ngModel
-            [ngStyle]="{ border: getColor(3) }"
             [(ngModel)]="userName"
             type="text"
             ngModel
@@ -65,7 +62,7 @@
         
       </div>
 
-      <br>
+    
       <div class="row">
         <div class="form-group col">
           <i
@@ -113,7 +110,7 @@
             minlength="8"
           />
         </div>
-      </div><br>
+      </div>
       
       <div class="form-group">
         <input
@@ -121,7 +118,6 @@
           required
           style="text-align: center"
           type="text"
-          [ngStyle]="{ border: getColor(2) }"
           class="form-control mb-0"
           id="phone"
           name="phone"
@@ -129,31 +125,13 @@
           autocomplete="off"
           required
         />
-      </div><br>
-      
+      </div>
+
       <div class="form-group">
         <input
           required
           style="text-align: center"
           ngModel
-          [ngStyle]="{ border: getColor(3) }"
-          [(ngModel)]="userName"
-          type="text"
-          ngModel
-          class="form-control mb-0"
-          id="UserName"
-          name="UserName"
-          placeholder="Username"
-          autocomplete="off"
-          required
-        />
-      </div><br>
-      <div class="form-group">
-        <input
-          required
-          style="text-align: center"
-          ngModel
-          [ngStyle]="{ border: getColor(3) }"
           
           type="number"
           ngModel
@@ -164,13 +142,12 @@
           autocomplete="off"
           required
         />
-      </div><br>
+      </div>
       <div class="form-group">
         <select 
           required
           style="text-align: center"
           ngModel
-          [ngStyle]="{ border: getColor(3) }"
 
           type="text"
           ngModel
@@ -185,7 +162,7 @@
         <option value="M">Male</option>
         <option value="F">Female</option>
       </select>
-      </div><br>
+      </div>
       <div class="form-group">
         <i
           class="help-block"
@@ -214,32 +191,9 @@
           autocomplete="off"
           required
         />
-      </div><br>
+      </div>
       
-      
-      <div
-        class="form-group"
-        style="border: 0.5px solid gray; margin-top: 20px"
-      >
-        <div class="mb-3 offset-4">
-          <label
-            for="formFile"
-            style="color: white"
-            class="form-label"
-            >Accountant Image :</label
-          ><br />
-          <input
-            type="file"
-            ngModel
-            id="profilePic"
-            name="profilePic"
-            #profilePic
-            placeholder="choose File"
-            style="color: gray"
-          />
 
-        </div>
-      </div><br>
 
       
 

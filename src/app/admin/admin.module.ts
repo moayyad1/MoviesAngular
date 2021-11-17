@@ -13,6 +13,8 @@ import { UpdateAccountantComponent } from './update-accountant/update-accountant
 import { PaymentsComponent } from './payments/payments.component';
 import { NgxPrintModule} from 'ngx-print';
 import { FinancialsComponent } from './financials/financials.component';
+import { TestimonialComponent } from './testimonial/testimonial.component';
+
 
 
 @NgModule({
@@ -26,13 +28,14 @@ import { FinancialsComponent } from './financials/financials.component';
     UploadeAccountantComponent,
     UpdateAccountantComponent,
     FinancialsComponent,
-    PaymentsComponent
+    PaymentsComponent,
+    TestimonialComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     SharedModule,
-    NgxPrintModule
+    NgxPrintModule,
   ]
 })
 export class AdminModule { }

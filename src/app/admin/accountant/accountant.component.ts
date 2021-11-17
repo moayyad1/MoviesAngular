@@ -46,14 +46,14 @@ export class AccountantComponent implements OnInit {
     this.IdService.accountantId = id;
     const dialogvar= this.myDialog.open(UpdateAccountantComponent, {  
       height: '800px',  
-      width: '1000px',   
+      width: '900px',   
      })
      dialogvar.afterClosed().subscribe(()=> this.getAccountant());
 }
 Upload(){
   const dialogvar= this.myDialog.open(UploadeAccountantComponent, {  
-     height: '800px',  
-     width: '1000px',   
+    height: '800px',  
+    width: '900px',    
    }
    )
    dialogvar.afterClosed().subscribe(()=> this.getAccountant());

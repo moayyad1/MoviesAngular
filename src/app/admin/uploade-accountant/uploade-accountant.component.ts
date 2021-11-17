@@ -55,12 +55,9 @@ export class UploadeAccountantComponent implements OnInit {
     this.myService.uploadAttachment(formData);
     }
 
-  createAccountant(addAccountant: NgForm,imageFile:any) {
+  createAccountant(addAccountant: NgForm) {
       this.spinner.show();
-      const ImageName =imageFile[0].name
-    
-      this.uploadFile(imageFile);
- 
+     
     
     let AccountantObject = {
       firstName: addAccountant.value.firstName,
@@ -68,7 +65,7 @@ export class UploadeAccountantComponent implements OnInit {
       phone: addAccountant.value.phone,
       email: addAccountant.value.email,
       gender: addAccountant.value.gender,
-      img: ImageName,
+      img: 'default.jpg',
       salary: addAccountant.value.salary,
       wallet:0
       

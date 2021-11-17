@@ -66,31 +66,19 @@
         <div class="content">
           <div class="container-fluid">
             <div class="row">
-              <div class="col-md-8">
+              <div class="col-md-10">
                 <div class="card">
                   <div class="card-header card-header-primary">
                     <div class="">
                       <div class="">
-                        <h4 class="card-title">Movies</h4>
-                        <p class="card-category">movies details</p>
+                        <h4 class="card-title">Testimonial</h4>
+                        <p class="card-category">Activate testimonial</p>
                       </div>
                       <div style="display: flex;flex-direction:row; justify-content:space-evenly">
 
 
                         <div class="form-group">
-                          <label for="inputState">Categorys</label>
-                          <select [(ngModel)]="categoryId" id="inputState" class="form-control">
-                            <option style="color: black;" value="0" >ALL</option>
-                            <option style="color: black;" *ngFor="let item of Categorys" value="{{item.id}}" >{{item.name}}</option>
-                          </select>
-                        </div>
-
-                        <div class="form-group">
-                          <label for="inputState">search</label>
-                          <div style="display: flex;flex-direction:row;">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                            <input [(ngModel)]="nameSearch" (ngModelChange)="search()" id="inputState" class="form-control" placeholder=''>  
-                          </div>
+                          
                           
                             
                           
@@ -105,45 +93,30 @@
                   
                   <div class="card-body">
                     <div class="card-body table-responsive">
-                        <table class="table table-hover">
+                         <table class="table table-hover">
                           <thead class="text-warning">
                             <th>Image</th>
                             <th>Name</th>
-                            <th>Language</th>
-                            <th>Price</th>
-                            <th></th>
+                            <th>message</th>
+                            <th>stars</th>
                             <th></th>
                           </thead>
                           <tbody>
-                              <tr *ngFor="let item of allMovies">
-                                <td *ngIf="item.categoryId == categoryId || categoryId == 0" ><img style="border-radius:20%;margin: 0 !important;padding:  0 !important;" src="../../../assets/images/movies-images/{{item.img}}" alt="" height="80" width="90"></td>
-                                <td *ngIf="item.categoryId == categoryId || categoryId == 0"> {{item.name}} </td>
-                                <td *ngIf="item.categoryId == categoryId || categoryId == 0">{{item.language}}</td>
-                                <td *ngIf="item.categoryId == categoryId || categoryId == 0">{{item.price}}</td>
-                                <td *ngIf="item.categoryId == categoryId || categoryId == 0"><button (click)="Update()" class="btnr btnr-primary btnr-sm">Update</button></td>
-                                <td *ngIf="item.categoryId == categoryId || categoryId == 0"><button class="btnr btnr-default btnr-sm">Delete</button></td>
+                              <tr *ngFor="let item of testCus">
+                                  <td><img style="border-radius:20%;margin: 0 !important;padding:  0 !important;" src="../../../assets/images/customerImages/{{item.img}}" alt="" height="80" width="90"></td>
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.message}}</td>
+                                    <td>{{item.stars}}</td>
+                                    <td *ngIf="item.isActive==0"><input type="submit" (click)="Activation(item.id,item.customerId,item.message,item.stars)" class="btnr btnr-primary btnr-sm" value="Activation"></td>
+                                    <td *ngIf="item.isActive==1"><input type="submit" (click)="Disable(item.id,item.customerId,item.message,item.stars)"class="btnr btnr-default btnr-sm" value="Disable"></td> 
                             </tr> 
                           </tbody>
-                        </table>
+                        </table> 
                       </div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="card card-profile">
-                  <div class="card-avatar">
-                    
-                  </div>
-                  <div class="card-body">
-                    <h6 class="card-category"></h6>
-                    <h4 class="card-title">Add new</h4>
-                    <p class="card-description">
-                        To add a new movie, click on the button                    </p>
-                    <a class="btnr btnr-primary btnr-round"  (click)="Update()"><i class="fa fa-plus" aria-hidden="true"></i></a>
-                 
-                  </div>
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -153,16 +126,11 @@
               
             </nav>
             <div class="copyright float-right" id="date">
-               made with <i class="material-icons">favorite</i> by
-              <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+              
             </div>
           </div>
         </footer>
-        <script>
-          const x = new Date().getFullYear();
-          let date = document.getElementById('date');
-          date.innerHTML = '&copy; ' + x + date.innerHTML;
-        </script>
+        
       </div>
     </div>
    

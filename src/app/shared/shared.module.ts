@@ -13,6 +13,8 @@ import {MatProgressSpinnerModule} from'@angular/material/progress-spinner';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NgSelectModule } from '@ng-select/ng-select';
 import {NgxPrintModule} from 'ngx-print';
+
+
 @NgModule({
   declarations: [],
   imports: [
@@ -29,7 +31,8 @@ import {NgxPrintModule} from 'ngx-print';
     MatProgressSpinnerModule,
     MatDialogModule,
     NgxPrintModule,
-    NgSelectModule
+    NgSelectModule,
+    
    ],
    exports:[
     FormsModule,
@@ -45,7 +48,8 @@ import {NgxPrintModule} from 'ngx-print';
     MatProgressSpinnerModule,
     MatDialogModule,
     NgxPrintModule,
-    NgSelectModule
+    NgSelectModule,
+    
     ],
    providers: [HttpClient]
 
