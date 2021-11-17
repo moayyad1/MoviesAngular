@@ -8,9 +8,9 @@
 </div>
 
 <div class="info">
-<div class="movie-title">{{MovieById.name}}<br>
-    <button *ngIf="InFavouraties" class="mybtn success">In Your Favourites<i style="color: hotpink;" class="fa fa-heart red"></i></button>
-    <button *ngIf="!InFavouraties" (click)="AddToFav()" class="mybtn success">Favourites <i class="fa fa-heart red"></i></button>
+<div class="movie-title">{{MovieById.name}}<br>  
+    <button *ngIf="InFavouraties" class="mybtn success">In Your Favourites </button>
+    <button *ngIf="!InFavouraties" (click)="AddToFav()" class="mybtn success">Favourites <i class="small material-icons" style="color: hotpink;">accessibility</i></button>
     <button *ngIf="!isUserOwnMovie" (click)="BuyMovie()"  class="mybtn warning ">Buy Movie <i class="fa fa-shopping-cart red"></i></button>
     <button *ngIf="isUserOwnMovie"  class="mybtn warning ">You own this movie<i style="color: greenyellow;" class="fa fa-shopping-cart red"></i></button>
 

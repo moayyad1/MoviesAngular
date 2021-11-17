@@ -14,6 +14,8 @@ import { PaymentsComponent } from './payments/payments.component';
 import { NgxPrintModule} from 'ngx-print';
 import { FinancialsComponent } from './financials/financials.component';
 import { UpdateMovieComponent } from './update-movie/update-movie.component';
+import { UsersComponent } from './users/users.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -28,13 +30,15 @@ import { UpdateMovieComponent } from './update-movie/update-movie.component';
     UpdateAccountantComponent,
     FinancialsComponent,
     PaymentsComponent,
-    UpdateMovieComponent
+    UpdateMovieComponent,
+    UsersComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     SharedModule,
-    NgxPrintModule
+    NgxPrintModule,
+    Ng2SearchPipeModule
   ]
 })
 export class AdminModule { }

@@ -7,6 +7,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { AccountantComponent } from './accountant/accountant.component';
 import { FinancialsComponent } from './financials/financials.component';
 import { PaymentsComponent } from './payments/payments.component';
+import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
   {path:'',component:DashboardComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'AdminUpdate',component:UpdateComponent},
   {path:'AdminAccountant',component:AccountantComponent},
   {path:'Financials',component:FinancialsComponent},
+  {path:'Users',component:UsersComponent},
   {path:'Payments',component:PaymentsComponent}
 
 ];
