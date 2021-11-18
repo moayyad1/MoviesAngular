@@ -18,6 +18,7 @@ import { TestimonialComponent } from './testimonial/testimonial.component';
 import { UpdateMovieComponent } from './update-movie/update-movie.component';
 import { UsersComponent } from './users/users.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     UpdateMovieComponent,
     UsersComponent,
     TestimonialComponent,
-    UpdateMovieComponent
+    UpdateMovieComponent,
+    UserDetailsComponent
   ],
   imports: [
     CommonModule,

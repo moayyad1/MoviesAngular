@@ -1,9 +1,8 @@
 .mat-dialog-container {
     display: block;
-    padding: 0;
-    border-radius: 4
-px
-;
+    padding: 24px !important;
+    border-radius: 4px;
+   background: rgba(0, 0, 0, 0.85)!important;
     box-sizing: border-box;
     overflow: auto;
     outline: 0;

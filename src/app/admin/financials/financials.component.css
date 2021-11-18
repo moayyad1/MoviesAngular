@@ -4853,6 +4853,12 @@ td{
   .dark-edition {
     background-color: #161616 !important;
   }
+  .btnr-success {
+    color: #ffffff !important;
+    background-color: #ff3c3c !important;
+    border-color: #393d3a !important;
+    box-shadow: 1px 1px 0 0 black !important;
+}
   .card-title {
     margin-bottom: 0.75rem;
     font-weight: bold;

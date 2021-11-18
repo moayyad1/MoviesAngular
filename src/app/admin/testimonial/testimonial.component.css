@@ -19558,6 +19558,10 @@ body{
     }
   }
   
+  .dark-edition .text-warning {
+    color: #dad4cf !important;
+    font-weight: bold !important;
+}
   .dark-edition {
     background-color: #161616 !important;
   }
@@ -20510,9 +20514,7 @@ body{
     background-color: #029eb1 !important;
   }
   
-  .dark-edition .navbar.bg-warning {
-    background-color: #f5700c !important;
-  }
+
   
   .dark-edition .navbar.bg-danger {
     background-color: #d22824 !important;
@@ -21970,7 +21972,9 @@ body{
   }
   
   .dark-edition .text-warning {
-    color: #f5700c !important;
+    color: white !important;
+    font-weight: bold;
+    text-transform: capitalize;
   }
   
   .dark-edition .text-danger {
