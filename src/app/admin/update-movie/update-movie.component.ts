@@ -89,7 +89,7 @@ export class UpdateMovieComponent implements OnInit {
          async data=>{
            console.warn(movieData.value);
            
-           debugger
+           
             await this.uploadImageVideo(imageFile)
             await  this.uploadVideo(vidoeFile)
              this.toast.success("Movie Updated Succefully");

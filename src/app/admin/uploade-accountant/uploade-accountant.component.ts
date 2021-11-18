@@ -65,7 +65,7 @@ export class UploadeAccountantComponent implements OnInit {
       phone: addAccountant.value.phone,
       email: addAccountant.value.email,
       gender: addAccountant.value.gender,
-      img: 'default.jpg',
+      img: 'user.png',
       salary: addAccountant.value.salary,
       wallet:0
       

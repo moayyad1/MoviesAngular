@@ -1,4 +1,7 @@
+
 let $slides, interval, $selectors, $btns, currentIndex, nextIndex;
+
+
 
 let cycle = index => {
   let $currentSlide, $nextSlide, $currentSelector, $nextSelector;

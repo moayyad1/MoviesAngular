@@ -48,7 +48,7 @@
         </div>
       </div>
     </header>
-    <div class="intro">
+    <!-- <div class="intro">
       <img src="../../../assets/images/movies-images/{{item.img}}" alt="The Grey" class="intro-image"> 
         <div  *ngFor="let item1 of GetAllTrending;let i=index">
           <div  *ngFor="let item2 of Movielanding;let j=index" class="home_content mtop">
@@ -77,10 +77,10 @@
             </div>
           </div></div>
       </div>
-    </div>
+    </div> -->
 
 
-    <!-- <div  id="container">
+    <div  id="container">
       <ul    id="slides">
         <div *ngFor="let item1 of GetAllTrending;let i=index">
         <li *ngIf="i<=4" (click)="goToDtailsmain(item1.movieId)" style="background-image: url('../../../assets/images/movies-images/{{item1.img}}');background-size: cover;" class="slide">
@@ -93,7 +93,8 @@
         <li class="selector"></li>
         <li class="selector"></li>
       </ul>
-    </div> -->
+    </div>
+    
     </div> 
 
 
