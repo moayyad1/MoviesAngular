@@ -1,5 +1,5 @@
 <app-nav></app-nav>
-<section id="contact">
+<!-- <section id="contact">
     <div style="width: 55%;" class="rt-container">
           <div class="col-rt-12">
               <div  class="Scriptcontent">
@@ -24,30 +24,6 @@
                             <span>{{item.email}}</span>
                         </p>
                     </div>
-                    <div  class="contact-child child2">
-                        <div class="inside-contact">
-                          <form   #usersForm="ngForm" (ngSubmit)="getUserFormData(usersForm.value)">
-                            <h2>Contact Us</h2>
-
-
-                            <p>Name </p>
-                            <input id="txt_name" ngModel name="Name" type="text" required>
-
-                            <p>Email *</p>
-                            <p class="ErrorMessage" *ngIf="!email.valid && email.touched">Please Enter A vaild Email</p>
-                            <input id="txt_email"  #email="ngModel" email [(ngModel)]="userEmail" name="Email" type="text" required>
-
-                            <p>Phone </p>
-                            <input id="txt_phone"ngModel name="Phone"  number required>
-
-                            <p>Message </p>
-                            <textarea id="txt_message" name="Message" ngModel rows="4" cols="20" required ></textarea>
-
-                            <input value="Send" class="btn btn-danger offset-3" type="submit" id="btn_send" [disabled]="!usersForm.valid" >
-                           </form>
-
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -57,5 +33,30 @@
         </div>
     </div>
 
-</section>
+</section> -->
+
+  <div class="container">
+    <div class="content">
+      <div class="image-box">
+       <img src="../../../assets/images/contact.svg" alt="">
+      </div>
+    <form #usersForm="ngForm" (ngSubmit)="getUserFormData(usersForm.value)">
+      <div class="topic">Send us a message</div>
+      <p style="color: red;" class="ErrorMessage" *ngIf="!email.valid && email.touched">Please Enter A vaild Email!</p>
+      <div class="input-box">
+        <input placeholder="Enter Your Name" ngModel name="Name" type="text" required>
+      </div>
+      <div class="input-box">
+        <input placeholder="Enter Your Email" #email="ngModel" email [(ngModel)]="userEmail" name="Email" required>
+      </div>
+      <div class="input-box">
+        <input placeholder="Enter Your Phone" ngModel name="Phone"  number required >
+      </div>
+      <div class="input-box">
+        <input placeholder="Enter Your Message" id="txt_message" name="Message" ngModel rows="4" cols="20" required >
+      </div>
+        <input style="margin-left: 10px;width: 90%;" value="Send" class="btn btn-danger offset-3" type="submit" id="btn_send" [disabled]="!usersForm.valid" >
+    </form>
+  </div>
+  </div>
 <app-footer></app-footer>

@@ -23,6 +23,7 @@ export class MovieDetailsComponent implements OnInit {
   CustomerData:any=[{}];
   isUserOwnMovie:any;
   InFavouraties:any;
+  IsRated:any;
   CusVisaNumber:any;
   checkWallet:any;
   customerId:any=localStorage.getItem('CustomerId');
@@ -41,7 +42,7 @@ export class MovieDetailsComponent implements OnInit {
     this.IsUserOwnIt();
     this.IsInFavouraties();
     this.GetCustomerById();
-    
+    this.IsUserRated();
   }
 
   GetMovieById()
@@ -121,6 +122,7 @@ addLike()
       }, 1500);
       this.toast.success('Rated successfully');  
       this.GetEval();      
+      this.IsUserRated();
     },
     (err) => {
       setTimeout(() => {
@@ -128,6 +130,7 @@ addLike()
       }, 1500);
       this.toast.error('Error While Rating')
       this.GetEval();
+      this.IsUserRated();
     }
   );
 }
@@ -146,6 +149,7 @@ addDisLike()
       }, 1500);
       this.toast.success('Rated successfully');
       this.GetEval();
+      this.IsUserRated();
              
     },
     (err) => {
@@ -153,7 +157,8 @@ addDisLike()
         this.spinner.hide();
       }, 1500);
       this.toast.error('Error While Rating');
-      this.GetEval();    
+      this.GetEval();   
+      this.IsUserRated(); 
     }
   );
 }
@@ -189,6 +194,11 @@ IsUserOwnIt()
 IsInFavouraties()
 {
   this.moviedetails.IsInFavouraties(this.customerId,this.MovieId).subscribe((res:any) =>{(this.InFavouraties=res)},
+  err => {console.log(err)})
+}
+IsUserRated()
+{
+  this.moviedetails.IsUserRated(this.customerId,this.MovieId).subscribe((res:any) =>{(this.IsRated=res)},
   err => {console.log(err)})
 }
 GetCustomerById()

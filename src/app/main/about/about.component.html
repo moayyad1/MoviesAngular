@@ -1,12 +1,13 @@
     <!-- use   window.location.reload -->
     
-    <app-nav></app-nav>>
+    <app-nav></app-nav>
+
     <section id="team" class="team-area">
       <div  class="container">
           <div  class="row">
               <div class="col-md-12">
                   <div class="site-heading text-center">
-                      <h2 style="color: whitesmoke;">Our <span style="color: red;">Team</span></h2>
+                      <h2 style="color: whitesmoke;">Our Team</h2>
                       <h4>Meet our awesome and expert team members</h4>
                   </div>
               </div>
@@ -122,6 +123,20 @@
                     </div>
                 </div>
               </div>
-      </div>
+      </div><br>
+        <div *ngFor="let item of websiteData" class="grid-container">
+            <div class="grid-item"> <i class="fas fa-map-marker-alt"></i> Address <br />
+                <span style="font-size: 17px;"> 
+                    Jordan,Irbid
+                </span></div>
+            <div class="grid-item">  <p >
+                <i  class="fas fa-phone-alt"></i> Let's Talk <br />
+                <span style="font-size: 17px;">{{item.phone}}</span>
+            </p></div>
+            <div class="grid-item">   <p>
+                <i class=" far fa-envelope"></i> General Support <br />
+                <span style="font-size: 17px;">{{item.email}}</span>
+            </p></div> 
+            </div>
   </section>
   <app-footer></app-footer>

@@ -29,7 +29,7 @@ export class AdminMoviesComponent implements OnInit {
     this.getCategory();
   }
   UploadMovie () {
-    const dialogvar = this.myDialog.open(UpdateMovieComponent, {
+    const dialogvar = this.myDialog.open(UploadMovieComponent, {
       height: '800px',
       width: '1400px',
     });

@@ -52,8 +52,9 @@ export class AccountantComponent implements OnInit {
 }
 Upload(){
   const dialogvar= this.myDialog.open(UploadeAccountantComponent, {  
-    height: '800px',  
-    width: '900px',    
+    height: 'fit-content',  
+    width: '900px',   
+     
    }
    )
    dialogvar.afterClosed().subscribe(()=> this.getAccountant());

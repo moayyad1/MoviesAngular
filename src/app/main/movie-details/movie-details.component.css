@@ -11,6 +11,12 @@ body {
     min-height:100vh;
     background-size: cover;
 }
+
+.grad
+{
+    border: 5px solid wheat;
+}
+
 .container {
     min-height:100vh;
     display: grid;

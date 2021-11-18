@@ -1,11 +1,13 @@
 .all {
-    background-color: #363E4A;
+   background: rgb(0,0,0,0.9) !important;
     font-family: "Avenir Next", "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     color: #ffffff;
     line-height: 1.5;
-    height: 900px;
+    height: fit-content;
+    padding: 0 !important;
   }
+  
   
   .mainTExt{
     font-weight: bold;
@@ -992,7 +994,7 @@
   a>code {
     color: inherit;
   }
-  
+
   kbd {
     padding: 0.2rem 0.4rem;
     font-size: 87.5%;
@@ -22114,7 +22116,7 @@
       font-size: 16px;
       color: #ffffff;
       line-height: 1.5;
-      height: 1400px;
+      height: fit-content;
     }
     
     h1 {

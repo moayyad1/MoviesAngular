@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
 import { MyServiceService } from 'src/app/shared/my-service.service';
+import { UserDetailsComponent } from '../user-details/user-details.component';
 
 
 @Component({
@@ -13,7 +15,7 @@ searchList:any=[]
 searchValue=''
 search:any
 
-  constructor(servie:MyServiceService) { 
+  constructor(public myDialog: MatDialog ,private servie:MyServiceService) { 
    servie.requestCall("https://localhost:44391/api/Customer/getCustomer","Get")?.subscribe(data=>{
      
    this.CustomerList=data
@@ -35,14 +37,20 @@ search:any
    
 
 }
+userDetails(id:any){
+const dialogConfig = new MatDialogConfig()
+  
+dialogConfig.height='800px'
+dialogConfig.width='1400px'
+dialogConfig.data={customerID:id}
+const DialogRef=this.myDialog.open(UserDetailsComponent,dialogConfig)
+
+}
+
 
 searchinCustomer(){
   this.appendJs()
 }
   
-  customerDetail(){
-
-    
-    this.appendJs()
-  }
+  
 }

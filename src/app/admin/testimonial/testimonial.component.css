@@ -14,6 +14,9 @@
  */
 /*     brand Colors              */
 
+body{
+  background-color: #a9adad !important
+}
 
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons");
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css");
@@ -4806,7 +4809,7 @@
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #fff;
+    background-color:#c2b8b80d !important; 
     background-clip: border-box;
     border: 1px solid #eeeeee;
     border-radius: 0.25rem;
@@ -19555,8 +19558,12 @@
     }
   }
   
+  .dark-edition .text-warning {
+    color: #dad4cf !important;
+    font-weight: bold !important;
+}
   .dark-edition {
-    background-color: #1a2035;
+    background-color: #161616 !important;
   }
   
   .dark-edition .btnr,
@@ -20507,9 +20514,7 @@
     background-color: #029eb1 !important;
   }
   
-  .dark-edition .navbar.bg-warning {
-    background-color: #f5700c !important;
-  }
+
   
   .dark-edition .navbar.bg-danger {
     background-color: #d22824 !important;
@@ -21967,7 +21972,9 @@
   }
   
   .dark-edition .text-warning {
-    color: #f5700c !important;
+    color: white !important;
+    font-weight: bold;
+    text-transform: capitalize;
   }
   
   .dark-edition .text-danger {

@@ -3909,7 +3909,10 @@ font-weight: bold;
     clip: rect(0, 0, 0, 0);
     pointer-events: none;
   }
-  
+   
+  .dark-edition {
+    background-color: #161616 !important;
+  }
   .input-group {
     position: relative;
     display: flex;

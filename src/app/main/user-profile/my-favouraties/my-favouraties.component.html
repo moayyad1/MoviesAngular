@@ -1,5 +1,5 @@
 <app-nav></app-nav>
-<br><h2 style="border-left: thick solid red;color: white;margin-left: 30px;">&ensp;Movies I own</h2>
+<!-- <br><h2 style="border-left: thick solid red;color: white;margin-left: 30px;">&ensp;Movies I own</h2>
 <div style="display:flex;flex-direction:row;flex-wrap: wrap">
   <div *ngFor="let item1 of GetAllMovies">
     <div *ngFor="let item2 of payments">
@@ -35,11 +35,40 @@
   </div>
     </div>
   </div>
+ -->
 
 
+ <div class="wrapper">
 
+	<h2><strong>Movies I Own</strong></h2>
 
+  <div style="display:flex;flex-direction:row;flex-wrap:wrap">
+  <div *ngFor="let item1 of GetAllMovies">
+    <div *ngFor="let item2 of payments">
+    <div *ngFor="let item3 of Customers">
+    <div (click)="goToDtails(item1.id)" *ngIf="item3.id==customerId && item2.customerId==customerId && item2.movieId==item1.id" class="cards">
+		<figure class="card">
+			<img src="../../../assets/images/movies-images/{{item1.img}}" />
+			<figcaption>{{item1.name}}</figcaption>
+		</figure>
+  </div>
+  </div>	
+</div>
+</div></div>
+	<h2><strong>My Favourites</strong></h2>
+  <div style="display:flex;flex-direction:row;flex-wrap:wrap">
+    <div *ngFor="let item1 of GetAllMovies">
+      <div *ngFor="let item2 of GetFav">
+      <div *ngFor="let item3 of Customers">
+      <div (click)="goToDtails(item1.id)" *ngIf="item3.id==customerId && item2.customerId==customerId && item2.movieId==item1.id" class="cards">
+      <figure class="card">
+        <img src="../../../assets/images/movies-images/{{item1.img}}" />
+        <figcaption>{{item1.name}}</figcaption>
+      </figure>
+    </div> <button (click)="DeleteFromFav(item2.id)" class="deleteButton" *ngIf="item3.id==customerId && item2.customerId==customerId && item2.movieId==item1.id">Delete</button>
+    </div>
+    </div>	
+  </div>
+  </div></div>
 
-
-  
 <app-footer></app-footer>
