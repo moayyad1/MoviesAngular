@@ -45,7 +45,7 @@ export class AddToWalletComponent implements OnInit {
       email:this.CustomerData.email,
       gender:this.CustomerData.gender,
       img:this.CustomerData.img,
-      wallet:(parseInt(this.CustomerData.wallet))+(updatewallet.value.wallet),
+      wallet:this.CustomerData.wallet+updatewallet.value.wallet,
       visaCard:updatewallet.value.visaCard.toString()
     };
   
@@ -70,23 +70,6 @@ export class AddToWalletComponent implements OnInit {
     );
   }
 
-  goToFav()
-  {
-    this.route.navigate(['movies/user_favouraties']);
-  }
-  goToAccount()
-  {
-    this.route.navigate(['movies/user_profile']);
-  }
-  goaddBalance()
-  {
-    this.route.navigate(['movies/add_balance']);
-
-  }
-  goTochangePass()
-  {
-    this.route.navigate(['movies/change_pass']);
-
-  }
+  
 
 }

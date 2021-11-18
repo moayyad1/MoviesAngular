@@ -72,6 +72,10 @@ IsInFavouraties(customerId:number,movieId:number)
 {
  return this.http.get('https://localhost:44391/api/CustomerList/IsInFavouraties/'+customerId+'/'+movieId);
 }
+IsUserRated(customerId:number,movieId:number)
+{
+ return this.http.get('https://localhost:44391/api/Evaluation/IsCustomerRated/'+customerId+'/'+movieId);
+}
 GetCustomerById(customerId:number)
 {
  return this.http.get('https://localhost:44391/api/Customer/GetCustomerById/'+customerId);
@@ -79,5 +83,9 @@ GetCustomerById(customerId:number)
 GetCategory()
 {
   return this.http.get('https://localhost:44391/api/Category/GetCategory');
+}
+GetLogin()
+{
+  return this.http.get('https://localhost:44391/api/Login/GetLogin');
 }
 }

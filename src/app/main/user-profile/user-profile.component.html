@@ -1,5 +1,5 @@
-<app-nav></app-nav>
-<section  class="py-5 my-5">
+<app-nav></app-nav><br><br>
+<section style="margin-left: -630px;" class="py-5 my-5">
     <div class="container">
         <div style="color: white;font-weight: bold;border-radius: 1%;" class="shadow rounded-lg d-block d-sm-flex">
             <div style="background-color: transparent" class="profile-tab-nav border-right">    
@@ -7,10 +7,10 @@
                     <div style="margin-top: -25%" *ngFor="let item of Customers" class="img-circle text-center mb-3">
                     <img  *ngIf="item.id==customerId" src="../../../assets/images/customerImages/{{item.img}}" alt="Image" class="shadow"> 
                     <h4 style="text-transform:uppercase ;" *ngIf="item.id==customerId" class="text-center"> {{item.firstName}} {{item.lastName}} </h4><br>
-                    <h6 *ngIf="item.id==customerId" class="text-center">Email :  <span style="color: yellowgreen;"> {{item.email}}</span></h6><br>
-                    <h6 *ngIf="item.id==customerId" class="text-center">Phone :  <span style="color: yellowgreen;">{{item.phone}}</span></h6><br>
-                    <h6 *ngIf="item.id==customerId" class="text-center">wallet balance : <span style="color: yellowgreen;">{{item.wallet}} $</span> </h6><br>
-                    <h6 *ngIf="item.id==customerId" class="text-center">VisaCard Number : <span style="color: yellowgreen;">{{item.visaCard}}</span></h6>
+                    <h6 *ngIf="item.id==customerId" class="text-center">Email :  <span style="color: cadetblue;"> {{item.email}}</span></h6><br>
+                    <h6 *ngIf="item.id==customerId" class="text-center">Phone :  <span style="color: cadetblue;">{{item.phone}}</span></h6><br>
+                    <h6 *ngIf="item.id==customerId" class="text-center">wallet balance : <span style="color: cadetblue;">{{item.wallet}} $</span> </h6><br>
+                    <h6 *ngIf="item.id==customerId" class="text-center">VisaCard Number : <span style="color: cadetblue;">{{item.visaCard}}</span></h6>
 
                 </div>
                 </div>
@@ -51,5 +51,6 @@
             </div>
         </div>
     </div>
-</section>
+</section><img width="550px" style="position: absolute;left:1300px;top:240px" src="../../../assets/images/info.svg" alt="">
 <app-footer></app-footer>
+

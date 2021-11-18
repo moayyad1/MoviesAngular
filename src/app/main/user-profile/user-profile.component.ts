@@ -15,17 +15,14 @@ export class UserProfileComponent implements OnInit {
   lastName:any;
   phone:any;
   email:any;
-  constructor(public moviedetails:MovieServiceService,private route:Router,private myservice:MyServiceService,private spinner:NgxSpinnerService,private toast:ToastrService) { }
+  EmailList:any=[];
+  customerEmailData:any={};
+  constructor(public moviedetails:MovieServiceService,private route:Router,private myservice:MyServiceService,private spinner:NgxSpinnerService,private toast:ToastrService) { 
+ 
+  }
   CustomerData:any=[{}];
   Customers:any=[{}];
   customerId:any=localStorage.getItem('CustomerId');
-
-  UpdateDataForm: FormGroup = new FormGroup({
-    firstName: new FormControl('', [Validators.required]),
-    lastName: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required,Validators.email]),
-    phone: new FormControl('', [Validators.required]),
-    })
 
   ngOnInit(): void {
     this.GetCustomerById();
@@ -35,6 +32,18 @@ export class UserProfileComponent implements OnInit {
   {
     this.moviedetails.GetCustomers().subscribe((res:any) =>{(this.Customers=res)},
     err => {console.log(err)})
+  }
+  CheckEmailExist(email:any)
+  {
+   this.GetCustomers();
+    let exist = false;
+    this.Customers.forEach((element:any) => {
+      if(element.email==email)
+      {
+        exist=true;
+      } 
+    }); 
+    return exist;
   }
   GetCustomerById()
   {
@@ -59,33 +68,43 @@ export class UserProfileComponent implements OnInit {
   }
   UpdateCustomerData(updateInfo:NgForm)
   {
-    this.spinner.show()
-    let updateCustomerObject={
-      id:parseInt(this.customerId),
-      firstName:updateInfo.value.firstName,
-      lastName:updateInfo.value.lastName,
-      phone:updateInfo.value.phone,
-      email:updateInfo.value.email,
-      gender:this.CustomerData.gender,
-      img:this.CustomerData.img,
-      wallet:this.CustomerData.wallet,
-      visaCard:this.CustomerData.visaCard
-     };
-      this.myservice.requestCall('https://localhost:44391/api/Customer/UpdateCustomer','Put',updateCustomerObject)?.subscribe(
-        (data) => {  
-          setTimeout(() => {
-            this.spinner.hide();
-          }, 1500);
-          this.toast.success('Information Updated successfully');  
-          this.GetCustomers();
-        },
-        (err) => {
-          setTimeout(() => {
-            this.spinner.hide();
-          }, 1500);
-          this.toast.error('Error While Updateing information')
-        }
+    if(!this.CheckEmailExist((updateInfo.value.email).toString()) || (updateInfo.value.email).toString()==(this.CustomerData.email).toString())
+    {
+      this.spinner.show()
+      let updateCustomerObject={
+        id:parseInt(this.customerId),
+        firstName:updateInfo.value.firstName,
+        lastName:updateInfo.value.lastName,
+        phone:updateInfo.value.phone,
+        email:updateInfo.value.email,
+        gender:this.CustomerData.gender,
+        img:this.CustomerData.img,
+        wallet:this.CustomerData.wallet,
+        visaCard:this.CustomerData.visaCard
+       };
+        this.myservice.requestCall('https://localhost:44391/api/Customer/UpdateCustomer','Put',updateCustomerObject)?.subscribe(
+          (data) => {  
+            setTimeout(() => {
+              this.spinner.hide();
+            }, 1500);
+            this.toast.success('Information Updated successfully');  
+            this.GetCustomers();
+          },
+          (err) => {
+            setTimeout(() => {
+              this.spinner.hide();
+            }, 1500);
+            this.toast.error('Error While Updateing information')
+          }         
+        );
+      
+    }
+    else{
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 1500);
+      this.toast.error('email already exist, try another one');  
+    }
+   }           
+  }
 
-      );
-  }
-  }

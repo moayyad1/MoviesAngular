@@ -34,6 +34,10 @@ export class ContactComponent implements OnInit {
           this.toastr.error("error while sent message")
         }
       );  
+      setTimeout(() => {
+        window.location.reload();
+            }, 1300); 
+     
   }
   getWebSiteDetails()
   {
