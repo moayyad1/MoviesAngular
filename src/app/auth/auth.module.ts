@@ -9,13 +9,15 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { HomeComponent } from './home/home.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     SingUpPageComponent,
     HomeComponent,
-    NavBarComponent
+    NavBarComponent,
+    ForgetPasswordComponent
       
   ],
   imports: [
