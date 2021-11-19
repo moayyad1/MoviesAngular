@@ -6,7 +6,7 @@
       </div>
       <nav>
         <ul id="menuitem">
-          <li><a routerLink="/movies/home">Home <i class="small material-icons" style="color: hotpink;">accessibility</i></a></li>
+          <li><a routerLink="/movies/home">Home</a></li>
           <li><a routerLink="/movies/all_shows">All Shows</a></li>
           <li><a routerLink="/movies/top_rated">Top Rated</a></li>
           <li><a routerLink="/movies/newest_movies" >Newest Movies</a></li>
@@ -19,9 +19,11 @@
         <i class="fas fa-ssearch"></i>
         <i>  <div class="dropdown">
           <button style="position: absolute;right: 0px;top:-34px;border-radius: 5%;z-index: 2" >
-            <i style="position: absolute;right: 20px;top:-5px;font-size: 36px;z-index: 2" class="fa fa-user-circle" aria-hidden="true"></i>
-          </button>             
-          <div style="margin-right: -109px;margin-top: -20px;z-index: 2;" class="dropdown-content">
+            <i style="position: absolute;right: 70px;top:-5px;font-size: 36px;z-index: 2" class="fa fa-user-circle" aria-hidden="true"></i>
+            <i style="position: absolute;right: 68px;top:-25px;font-size: 36px;text-transform: uppercase;"> <strong style="font-size: 15px;"><br>{{CustomerData.firstName}}</strong> </i>            
+          </button>
+      
+          <div style="margin-right: -90px;margin-top: -20px;z-index: 2;" class="dropdown-content">
             <a   (click)="goToAccount()">My Information <i class="fas fa-info-circle"></i>
             </a>
               <a (click)="goToFav()">My Movies <i class="fas fa-film"></i>

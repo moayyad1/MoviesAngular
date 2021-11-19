@@ -8,10 +8,19 @@ import { MovieServiceService } from 'src/app/services/movie-service.service';
 })
 export class NavComponent implements OnInit {
   websiteData:any = [{}];
+  CustomerData:any=[{}];
+  customerId:any=localStorage.getItem('CustomerId');
   constructor(private route:Router,private movieService:MovieServiceService ) { }
 
   ngOnInit(): void {
     this.getWebSiteDetails();
+    this.GetCustomerById();
+  }
+  GetCustomerById()
+  {
+    this.movieService.GetCustomerById(this.customerId).subscribe((res:any) =>{this.CustomerData=res},
+    err => {console.log(err)});
+   
   }
   gotobest()
   {
