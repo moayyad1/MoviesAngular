@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MovieServiceService } from 'src/app/services/movie-service.service';
 import { MyServiceService } from 'src/app/shared/my-service.service';
+import { Chart,registerables  } from 'chart.js';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -21,8 +23,16 @@ export class DashboardComponent implements OnInit {
   GetEvaluation:any=[{}];
   moviesEval:any=[{}];
   MinimalRated:any=[{}];
+  salesChart:any=[];
+  gainsChart:any=[];
+  chart:any =[];
+  totalTickets:any=[{}];
+  time:any=[];
+  MoviesBought:any=[];
+  MoviesGains:any=[];
 
   constructor(private route: Router, private servie: MyServiceService,private service: MovieServiceService) {
+    Chart.register(...registerables);
     servie
       .requestCall(
         'https://localhost:44391/api/Payment/GetSumOfpayments',
@@ -96,8 +106,75 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetMoviesEvalt();
+    this.GetFinancials();
 
+//show chart data salesng
+this.salesChart=new Chart('salesng',{
+  type:'bar',
+  data: {
+    labels: this.time,
+    datasets: [{
+        label: 'Salesng ',
+        data: this.MoviesBought,
+        borderWidth: 3,
+        // fill:false,
+        borderSkipped	:'left',
+        backgroundColor: 'red',
+        borderColor: 'wight'
+    }]
+},
+options: {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: 'top',
+    },
+    title: {
+      display: true,
+    }
+  }
+},
+})
+//show chart data Gains
+this.gainsChart=new Chart('canvas',{
+  type:'line',
+  data: {
+    labels: this.time,
+    datasets: [{
+        label: 'Gains ',
+        data: this.MoviesGains,
+        borderWidth: 3,
+        fill:false,
+        backgroundColor: 'red',
+        borderColor: 'red'
+    }]
+},
+options: {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: 'top',
+    },
+    title: {
+      display: true,
+    }
+  }
+},
+})
       
+    
+  }
+  GetFinancials()
+  {
+    this.servie.requestCall("https://localhost:44391/api/Payment/getMonthlyGains","Get")?.subscribe(data=>{
+      this.totalTickets=data;
+      this.totalTickets.forEach((element:any) => {
+        this.time.push(element.year+'/'+element.month);
+        this.MoviesBought.push(element.moviesBought)
+        this.MoviesGains.push(element.moviesGains)
+      });
+    })
+
     
   }
   GetMoviesEvalt(){

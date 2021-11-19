@@ -1,15 +1,22 @@
 <div class="all">
-    <div class="container" >
-    
-      <div style="background-color: #8D399F;" class="card-header card-header-primary">
+  <div class="container">
+    <div
+      style="background-color: #f73838;border-bottom: 1px solid #000000;"
+      class="card-header card-header-primary"
+    >
+      <div class="">
         <div class="">
-          <div class="">
-            <h4 style="color: white;" class="card-title">Accountant</h4>
-            <p class="card-category">update Accountant</p>
-          </div>
+          <h4 style="color: white" class="card-title">Accountant</h4>
+          <p class="card-category">update Accountant</p>
+        </div>
       </div>
-      </div>
-    <form style="padding-bottom: 50px;" class="mt-4"(ngSubmit)="updateAccountant()">
+    </div>
+    <form
+     
+      #updateAccForm="ngForm"
+      class="mt-4"
+      (ngSubmit)="updateAccountant()"
+    >
       <div class="row">
         <div class="form-group col">
           <fieldset class="form-fieldset ui-input __first"></fieldset>
@@ -20,7 +27,6 @@
             type="text"
             [(ngModel)]="firstName"
             [ngStyle]="{ border: getColor(1) }"
-            
             class="form-control mb-0"
             id="firstname"
             name="firstName"
@@ -29,8 +35,8 @@
             required
           />
         </div>
-                <div class="form-group col">
-                  <label>Last Name</label>
+        <div class="form-group col">
+          <label>Last Name</label>
           <input
             required
             style="text-align: center"
@@ -46,10 +52,8 @@
           />
         </div>
       </div>
-      <br>
-      
-      
-      
+      <br />
+
       <div class="form-group">
         <label>Phone number</label>
         <input
@@ -66,7 +70,8 @@
           autocomplete="off"
           required
         />
-      </div><br>
+      </div>
+      <br />
       <div>
         <label>salary</label>
         <div class="form-group">
@@ -83,12 +88,13 @@
             placeholder="salary"
             autocomplete="off"
             required
-          /></div>
-      
-      </div><br>
+          />
+        </div>
+      </div>
+      <br />
       <div class="form-group">
         <label>Gender</label>
-        <select 
+        <select
           required
           style="text-align: center"
           [(ngModel)]="gender"
@@ -102,26 +108,14 @@
           autocomplete="off"
           required
         >
+          <option value="" disabled selected hidden>Gender</option>
+          <option value="M">Male</option>
+          <option value="F">Female</option>
+        </select>
+      </div>
+      <br />
+      <button type="submit" class="offset-2 btnr btnr-danger" [disabled]='!updateAccForm.valid' style="background:red;">Submit</button>
 
-
-        <option value="" disabled selected hidden>Gender</option>
-        <option value="M">Male</option>
-        <option value="F">Female</option>
-      </select>
-      </div><br>
-    
-        
-      
-      
-
-      
-
-      <input  style="position:absolute;left: 5%;"           
-        type="submit"
-        
-        class="btn btn-hover offset-4"
-        value="Update"
-      />
     </form>
-
-  
+  </div>
+</div>

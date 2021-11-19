@@ -45,6 +45,24 @@ export class MyServiceService {
       })
       }
   
+      uploadAccountantImage(file:FormData){
+        const headerDict = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+        }
+        const requestOptions = {
+        headers: new HttpHeaders(headerDict),
+        };
+        this.http.post(this.apiUrl +'Accountant/uploadAccountantImage',file).subscribe((data: any) => {
+          console.log("image Uploaded: "+data);
+        
+        if(data){
+        console.log(data);}
+        }, err => {
+        
+        })
+        }
+    
 
     uploadMovie(file:FormData){
       const headerDict = {

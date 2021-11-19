@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { MyServiceService } from 'src/app/shared/my-service.service';
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-sing-up-page',
   templateUrl: './sing-up-page.component.html',
@@ -33,7 +34,7 @@ export class SingUpPageComponent implements OnInit {
   userName = '';
   firstName = '';
   lastName = '';
-  constructor(private myService: MyServiceService,private toaster:ToastrService,private spinner:NgxSpinnerService) {
+  constructor(private router:Router,private myService: MyServiceService,private toaster:ToastrService,private spinner:NgxSpinnerService) {
    
     myService
       .requestCall('https://localhost:44391/api/Customer/getCustomer', 'Get')
@@ -104,9 +105,10 @@ this.spinner.show();
                 )
                 ?.subscribe(                 
                   (data) => {   
-                    this.toaster.success('account created successfully')
+                   
                     setTimeout(() => {
                       this.toaster.success('account created successfully')
+                      this.router.navigate(['/LogIn'])
                     }, 1500);
                   },
                   (err) => {
