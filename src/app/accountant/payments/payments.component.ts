@@ -13,15 +13,16 @@ import html2canvas from 'html2canvas';
 })
 export class PaymentsComponent implements OnInit {
   paymentList:any=[]
-  searchList:any=[]
-  startDate:Date=new Date
-  endDate:Date=new Date
-  searchValue=''
-  fileName=''//this will be used to name the file when eporting PDF/Excel
+searchList:any=[]
+startDate:Date=new Date
+endDate:Date=new Date
+searchValue=''
+fileName=''//this will be used to name the file when eporting PDF/Excel
 
 
   constructor(private myService:MyServiceService,private printer:NgxPrintModule) {
-    
+
+
     myService.requestCall("https://localhost:44391/api/payment/getPayment","Get")?.subscribe(data=>{
       
     this.paymentList=data
@@ -57,13 +58,13 @@ export class PaymentsComponent implements OnInit {
     });
   })
   
+ 
    }
 
   ngOnInit(): void {
   }
 
-
-  //resetting the list to be the exact same as its from API
+//resetting the list to be the exact same as its from API
 resetSearch()
 {
   this.searchList=this.paymentList

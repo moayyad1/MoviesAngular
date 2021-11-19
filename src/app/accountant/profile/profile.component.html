@@ -1,85 +1,122 @@
-
-
 <div class="dark-edition">
-    <div class="wrapper ">
-      <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
-        <!--
+  <div class="wrapper">
+    <div
+      class="sidebar"
+      data-color="purple"
+      data-background-color="black"
+      data-image="../assets/img/sidebar-2.jpg"
+    >
+      <!--
           Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
   
           Tip 2: you can also add an image using data-image tag
       -->
-        
-          <app-accountant-sid-bar></app-accountant-sid-bar>
-      </div>
-      <div class="main-panel">
-       
-        <div class="content">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-md-8">
-                <div class="card">
-                  <div class="card-header card-header-primary">
+
+      <app-accountant-sid-bar></app-accountant-sid-bar>
+    </div>
+    <div class="main-panel">
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div
+                  class="card-header card-header-primary"
+                  style="
+                    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%),
+                      0 7px 10px -5px rgb(0 0 0 / 40%);
+                    background: linear-gradient(60deg, #ee2929, #e85656);
+                  "
+                >
+                  <div class="">
                     <div class="">
-                      <div class="">
-                        <h4 class="card-title">Profile</h4>
-                        <p class="card-category">My Information</p>
-                      </div>
-                      <div style="display: flex;flex-direction:row; justify-content:space-evenly">
-                        
-                          
-                      </div>
-                     
+                      <h4 class="card-title">Profile</h4>
+                      <p class="card-category">My Information</p>
                     </div>
-
-
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-evenly;
+                      "
+                    ></div>
                   </div>
-                  
+                </div>
+
+                <div class="card-body">
                   <div class="card-body">
-                    <div class="card-body">
-                        
-                      
-                      
-                      
-                      
-                      
-                      <form>
-                            
-                            <div class="row">
-                              <div class="col-md-6">
-                                <label>first Name</label>
-                                <div class="form-group bmd-form-group">
-                                  <label class="bmd-label-floating"></label>
-                                  <input [(ngModel)]="firstName" name="firstName"id="firstName"class="form-control">
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <label>Last Name</label>
-                                <div class="form-group bmd-form-group">
-                                  <label class="bmd-label-floating"></label>
-                                  <input [(ngModel)]="lastName" name="lastName" type="text" class="form-control">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-6">
-                                <label>Phone</label>
-                                <div class="form-group bmd-form-group">
-                                  <label class="bmd-label-floating"></label>
-                                  <input [(ngModel)]="phone" type="number" name="phone"id="firstName"class="form-control">
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <label>Email</label>
-                                <div class="form-group bmd-form-group">
-                                  <label class="bmd-label-floating"></label>
-                                  <input [(ngModel)]="email" name="email" type="text" class="form-control">
-                                </div>
-                              </div>
-                              <button (click)="updateProfile()" type="submit" class="btn btn-round btn-primary pull-right">Update Profile</button>
+                    <form>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <label>first Name</label>
+                          <div class="form-group bmd-form-group">
+                            <label class="bmd-label-floating"></label>
+                            <input
+                              [(ngModel)]="firstName"
+                              name="firstName"
+                              id="firstName"
+                              class="form-control"
+                            />
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <label>Last Name</label>
+                          <div class="form-group bmd-form-group">
+                            <label class="bmd-label-floating"></label>
+                            <input
+                              [(ngModel)]="lastName"
+                              name="lastName"
+                              type="text"
+                              class="form-control"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <label>Phone</label>
+                          <div class="form-group bmd-form-group">
+                            <label class="bmd-label-floating"></label>
+                            <input
+                              [(ngModel)]="phone"
+                              type="number"
+                              name="phone"
+                              id="firstName"
+                              class="form-control"
+                            />
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <label>Email</label>
+                          <div class="form-group bmd-form-group">
+                            <label class="bmd-label-floating"></label>
+                            <input
+                              [(ngModel)]="email"
+                              name="email"
+                              type="text"
+                              class="form-control"
+                            />
+                          </div>
+                        </div>
+                        <button
+                          (click)="updateProfile()"
+                          style="
+                            width: 350px;
+                            background: linear-gradient(
+                              60deg,
+                              #ee2929,
+                              #f04141
+                            );
+                            border-radius: 5px;
+                          "
+                          type="submit"
+                          class="btn btn-round btn-primary pull-right offset-4"
+                        >
+                          Update Profile
+                        </button>
+                      </div>
 
-                            </div>
-
-                            <!-- <div class="row">
+                      <!-- <div class="row">
                               <div class="col-md-4">
                                 <div class="form-group bmd-form-group">
                                   <label class="bmd-label-floating">City</label>
@@ -87,76 +124,130 @@
                                 </div>
                               </div>
                             </div> -->
-                              
-                              
-                            
-                            <div class="row">
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label>change password</label>
-                                  <div class="form-group bmd-form-group">
-                                    <div class="row">
-                                      <div class="col-md-6">
-                                        <div class="form-group bmd-form-group">
-                                          <label>New Password</label>
-                                          <input [(ngModel)]="newPassword" type="password" name="oldPassword" class="form-control">
-                                    </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                      <div class="form-group bmd-form-group">
-                                        <label>Conform Password</label>
-                                        <input [(ngModel)]="conPassword" type="password" name="newPassword" class="form-control">
-                                  </div>
-                                  </div>
-                                  <button (click)="updatePassword()" type="submit" class="btn btn-round btn-primary pull-right">Update Password</button>
 
-                                </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="offset-5" style="color: white;font-weight: bold; text-transform: capitalize;font-size: 17px;">change password</label>
+                            <div class="form-group bmd-form-group">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group bmd-form-group">
+                                    <label>New Password</label>
+                                    <input
+                                      [(ngModel)]="newPassword"
+                                      type="password"
+                                      name="oldPassword"
+                                      class="form-control"
+                                    />
                                   </div>
                                 </div>
+                                <div class="col-md-6">
+                                  <div class="form-group bmd-form-group">
+                                    <label>Conform Password</label>
+                                    <input
+                                      [(ngModel)]="conPassword"
+                                      type="password"
+                                      name="newPassword"
+                                      class="form-control"
+                                    />
+                                  </div>
+                                </div>
+                                <button
+                                  (click)="updatePassword()"
+                                  type="submit"
+                                  class="btn btn-round btn-primary pull-right offset-4"
+                                  style="
+                                  width: 350px;
+                                  background: linear-gradient(
+                                    60deg,
+                                    #ee2929,
+                                    #f04141
+                                  );
+                                  border-radius: 5px;
+                                "
+                                >
+                                  Update Password
+                                </button>
                               </div>
                             </div>
-                            <div class="clearfix"></div>
-                          </form>
+                          </div>
+                        </div>
                       </div>
+                      <div class="clearfix"></div>
+                    </form>
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="">
-                  <div class="card card-profile">
-                    <div class="card-avatar">
-                      <a href="#pablo">
-                        <img class="img" src="../../../assets/images/EmployeeImages/{{accInfo.img}}">
-                      </a>
-                    </div>
-                    <div class="card-body">
-                      <table>
-                        <tr>
-                          <td><h4 class="card-title "><span class="text-primary">Name: </span></h4></td>
-                          <td><div style="width: 20px;"></div></td>
-                          <td><h4 class="card-title "> {{accInfo.firstName}} {{accInfo.lastName}}</h4></td>
-                        </tr>
-                        <tr>
-                          <td><h4 class="card-title "><span class="text-primary">Phone: </span></h4></td>
-                          <td><div style="width: 20px;"></div></td>
-                          <td><h4 class="card-title "> {{accInfo.phone}}</h4></td>
-                        </tr>
-                        <tr>
-                          <td><h4 class="card-title "><span class="text-primary">Email: </span></h4></td>
-                          <td><div style="width: 20px;"></div></td>
-                          <td><h4 class="card-title "> {{accInfo.email}}</h4></td>
-                        </tr>
-                      </table>
+            </div>
+            <div class="col-md-4">
+              <div class="" >
+                <div class="card card-profile">
+                  <div class="card-avatar" style="margin-top: 40px;">
+                    <a >
+                      <img
+                        class="img"
+                        src="../../../assets/images/EmployeeImages/{{
+                          accInfo.img
+                        }}"
+                      />
+                    </a>
+                  </div>
+                  <div class="card-body offset-3" style="    margin-top: 80px;
+                  padding-bottom: 30px;">
+                    <table>
+                      <tr>
+                        <td class="dataTd" style="margin-bottom:40px !important">
+                          <h4 class="card-title " >
+                            <span class="text-primary infoHeader"  style=' color: red !important;
+                            font-weight: bold;
+                            text-transform: capitalize;'>Name: </span>
+                          </h4>
+                        </td>
+                        <td><div style="width: 20px"></div></td>
+                        <td>
+                          <h4 class="card-title mydata">
+                            {{ accInfo.firstName }} {{ accInfo.lastName }}
+                          </h4>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <h4 class="card-title infoHeader" >
+                            <span class="text-primary infoHeader"  style=' color: red !important;
+                            font-weight: bold;
+                            text-transform: capitalize;'>Phone: </span>
+                          </h4>
+                        </td>
+                        <td><div style="width: 20px"></div></td>
+                        <td>
+                          <h4 class="card-title mydata">{{ accInfo.phone }}</h4>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <h4 class="card-title infoHeader">
+                            <span class="text-primary infoHeader"   style=' color: red !important;
+                            font-weight: bold;
+                            text-transform: capitalize;'>Email: </span>
+                          </h4>
+                        </td>
+                        <td><div style="width: 20px"></div></td>
+                        <td>
+                          <h4 class="card-title mydata">{{ accInfo.email }}</h4>
+                        </td>
+                      </tr>
+                    </table>
 
-
-
-                      <h6 class="card-title"></h6>
-                      <a  class="btn btn-primary btn-round"> UpLoad Image</a>
-                    </div>
+                    <h6 class="card-title"></h6>
+                    <a class="btn" style="border-color: red; "> UpLoad Image</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
+      </div>
+    </div>
+  </div>
+</div>
