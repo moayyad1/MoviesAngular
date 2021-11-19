@@ -128,7 +128,16 @@
                       <div class="row">
                         <div class="col-md-12">
                           <div class="form-group">
-                            <label class="offset-5" style="color: white;font-weight: bold; text-transform: capitalize;font-size: 17px;">change password</label>
+                            <label
+                              class="offset-5"
+                              style="
+                                color: #cdc5c5;
+                                font-weight: bold;
+                                text-transform: capitalize;
+                                font-size: 17px;
+                              "
+                              >change password</label
+                            >
                             <div class="form-group bmd-form-group">
                               <div class="row">
                                 <div class="col-md-6">
@@ -144,7 +153,7 @@
                                 </div>
                                 <div class="col-md-6">
                                   <div class="form-group bmd-form-group">
-                                    <label>Conform Password</label>
+                                    <label>Conifrm Password</label>
                                     <input
                                       [(ngModel)]="conPassword"
                                       type="password"
@@ -156,22 +165,79 @@
                                 <button
                                   (click)="updatePassword()"
                                   type="submit"
-                                  class="btn btn-round btn-primary pull-right offset-4"
+                                  class="
+                                    btn btn-round btn-primary
+                                    pull-right
+                                    offset-4
+                                  "
                                   style="
-                                  width: 350px;
-                                  background: linear-gradient(
-                                    60deg,
-                                    #ee2929,
-                                    #f04141
-                                  );
-                                  border-radius: 5px;
-                                "
+                                    width: 350px;
+                                    background: linear-gradient(
+                                      60deg,
+                                      #ee2929,
+                                      #f04141
+                                    );
+                                    border-radius: 5px;
+                                  "
                                 >
                                   Update Password
                                 </button>
                               </div>
                             </div>
                           </div>
+                        </div>
+                      </div>
+                      <div
+                        class="container"
+                        style="
+                          margin-top: 30px;
+                          padding: 10px;
+                          border: 0.5px solid lightblue;
+                        "
+                      >
+                        <div class="row">
+                          <label
+                            for="img"
+                            class="offset-5"
+                            style="font-size: 20px; padding: 10px"
+                            >Update Image
+                          </label>
+                          <input
+                            class="offset-4"
+                            type="file"
+                            id="img"
+                            ngModel
+                            #accountantImage
+                            name="accountantImage"
+                            style="
+                              background-color: #161616;
+                              width: fit-content;
+                              height: fit-content;
+                            "
+                            required
+                          />
+                        </div>
+
+                        <div class="row">
+                          <button
+                            class="
+                              btn btn-round btn-primary
+                              pull-right
+                              offset-4
+                            "
+                            style="
+                              width: 350px;
+                              background: linear-gradient(
+                                60deg,
+                                #ee2929,
+                                #f04141
+                              );
+                              border-radius: 5px;
+                            "
+                            (click)="uploadImage(accountantImage.files)"
+                          >
+                            UpLoad Image
+                          </button>
                         </div>
                       </div>
                       <div class="clearfix"></div>
@@ -181,10 +247,10 @@
               </div>
             </div>
             <div class="col-md-4">
-              <div class="" >
+              <div class="">
                 <div class="card card-profile">
-                  <div class="card-avatar" style="margin-top: 40px;">
-                    <a >
+                  <div class="card-avatar" style="margin-top: 40px">
+                    <a>
                       <img
                         class="img"
                         src="../../../assets/images/EmployeeImages/{{
@@ -193,15 +259,26 @@
                       />
                     </a>
                   </div>
-                  <div class="card-body offset-3" style="    margin-top: 80px;
-                  padding-bottom: 30px;">
+                  <div
+                    class="card-body offset-3"
+                    style="margin-top: 80px; padding-bottom: 30px"
+                  >
                     <table>
                       <tr>
-                        <td class="dataTd" style="margin-bottom:40px !important">
-                          <h4 class="card-title " >
-                            <span class="text-primary infoHeader"  style=' color: red !important;
-                            font-weight: bold;
-                            text-transform: capitalize;'>Name: </span>
+                        <td
+                          class="dataTd"
+                          style="margin-bottom: 40px !important"
+                        >
+                          <h4 class="card-title">
+                            <span
+                              class="text-primary infoHeader"
+                              style="
+                                color: red !important;
+                                font-weight: bold;
+                                text-transform: capitalize;
+                              "
+                              >Name:
+                            </span>
                           </h4>
                         </td>
                         <td><div style="width: 20px"></div></td>
@@ -213,10 +290,16 @@
                       </tr>
                       <tr>
                         <td>
-                          <h4 class="card-title infoHeader" >
-                            <span class="text-primary infoHeader"  style=' color: red !important;
-                            font-weight: bold;
-                            text-transform: capitalize;'>Phone: </span>
+                          <h4 class="card-title infoHeader">
+                            <span
+                              class="text-primary infoHeader"
+                              style="
+                                color: red !important;
+                                font-weight: bold;
+                                text-transform: capitalize;
+                              "
+                              >Phone:
+                            </span>
                           </h4>
                         </td>
                         <td><div style="width: 20px"></div></td>
@@ -227,9 +310,15 @@
                       <tr>
                         <td>
                           <h4 class="card-title infoHeader">
-                            <span class="text-primary infoHeader"   style=' color: red !important;
-                            font-weight: bold;
-                            text-transform: capitalize;'>Email: </span>
+                            <span
+                              class="text-primary infoHeader"
+                              style="
+                                color: red !important;
+                                font-weight: bold;
+                                text-transform: capitalize;
+                              "
+                              >Email:
+                            </span>
                           </h4>
                         </td>
                         <td><div style="width: 20px"></div></td>
@@ -238,9 +327,6 @@
                         </td>
                       </tr>
                     </table>
-
-                    <h6 class="card-title"></h6>
-                    <a class="btn" style="border-color: red; "> UpLoad Image</a>
                   </div>
                 </div>
               </div>

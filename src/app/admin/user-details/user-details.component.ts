@@ -27,6 +27,22 @@ customerComments:any=[]
     }
    });
     })
+
+
+
+    service.requestCall("https://localhost:44391/api/Movie/getMovie","Get")?.subscribe(data=>{
+
+      data.forEach((element:any) => {
+          this.customerMovies.forEach((customer:any) => {
+              if(element.id == customer.movieId){
+                  customer.movieName=element.name;
+                  console.warn(customer.movieName);
+                  
+              }
+          });
+      });
+    })
+
   
     service.requestCall("https://localhost:44391/api/Comments/GetComments","Get")?.subscribe(data=>{
       let count= 0 

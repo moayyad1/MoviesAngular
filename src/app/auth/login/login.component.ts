@@ -100,6 +100,7 @@ export class LoginComponent implements OnInit {
         }
         case ('4'):{
            //route here for Accountant
+           localStorage.setItem('userToken',result.tokenValue)
            localStorage.setItem('userRole','4');
            this.mainRoute.navigate(["Accountant"])
           setTimeout(() => {

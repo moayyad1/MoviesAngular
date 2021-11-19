@@ -4,6 +4,7 @@ import { MyServiceService } from 'src/app/shared/my-service.service';
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from 'ngx-toastr';
 import { MovieServiceService } from 'src/app/services/movie-service.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-update-accountant',
@@ -44,7 +45,7 @@ export class UpdateAccountantComponent implements OnInit {
 
   
 
-  constructor(private myService: MyServiceService,private toaster:ToastrService,private spinner:NgxSpinnerService,public IdService:MovieServiceService) {
+  constructor(public myDialog:MatDialog,private myService: MyServiceService,private toaster:ToastrService,private spinner:NgxSpinnerService,public IdService:MovieServiceService) {
 
     myService
       .requestCall('https://localhost:44391/api/Accountant/getAccountant', 'Get')
@@ -114,6 +115,7 @@ export class UpdateAccountantComponent implements OnInit {
       (data) => {   
         this.toaster.success('updated successfully')
         this.spinner.hide();
+        this.myDialog.closeAll()
       },
       (err) => {
         this.toaster.error("error while update account")
@@ -229,4 +231,10 @@ export class UpdateAccountantComponent implements OnInit {
       });
   }
 
+
+  checkValid(updateAccForm:NgForm){
+      
+       return false;
+      
+  }
 }

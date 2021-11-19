@@ -120,4 +120,20 @@ export class ProfileComponent implements OnInit {
     
 
   }
+
+
+
+  uploadImage(files:any) {
+    if (files.length === 0) {
+    return;
+    }
+    let fileToUpload = <File>files[0];
+    this.img=fileToUpload.name
+    this.updateProfile()
+    const formData = new FormData();
+    formData.append('file', fileToUpload, fileToUpload.name);
+    this.Service.uploadAccountantImage(formData);
+    }
+
+
 }

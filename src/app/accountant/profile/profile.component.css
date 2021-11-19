@@ -351,10 +351,7 @@
     -webkit-appearance: none;
   }
   
-  ::-webkit-file-upload-button {
-    font: inherit;
-    -webkit-appearance: button;
-  }
+
   
   output {
     display: inline-block;
@@ -770,11 +767,7 @@
   [type="search"]::-webkit-search-decoration {
     -webkit-appearance: none;
   }
-  
-  ::-webkit-file-upload-button {
-    font: inherit;
-    -webkit-appearance: button;
-  }
+
   
   output {
     display: inline-block;
@@ -2386,12 +2379,7 @@
     background-color: rgba(0, 0, 0, 0);
   }
   
-  .form-control-file,
-  .form-control-range {
-    display: block;
-    width: 100%;
-  }
-  
+ 
   .col-form-label {
     padding-top: calc(0.4375rem + 1px);
     padding-bottom: calc(0.4375rem + 1px);
@@ -2462,9 +2450,7 @@
   .input-group-sm>.input-group-append>select.btnr:not([size]):not([multiple]) {
     height: calc(2.125rem + 2px);
   }
-  .btn-primary:hover{
-    color:red !important
-  }
+  
   .form-control-lg,
   .input-group-lg>.form-control,
   .input-group-lg>.input-group-prepend>.input-group-text,
@@ -2630,15 +2616,9 @@
     box-shadow: 0 0 0 1px #fafafa, 0 0 0 0.2rem rgba(76, 175, 80, 0.25);
   }
   
-  .was-validated .custom-file-input:valid~.custom-file-label,
-  .custom-file-input.is-valid~.custom-file-label {
-    border-color: #4caf50;
-  }
+
   
-  .was-validated .custom-file-input:valid~.custom-file-label::before,
-  .custom-file-input.is-valid~.custom-file-label::before {
-    border-color: inherit;
-  }
+
   
   .was-validated .custom-file-input:valid~.valid-feedback,
   .was-validated .custom-file-input:valid~.valid-tooltip,
@@ -21828,43 +21808,6 @@
   }
   
   .was-validated .dark-edition .has-danger .is-focused .custom-file-input:valid~.custom-file-label,
-  .dark-edition .has-danger .is-focused .custom-file-input.is-valid~.custom-file-label,
-  .was-validated .dark-edition .has-error .is-focused .custom-file-input:valid~.custom-file-label,
-  .dark-edition .has-error .is-focused .custom-file-input.is-valid~.custom-file-label {
-    border-color: #f44336;
-  }
-  
-  .was-validated .dark-edition .has-danger .is-focused .custom-file-input:valid~.custom-file-label::before,
-  .dark-edition .has-danger .is-focused .custom-file-input.is-valid~.custom-file-label::before,
-  .was-validated .dark-edition .has-error .is-focused .custom-file-input:valid~.custom-file-label::before,
-  .dark-edition .has-error .is-focused .custom-file-input.is-valid~.custom-file-label::before {
-    border-color: inherit;
-  }
-  
-  .was-validated .dark-edition .has-danger .is-focused .custom-file-input:valid~.valid-feedback,
-  .was-validated .dark-edition .has-danger .is-focused .custom-file-input:valid~.valid-tooltip,
-  .dark-edition .has-danger .is-focused .custom-file-input.is-valid~.valid-feedback,
-  .dark-edition .has-danger .is-focused .custom-file-input.is-valid~.valid-tooltip,
-  .was-validated .dark-edition .has-error .is-focused .custom-file-input:valid~.valid-feedback,
-  .was-validated .dark-edition .has-error .is-focused .custom-file-input:valid~.valid-tooltip,
-  .dark-edition .has-error .is-focused .custom-file-input.is-valid~.valid-feedback,
-  .dark-edition .has-error .is-focused .custom-file-input.is-valid~.valid-tooltip {
-    display: block;
-  }
-  
-  .was-validated .dark-edition .has-danger .is-focused .custom-file-input:valid:focus~.custom-file-label,
-  .dark-edition .has-danger .is-focused .custom-file-input.is-valid:focus~.custom-file-label,
-  .was-validated .dark-edition .has-error .is-focused .custom-file-input:valid:focus~.custom-file-label,
-  .dark-edition .has-error .is-focused .custom-file-input.is-valid:focus~.custom-file-label {
-    box-shadow: 0 0 0 0.2rem rgba(244, 67, 54, 0.25);
-  }
-  
-  .dark-edition .has-danger .is-focused [class^='bmd-label'],
-  .dark-edition .has-danger .is-focused [class*=' bmd-label'],
-  .dark-edition .has-error .is-focused [class^='bmd-label'],
-  .dark-edition .has-error .is-focused [class*=' bmd-label'] {
-    color: #f44336;
-  }
   
   .dark-edition .has-danger .is-focused .bmd-label-placeholder,
   .dark-edition .has-error .is-focused .bmd-label-placeholder {

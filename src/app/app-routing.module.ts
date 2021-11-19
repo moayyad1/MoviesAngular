@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AccGuardGuard } from 'src/Guards/acc-guard.guard';
 import { AdminGuardGuard } from 'src/Guards/admin-guard.guard';
 import { AuthGuardGuard } from 'src/Guards/auth-guard.guard';
 import { AccountantModule } from './accountant/accountant.module';
@@ -19,7 +20,7 @@ const routes: Routes = [
     path:'',loadChildren:()=>AuthModule
   },
   {
-    path:'Accountant',loadChildren:()=>AccountantModule
+    path:'Accountant',loadChildren:()=>AccountantModule,canActivate:[AccGuardGuard]
 
   }
  
