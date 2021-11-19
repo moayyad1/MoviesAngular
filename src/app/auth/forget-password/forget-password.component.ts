@@ -19,7 +19,12 @@ export class ForgetPasswordComponent implements OnInit {
   isUserNameV:boolean=false;
   verCode:number|undefined;
   isVerificationValid:boolean=false;
-  constructor(private service :MyServiceService , private mainRoute:Router,private toast:ToastrService,private spinner:NgxSpinnerService) { }
+  newPassword:any='';
+  loginId:any=0;
+  customerUserName:any|undefined;
+  customerId:number|undefined;
+
+  constructor(private route:Router ,private service :MyServiceService , private mainRoute:Router,private toast:ToastrService,private spinner:NgxSpinnerService) { }
 
   ngOnInit(): void {
   }
@@ -68,14 +73,55 @@ export class ForgetPasswordComponent implements OnInit {
             console.warn('true');
             this.AllLogin.forEach((element:any) => {
               if(parseInt(f.value.verCode) == parseInt(element.verification)){
-                this.toast.success("True verification code");this.spinner.hide(); 
+                this.loginId=element.id;
+                this.customerUserName=element.userName;
+                this.customerId=element.customerId
+                this.toast.success("The verification code is correct");this.spinner.hide(); 
                 this.isVerificationValid = true;
+
               }
             });
           },
           err => { 
-            this.toast.error("False verification code");this.spinner.hide(); 
+            this.toast.error("The verification code isn't correct");this.spinner.hide(); 
         });
-        this.spinner.hide(); 
+        setTimeout(()=> {
+          {
+            
+            if(!this.isVerificationValid){
+              this.toast.error("The verification code isn't correct");this.spinner.hide(); 
+            }
+            this.spinner.hide();
+        }
+        },1555)
+         
+  }
+  UpdatePassword(f: NgForm){
+
+    let newList={
+      id:this.loginId,
+      userName:this.customerUserName,
+      password:(f.value.newPassword).toString(),
+      departmentId:2,
+      customerId:this.customerId
+    }
+    console.warn(newList);
+    
+    this.spinner.show();
+    this.service.requestCall('https://localhost:44391/api/Login/UpdateLogin','Put',newList)
+    ?. subscribe((data) => {
+
+      this.toast.success("The password has been changed successfully");
+      setTimeout(()=> {
+        {
+          
+            this.spinner.hide();
+            this.route.navigate(['']);
+      }
+      },1555)
+      
+      this.spinner.hide();
+    },
+    err => { this.toast.error("Username not found !");this.spinner.hide();});
   }
 }
