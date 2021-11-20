@@ -59,9 +59,8 @@ export class TestimonialComponent implements OnInit {
       'Put',
       newActivation
     )?.subscribe((data) => {
-      
+      this.getTestimonial();
     });
-    this.getTestimonial();
   }
   
   Disable(Id:any,CustomerId:any,Message:any,Stars:any){
@@ -78,10 +77,9 @@ export class TestimonialComponent implements OnInit {
       'Put',
       newActivation
     )?.subscribe((data) => {
-      
+      this.getTestimonial();
     });
 
-    this.getTestimonial();
   }
 
 }

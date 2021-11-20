@@ -134,11 +134,9 @@
                             *ngFor="let payment of searchList; let i = index"
                           >
                             <td>{{ payment.id }}</td>
-  
                             <td>{{ payment.firstName }}</td>
-  
                             <td>{{ payment.movieName }}</td>
-                            <td>{{ payment.value }}</td>
+                            <td>{{ payment.value }} $</td>
                             <td>{{ payment.time | date }}</td>
                           </tr>
                         </tbody>

@@ -13,7 +13,7 @@ import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 })
 export class UploadMovieComponent implements OnInit {
   listCategory:any=[]
-  constructor(private service:MyServiceService ,public myDialog:MatDialog) { 
+  constructor(private service:MyServiceService ,public myDialog:MatDialog,private toast:ToastrService) { 
     service.requestCall("https://localhost:44391/api/Category/GetCategory","Get")?.subscribe(data=>{this.listCategory=data})
   }
 
@@ -50,12 +50,10 @@ export class UploadMovieComponent implements OnInit {
       data=>{
           this.uploadImageVideo(imageFile)
           this.uploadVideo(vidoeFile)
-
-          alert("Success")
-
+         this.toast.success('Movie Uploaded Successfully');
       },
-
-      err=>{}
+      err=>{this.toast.success('Error While Uploading Movie');
+    }
     )
     
 

@@ -18,12 +18,11 @@ export class UserProfileComponent implements OnInit {
   EmailList:any=[];
   customerEmailData:any={};
   constructor(public moviedetails:MovieServiceService,private route:Router,private myservice:MyServiceService,private spinner:NgxSpinnerService,private toast:ToastrService) { 
- 
   }
   CustomerData:any=[{}];
   Customers:any=[{}];
   customerId:any=localStorage.getItem('CustomerId');
-
+  img:any = '';
   ngOnInit(): void {
     this.GetCustomerById();
     this.GetCustomers();    
@@ -105,6 +104,46 @@ export class UserProfileComponent implements OnInit {
       }, 1500);
       this.toast.error('email already exist, try another one');  
     }
-   }           
+   }
+   
+   uploadImage(files:any) {
+    let fileToUpload = <File>files[0];
+    this.img=fileToUpload.name
+    const formData = new FormData();
+    formData.append('file', fileToUpload, fileToUpload.name);
+    this.myservice.uploadAttachment(formData);
+    if (files.length === 0) {
+    return;
+    }
+    this.spinner.show()
+    let updateCustomerObject={
+      id:parseInt(this.customerId),
+      firstName:this.CustomerData.firstName,
+      lastName:this.CustomerData.lastName,
+      phone:this.CustomerData.phone,
+      email:this.CustomerData.email,
+      gender:this.CustomerData.gender,
+      img:this.img,
+      wallet:this.CustomerData.wallet,
+      visaCard:this.CustomerData.visaCard
+     };
+      this.myservice.requestCall('https://localhost:44391/api/Customer/UpdateCustomer','Put',updateCustomerObject)?.subscribe(
+        
+        (data) => {  
+          setTimeout(() => {
+            this.spinner.hide();
+          }, 1500);
+          this.toast.success('Information Updated successfully');  
+          this.GetCustomers();
+        },
+        (err) => {
+          setTimeout(() => {
+            this.spinner.hide();
+          }, 1500);
+          this.toast.error('Error While Updateing information')
+        }         
+      );
+
+    }
   }
 

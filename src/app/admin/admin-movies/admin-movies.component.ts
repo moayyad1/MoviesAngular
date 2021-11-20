@@ -5,6 +5,8 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
+import { NgxSpinner, NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 import { LoginComponent } from 'src/app/auth/login/login.component';
 import { MyServiceService } from 'src/app/shared/my-service.service';
 import { UpdateMovieComponent } from '../update-movie/update-movie.component';
@@ -22,7 +24,7 @@ export class AdminMoviesComponent implements OnInit {
   nameSearch: string = '';
   searchResult: any = [{}];
 
-  constructor(public myDialog: MatDialog, private service: MyServiceService) {}
+  constructor(public myDialog: MatDialog, private service: MyServiceService,private spinner:NgxSpinnerService,private toast:ToastrService) {}
 
   ngOnInit(): void {
     this.getMovies();
@@ -85,4 +87,22 @@ UpdateMovie(id:any){
       this.getMovies();
     }
   }
+  DeleteMovie(id:any){
+    this.service.requestCall("https://localhost:44391/api/Movie/DeleteMovie/"+id,"Delete")?.subscribe(
+        (data) => {
+          setTimeout(() => {
+            this.spinner.hide();
+          }, 1500);
+          this.getMovies()
+          this.toast.success('Deleted successfully');
+        },
+        (err) => {
+          setTimeout(() => {
+            this.spinner.show();
+          }, 1500);
+         this.toast.error('Error While Deleting')
+        }
+      );
+    
+   }
 }

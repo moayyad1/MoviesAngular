@@ -73,7 +73,20 @@ customerComments:any=[]
 
     deleteComment(id:any){
       this.service.requestCall("https://localhost:44391/api/Comments/DeleteComments/"+id,"Delete")?.subscribe(
-       data=>{   this.toast.success("Comment Deleted Successfully!")}
+       data=>{   this.toast.success("Comment Deleted Successfully!")
+       this.service.requestCall("https://localhost:44391/api/Comments/GetComments","Get")?.subscribe(data=>{
+        let count= 0 
+        this.customerComments=[]
+           data.forEach((element:any) => {
+              if(element.customerId==this.customerID){
+                count++
+                this.customerComments.push(element)
+              }
+           });
+  
+           this.customer.commentsCount=count         
+      })   
+      }
       )
    
     }

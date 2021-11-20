@@ -104,18 +104,18 @@ this.spinner.show();
                   loginCustomer
                 )
                 ?.subscribe(                 
-                  (data) => {   
-                   
+                  (data) => {                     
+                    this.toaster.success("Account Created Succefully");
                     setTimeout(() => {
-                      this.toaster.success('account created successfully')
-                      this.router.navigate(['/LogIn'])
-                    }, 1500);
-                  },
+                      this.spinner.hide()
+                    }, 2500); this.router.navigate(['LogIn']);},
+                   
                   (err) => {
                     this.toaster.error("error while create account")
                     setTimeout(() => {
                       this.toaster.error("error while create account")
                     }, 1500);
+                    this.spinner.hide()
                   }
                 );
             });

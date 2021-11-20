@@ -71,9 +71,9 @@
                                 <td *ngIf="item.categoryId == categoryId || categoryId == 0" ><img style="border-radius:20%;margin: 0 !important;padding:  0 !important;" src="../../../assets/images/movies-images/{{item.img}}" alt="" height="80" width="90"></td>
                                 <td *ngIf="item.categoryId == categoryId || categoryId == 0"> {{item.name}} </td>
                                 <td *ngIf="item.categoryId == categoryId || categoryId == 0">{{item.language}}</td>
-                                <td *ngIf="item.categoryId == categoryId || categoryId == 0">{{item.price}}</td>
+                                <td *ngIf="item.categoryId == categoryId || categoryId == 0">{{item.price}} $</td>
                                 <td *ngIf="item.categoryId == categoryId || categoryId == 0"><button (click)="UpdateMovie(item.id)" class="btnr btnr-primary btnr-sm">Update</button></td>
-                                <td *ngIf="item.categoryId == categoryId || categoryId == 0"><button class="btnr btnr-default btnr-sm">Delete</button></td>
+                                <td *ngIf="item.categoryId == categoryId || categoryId == 0"><button (click)="DeleteMovie(item.id)" class="btnr btnr-default btnr-sm">Delete</button></td>
                             </tr> 
                           </tbody>
                         </table>
@@ -104,17 +104,10 @@
             <nav class="float-left">
               
             </nav>
-            <div class="copyright float-right" id="date">
-               made with <i class="material-icons">favorite</i> by
-              <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
-            </div>
+
           </div>
         </footer>
-        <script>
-          const x = new Date().getFullYear();
-          let date = document.getElementById('date');
-          date.innerHTML = '&copy; ' + x + date.innerHTML;
-        </script>
+
       </div>
     </div>
    

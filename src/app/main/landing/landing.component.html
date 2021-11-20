@@ -69,7 +69,7 @@
                   <i class="fas fa-circle"></i>
                  <p style="background-color: red;padding:4px 15px 4px 15px;border: 1px solid white">{{item2.category}}</p>
                 </div>
-                <p style="text-align: justify;text-justify: inter-word;" *ngIf="i < 1 &&j < 1 && item1.Id==item2.Id">{{item2.storyLine}}</p>             
+                <p style="text-align: justify;text-justify: inter-word;margin-bottom:-20px;" *ngIf="i < 1 &&j < 1 && item1.Id==item2.Id">{{item2.storyLine}}</p>             
               </div>
               <div style="margin-left: 30px;" class="button flex">
                 <button (click)="goToDtailsmain(item1.movieId)" style="padding: 15px 15px 15px 15px;width: 20%;margin-right: 40px;white-space: nowrap;border-radius: 3%;">PLAY NOW <i class="fa fa-play" aria-hidden="true"></i></button>

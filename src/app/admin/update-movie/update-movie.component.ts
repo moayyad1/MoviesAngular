@@ -83,8 +83,6 @@ export class UpdateMovieComponent implements OnInit {
        movieData.value.categoryId=parseInt( movieData.value.categoryId)
        movieData.value.Img=imageFile[0].name
        movieData.value.Video=vidoeFile[0].name
-   
-      
        this.service.requestCall("https://localhost:44391/api/Movie/UpdateMovie","Put",movieData.value)?.subscribe(
          async data=>{
            console.warn(movieData.value);

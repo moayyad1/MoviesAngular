@@ -86,7 +86,18 @@ export class DashboardComponent implements OnInit {
     this.GetMoviesEvalt();
     this.GetFinancials();
 
-    //show chart data salesng
+   
+  }
+  GetFinancials()
+  {
+    this.servie.requestCall("https://localhost:44391/api/Payment/getMonthlyGains","Get")?.subscribe(data=>{
+      this.totalTickets=data;
+      this.totalTickets.forEach((element:any) => {
+        this.time.push(element.year+'/'+element.month);
+        this.MoviesBought.push(element.moviesBought)
+        this.MoviesGains.push(element.moviesGains)
+      });
+       //show chart data salesng
     this.salesChart=new Chart('salesng',{
       type:'bar',
       data: {
@@ -139,16 +150,6 @@ export class DashboardComponent implements OnInit {
       }
     },
     })
-  }
-  GetFinancials()
-  {
-    this.servie.requestCall("https://localhost:44391/api/Payment/getMonthlyGains","Get")?.subscribe(data=>{
-      this.totalTickets=data;
-      this.totalTickets.forEach((element:any) => {
-        this.time.push(element.year+'/'+element.month);
-        this.MoviesBought.push(element.moviesBought)
-        this.MoviesGains.push(element.moviesGains)
-      });
     })
 
     

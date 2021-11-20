@@ -11,9 +11,49 @@
                     <h6 *ngIf="item.id==customerId" class="text-center">Phone :  <span style="color: cadetblue;">{{item.phone}}</span></h6><br>
                     <h6 *ngIf="item.id==customerId" class="text-center">wallet balance : <span style="color: cadetblue;">{{item.wallet}} $</span> </h6><br>
                     <h6 *ngIf="item.id==customerId" class="text-center">VisaCard Number : <span style="color: cadetblue;">{{item.visaCard}}</span></h6>
+                    
 
                 </div>
                 </div>
+                <div class="row">
+                    <input
+                    accept="image/*"
+                      class="offset-4"
+                      type="file"
+                      id="img"
+                      ngModel
+                      #customerimg
+                      name="customerimg"
+                      style="
+                        background-color: #161616;
+                        width: fit-content;
+                        height: fit-content;
+                      "
+                      required
+                    />
+                  </div>
+
+                  <div class="row">
+                    <button
+                      class="
+                        btn btn-round btn-primary
+                        pull-right
+                        offset-4
+                      "
+                      style="
+                        width: 250px;
+                        margin-left: 60px;
+                        background: linear-gradient(
+                          60deg,
+                        blue,                        
+                        );
+                        border-radius: 5px;
+                      "
+                      (click)="uploadImage(customerimg.files)"
+                    >
+                      UpLoad Image
+                    </button>
+                  </div>
             </div>
             <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
                 <div *ngFor="let item of Customers"  class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">

@@ -120,7 +120,7 @@
                     <thead class="text-warning">
                       <th>Image</th>
                       <th>Name</th>
-                      <th>Rateing</th>
+                      <th>Rating</th>
                     </thead>                 
                     <tbody>
                       <tr *ngFor='let movie of topRated, let i = index'>
@@ -144,7 +144,7 @@
                     <thead class="text-warning">
                       <th>Image</th>
                       <th>Name</th>
-                      <th>Rateing</th>
+                      <th>Rating</th>
                     </thead>                 
                     <tbody>
                       <tr *ngFor='let movie of MinimalRated, let i = index'>
@@ -177,7 +177,7 @@
                       <tr *ngFor='let movie of newistMovies, let i = index'>
                         <td *ngIf='i<5'><img style="border-radius:20%;margin: 0 !important;padding:  0 !important;" src="../../../../assets/images/movies-images/{{movie.img}}" alt="" height="80" width="90"></td>
                         <td *ngIf='i<5'>{{movie.name}}</td>
-                        <td *ngIf='i<5'>{{movie.price}}</td>
+                        <td *ngIf='i<5'>{{movie.price}} $</td>
                         <td *ngIf='i<5'>{{movie.releaseDate| date: 'longDate'}}</td>
                       </tr> 
                     </tbody>
@@ -204,7 +204,7 @@
                       <tr *ngFor='let movie of trendingMovies, let i = index'>
                         <td *ngIf='i<5'><img style="border-radius:20%;margin: 0 !important;padding:  0 !important;" src="../../../../assets/images/movies-images/{{movie.img}}" alt="" height="80" width="90"></td>
                         <td *ngIf='i<5'>{{movie.name}}</td>
-                        <td *ngIf='i<5'>{{movie.price}}</td>
+                        <td *ngIf='i<5'>{{movie.price}} $</td>
                         <td *ngIf='i<5'>{{movie.purchaseCount}}</td>
                         <td *ngIf='i<5'>{{movie.releaseDate| date: 'longDate'}}</td>
                       </tr> 
