@@ -39,17 +39,28 @@
                     required
                   />
                 </div>
+                <i
+                    class="help-block"
+                    style="margin-left: 140px; color: red"
+                    *ngIf="!usernameIsValid && userNametext.touched"
+                    >UserName is Already Taken</i>
+                  
+                 
                 <div class="form-group">
                   <input
+                  ngModel
+                  #userNametext="ngModel"
                     required
                     style="text-align: center"
-                    ngModel
+                    
                     [ngStyle]="{ border: getColor(3) }"
                     [(ngModel)]="userName"
+                   
                     type="text"
-                    ngModel
+                    
                     class="form-control mb-0"
                     id="UserName"
+                    (input)='checkUserName()'
                     name="UserName"
                     placeholder="Username"
                     autocomplete="off"
@@ -103,7 +114,7 @@
                     required
                     style="text-align: center"
                     [ngStyle]="{ border: getBorderColor() }"
-                    [ngStyle]="{ border: checkLength(passwordfield.valid) }"
+                    [ngStyle]="{ border: checkLength(passwordfield.valid && passwordfield.touched) }"
                     (input)="getBorderColor()"
                     [(ngModel)]="password"
                     type="password"
@@ -151,6 +162,7 @@
                       #profilePic
                       placeholder="choose File"
                       style="color: gray"
+                      required
                     />
 
                   </div>
@@ -183,6 +195,7 @@
                   [disabled]="
                     !userSignUp.valid ||
                     !EmailIsValid ||
+                    !usernameIsValid ||
                     !checkPassword() ||
                     !checkBoxValue
                   "
