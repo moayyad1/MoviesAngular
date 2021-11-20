@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./sing-up-page.component.css'],
 })
 export class SingUpPageComponent implements OnInit {
-
+  UserNameIsValid=true
   holderList: any = [];
   EmailList: any = [];
   checkBoxValue = false;
@@ -33,7 +33,7 @@ export class SingUpPageComponent implements OnInit {
   visaIsValid = false;
   userName = '';
   firstName = '';
-  lastName = '';
+  lastName = '';userNameList:any=[]
   constructor(private router:Router,private myService: MyServiceService,private toaster:ToastrService,private spinner:NgxSpinnerService) {
    
     myService
@@ -41,6 +41,8 @@ export class SingUpPageComponent implements OnInit {
       ?.subscribe((data) => {
         this.EmailList = data;
       });
+
+      myService.requestCall("https://localhost:44391/api/login/getlogin",'Get')?.subscribe(data=>{this.userNameList=data})
   }
 
   ngOnInit(): void {}
@@ -139,12 +141,25 @@ this.spinner.show();
         } else return '1px green solid';
       }
       case 3: {
+
         if (this.userName == '') {
           return '';
-        } else return '1px green solid';
+        }
+
+        else if(this.usernameIsValid)
+        {
+          return '1px green solid '
+        }
+        else{
+          return '1px red solid '
+        }
+      
       }
+        
+        
+      
     }
-    return '1px solid green';
+    return '';
   }
 
   getEmailBorderColor() {
@@ -185,6 +200,11 @@ this.spinner.show();
   {
         return '1px green solid';
   }
+  else if(this.password==null)
+  {
+    return ''
+  }
+
   else
    return '1px red solid'
   }
@@ -202,4 +222,20 @@ this.spinner.show();
       this.checkBoxValue = true;
     } else this.checkBoxValue = false;
   }
+
+  checkUserName(){
+    this.usernameIsValid=true
+    this.userNameList.forEach((element:any) => {
+    
+      
+      if(element.userName.toLowerCase()==this.userName.toLowerCase()){
+        console.warn("error");
+        
+        this.usernameIsValid=false
+       }
+    
+    });
+  }
+  
 }
+
