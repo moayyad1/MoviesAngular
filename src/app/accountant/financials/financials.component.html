@@ -1,1 +1,138 @@
-<p>financials works!</p>
+
+
+
+
+
+<div class="dark-edition">
+ 
+
+    <div class="wrapper ">
+      <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
+        <!--
+          Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+  
+          Tip 2: you can also add an image using data-image tag
+      -->
+        
+      <app-accountant-sid-bar></app-accountant-sid-bar>
+      </div>
+      <div class="main-panel">
+     
+        <div class="content">
+            <div class=" col offset-5">
+                <h1 class="mainTExt" style="margin-top: 40px;">Financials View</h1>
+            
+            </div>
+            <div class="row offset-4">
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                  <div class="card card-stats" style="background: rgb(0,0,0,0.6);">
+                    <div class="card-header card-header-info card-header-icon">
+                      <div class="card-icon">
+                        <i class="fa fa-money"></i>
+                      </div>
+                      <p class="card-category">Total Sold Tickets</p>
+                      <h3 class="card-title" style="color: white;"><small>#</small> {{totalTickets}}
+                        
+                      </h3>
+                     
+                    </div>
+                 
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                    <div class="card card-stats" style="background: rgb(0,0,0,0.6);">
+                      <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                          <i class="fa fa-money"></i>
+                        </div>
+                        <p class="card-category">Total Gains $</p>
+                        <h3 class="card-title"style="color: white;" >{{totalGains}}  
+                        
+                        
+                        </h3>
+                      </div>
+                     
+                    </div>
+                  </div>
+                </div>
+              
+            
+
+          <div class="container-fluid offset-2">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="card" style="  background: #c2b8b80d;">
+                  <div class="card-header card-header-primary" style="    background: linear-gradient( 
+                    60deg, #ee2929, #e85656);
+                    ">
+                    <h4 class="card-title">FInancials</h4>
+                    <p class="card-category">an overview about the financials of the Webiste</p>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-body table-responsive">
+                        <table class="table table-hover">
+                          <thead class="tableHeaders">
+                            <th>Month</th>
+                            <th>Movies Bought</th>
+                            <th>Movies Gains</th>
+                            <th>Other Gains</th>
+                            <th>Employee Salaries</th>
+                            <th>Other Extenses</th>
+                            <th>Total</th>
+                          
+                            <th></th>
+                            <th></th>
+                          </thead>
+                          <tbody>
+                             <tr *ngFor='let gain of MonthlyGains' >
+                               <td >{{gain.month}} / {{gain.year}}</td>
+                               <td>{{gain.moviesBought}}</td>
+                               <td>{{gain.moviesGains}}</td>
+                               <td>0</td>
+                               <td style="color: rgb(155, 19, 19);">{{gain.employeeSalaries}}</td>
+                               <td style="color: rgb(155, 19, 19);">0</td>
+                               <td>{{gain.total}}</td>
+                              
+                            
+
+                             </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card card-profile">
+                  <div class="card-avatar">
+                    
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="footer">
+          <div class="container-fluid">
+            <nav class="float-left">
+              
+            </nav>
+            <div class="copyright float-right" id="date">
+               made with <i class="material-icons">favorite</i> by
+              <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+            </div>
+          </div>
+        </footer>
+        <script>
+          const x = new Date().getFullYear();
+          let date = document.getElementById('date');
+          date.innerHTML = '&copy; ' + x + date.innerHTML;
+        </script>
+      </div>
+    </div>
+   
+
+  </div>
+  
+  
