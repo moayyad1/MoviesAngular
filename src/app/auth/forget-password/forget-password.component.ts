@@ -61,7 +61,7 @@ export class ForgetPasswordComponent implements OnInit {
         this.toast.error("Username not found !");this.spinner.hide(); 
           this.spinner.hide();
     }
-    },5000)
+    },7000)
     
     
   }

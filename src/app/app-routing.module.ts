@@ -21,9 +21,7 @@ const routes: Routes = [
   },
   {
     path:'Accountant',loadChildren:()=>AccountantModule,canActivate:[AccGuardGuard]
-
   }
- 
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
