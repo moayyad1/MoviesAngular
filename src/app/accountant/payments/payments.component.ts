@@ -122,7 +122,7 @@ resetSearch()
 
   exportexcel(): void
   {
-    this.fileName='PaymentRecordsXML'
+    this.fileName='PaymentRecords.xlsx'
     /* pass here the table id */
     let element = document.getElementById('excel-table');
     const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
