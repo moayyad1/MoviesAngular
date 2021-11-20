@@ -124,4 +124,13 @@ export class ForgetPasswordComponent implements OnInit {
     },
     err => { this.toast.error("Username not found !");this.spinner.hide();});
   }
+
+  checkPass(pass1:any,pass2:any){
+    if(pass1=='')
+    {
+      return false;
+    }
+         return(pass1==pass2);
+         
+  }
 }
