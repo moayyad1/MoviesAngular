@@ -123,10 +123,9 @@ export class DashboardComponent implements OnInit {
         data: {
           labels: this.time,
           datasets: [{
-              label: 'Salesng ',
+              label: 'Movie Sales ',
               data: this.MoviesBought,
               borderWidth: 3,
-              // fill:false,
               borderSkipped	:'left',
               backgroundColor: 'red',
               borderColor: 'wight'
