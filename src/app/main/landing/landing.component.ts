@@ -33,7 +33,7 @@ export class LandingComponent implements OnInit {
     this.getTrendingMovies();
     this.GetCustomerById(); 
     this.ScriptFile()  
-
+    this.CustomerData.firstName;
   }
   ScriptFile()
   {
@@ -50,41 +50,37 @@ export class LandingComponent implements OnInit {
   }
   GetCustomerById()
 {
-  this.movieService.GetCustomerById(this.customerId).subscribe((res:any) =>{this.CustomerData=res; this.ScriptFile();},
-  err => {console.log(err); this.ScriptFile();});
+  this.movieService.GetCustomerById(this.customerId).subscribe((res:any) =>{this.CustomerData=res; },
+  err => {console.log(err);});
  
 }
   gotobest()
   {
 this.route.navigate(["best"]);
-this.ScriptFile();
 
   }
 
     landingMovie()   
     {
-      this.movieService.getAllMovies().subscribe((res:any) => { (this.Movielanding=res);this.ScriptFile(); },
-      err => { console.log(err);this.ScriptFile(); })  ;
+      this.movieService.getAllMovies().subscribe((res:any) => { (this.Movielanding=res);},
+      err => { console.log(err);})  ;
       
 
     }
     getAllcat()
     {
-      this.movieService.getAllcat().subscribe((res:any) => { (this.Moviecat=res);this.ScriptFile(); },
-      err => { console.log(err);this.ScriptFile(); });
-      this.ScriptFile();
+      this.movieService.getAllcat().subscribe((res:any) => { (this.Moviecat=res);},
+      err => { console.log(err); });
 
     }   
     goToDtails()
     {
-      this.ScriptFile();
      this.route.navigate(["movies/movie-details"]);
     
 
     }
     goToDtailsmain(id:number)
     {
-      this.ScriptFile();
      this.movieService.movieIdDetails=id;
      this.route.navigate(["movies/movie-details"]);
 
@@ -92,16 +88,14 @@ this.ScriptFile();
     }
     getWebSiteDetails()
     { 
-        this.movieService.getWebSiteDetails().subscribe((res:any) => { (this.websiteData=res); this.ScriptFile();},
+        this.movieService.getWebSiteDetails().subscribe((res:any) => { (this.websiteData=res); },
         err => { console.log(err); this.ScriptFile(); })   ;
        
 
     }
     getAllMovies(){
-      this.ScriptFile();
-      this.movieService.getAllMovies().subscribe((res:any) => { (this.moviesData=res); this.ScriptFile(); },
-      err => { console.log(err); this.ScriptFile(); });
-      this.ScriptFile();
+      this.movieService.getAllMovies().subscribe((res:any) => { (this.moviesData=res);  },
+      err => { console.log(err);  });
 
       }    
       
@@ -109,39 +103,38 @@ this.ScriptFile();
         localStorage.removeItem('userToken');
         localStorage.removeItem('CustomerId');
         this.route.navigate(['']);
-        this.ScriptFile();
+        
 
       }
       getTrendingMovies()
       {
-        return this.http.get('https://localhost:44391/api/Payment/GetTrending').subscribe((res:any) => { (this.GetAllTrending=res); this.ScriptFile();},
+        return this.http.get('https://localhost:44391/api/Payment/GetTrending').subscribe((res:any) => { (this.GetAllTrending=res);},
         
-        err => { console.log(err); this.ScriptFile(); })   ;
+        err => { console.log(err); })   ;
        
       }
 
       getImagePath(value:string ){
 
         let basePath="../../../../assets/images/Uploaded File/";
-        this.ScriptFile();
+       
         return basePath+value;       
 
         }
         goToFav()
         {
-          this.ScriptFile();
+         
           this.route.navigate(['movies/user_favouraties']);
           
         }
         goToAccount()
         {
-          this.ScriptFile();
+         
           this.route.navigate(['movies/user_profile']);
           
         }
         goaddBalance()
         {
-          this.ScriptFile();
           this.route.navigate(['movies/add_balance']);
          
       
@@ -149,19 +142,16 @@ this.ScriptFile();
         goTochangePass()
         {
          
-          this.ScriptFile();
           this.route.navigate(['movies/change_pass']);
         }
         gototestimonial()
         {
           
-          this.ScriptFile();
           this.route.navigate(['movies/add_testimonial']);
         }
         gotohome()
         {
        
-          this.ScriptFile();
          this.route.navigate(['/movies/home"']);
         }
 }

@@ -1,30 +1,30 @@
 <app-nav></app-nav>
 <img style="width: 100%;height: 100%;" src="../../../assets/images/movies-images/all-showsBG.jpg">
-<br><h2 style="border-left: 15px inset gold;color: white;margin-left: 25px; position: absolute;font-size: 150px;
+<br><h2 style="border-left: 15px inset red;color: white;margin-left: 25px; position: absolute;font-size: 150px;
 top: 50%;
 left: 50%;
-transform: translate(-50%, -50%);">&ensp;All Shows 
+transform: translate(-50%, -50%);  background: linear-gradient(to right, rgba(34, 31, 31, 1) 0%, rgba(34, 31, 31, 0.4) 100%)
+">&ensp;All Shows 
     </h2><div style="display: inline-block;margin-left: 30px;margin-top: 10px;margin-bottom: 50px;" class="search-box"> 
         <button style="font-size: 30px;" class="btn-search"><i  class="fas fa-search"></i></button>
      <input  type="text" class="input-search" placeholder="movie name to search..." [(ngModel)]="search">
   </div>
-
-<!-- <select [(ngModel)]="categoryId" name="cars" id="cars">
-  <option value="all">All</option>
-  <option *ngFor="let item of categories" value="item.name">{{item.name}}</option>
-</select> -->
+<div class="box">
+  <select [(ngModel)]="categoryIdd">
+    <option value="0" >All Movies</option>
+    <option *ngFor="let item1 of categories" value="{{item1.id}}">{{item1.name}}</option>
+  </select></div>
   <br>
-  <section  id="team" class="team-area">
-  <div class="row">
-  <div *ngFor="let item of trending | filter:search" class="col">
-      <div>
-      <div (click)="goToDtails(item.id)" class="card">
+  <section id="team" class="team-area">
+  <div style="display:flex;flex-direction:row;flex-wrap:wrap;justify-content: space-around;" >
+  <div *ngFor="let item of trending | filter:search">
+      <div *ngIf="item.categoryId==categoryIdd||categoryIdd==0" (click)="goToDtails(item.id)" class="card">
        <div  class="row team-items">
-       <div  class="item">
+       <div class="item">
             <div  class="thumb">
-                <img src="../../../assets/images/movies-images/{{item.img}}" alt="Thumb">
+                <img  src="../../../assets/images/movies-images/{{item.img}}" alt="Thumb">
                 <div class="overlay">
-                    <h4>{{item.name}}</h4>
+                    <h4>{{item.name}} | {{item.categoryId}}</h4>
                     <p>{{item.category}} | {{item.country}} |{{item.releaseDate | date:'y'}}</p>
                     <p>{{item.storyLine}}</p>
                     <div class="social">
@@ -34,7 +34,6 @@ transform: translate(-50%, -50%);">&ensp;All Shows
             </div>
         </div>
         </div>
-  </div>
   </div>
   </div></div>
   </section>

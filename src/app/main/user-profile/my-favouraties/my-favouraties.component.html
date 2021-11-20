@@ -50,12 +50,16 @@
 		<figure class="card">
 			<img src="../../../assets/images/movies-images/{{item1.img}}" />
 			<figcaption>{{item1.name}}</figcaption>
-		</figure>
+		</figure> 
   </div>
+  <div style="margin-left: -8px" *ngIf="item3.id==customerId && item2.customerId==customerId && item2.movieId==item1.id">
+  <button style="background-color: gainsboro;color: black;border: 2px solid palegoldenrod;" class="deleteButton" >{{item1.price}}$ <i style="color: black;" class="fa fa-check-circle-o" aria-hidden="true"></i> {{item2.time | date:'mediumDate'}} <i class="fa fa-calendar" aria-hidden="true"></i> 
+  </button>
+</div>
   </div>	
 </div>
 </div></div>
-	<h2><strong>My Favourites</strong></h2>
+	<br><h2><strong>My Favourites</strong></h2>
   <div style="display:flex;flex-direction:row;flex-wrap:wrap">
     <div *ngFor="let item1 of GetAllMovies">
       <div *ngFor="let item2 of GetFav">
@@ -65,10 +69,11 @@
         <img src="../../../assets/images/movies-images/{{item1.img}}" />
         <figcaption>{{item1.name}}</figcaption>
       </figure>
-    </div> <button (click)="DeleteFromFav(item2.id)" class="deleteButton" *ngIf="item3.id==customerId && item2.customerId==customerId && item2.movieId==item1.id">Delete</button>
+    </div> <button class="button1" style="margin-left: 25px;margin-top: -20px;" (click)="DeleteFromFav(item2.id)"  *ngIf="item3.id==customerId && item2.customerId==customerId && item2.movieId==item1.id"><i class="fa fa-trash-o" aria-hidden="true"></i>
+    </button>
     </div>
     </div>	
   </div>
-  </div></div>
+  </div><br></div>
 
 <app-footer></app-footer>

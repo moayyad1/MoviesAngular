@@ -11,17 +11,13 @@ search:any
 trending:any=[{}];
 user:any={};
 categories:any=[{}];
-categoryId:any;
-  constructor(private movieService:MovieServiceService,private route:Router) {
-
+categoryIdd: number = 0;
+constructor(private movieService:MovieServiceService,private route:Router) {
     }
-    
   ngOnInit(): void {
     this.getTrending();
     this.IsUserOwnIt();
     this.GetCategory();
-    console.warn(this.categories);
-    
   }
   getTrending()
   {  
@@ -40,8 +36,7 @@ categoryId:any;
   }
   GetCategory()
   {
-    this.movieService.GetCategory().subscribe((res:any) => { (this.categories=res);     console.warn(this.trending) },
+    this.movieService.GetCategory().subscribe((res:any) => { (this.categories=res);},
     err => { console.log(err) })
   }
-
 }

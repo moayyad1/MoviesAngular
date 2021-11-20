@@ -329,10 +329,10 @@
     opacity: 1;
     transform: none;
   }
-  .deleteButton
+  button
   {
 	border: none;
-	color: white;
+	color: whitesmoke;
 	padding: 5px 5px;
 	text-align: center;
 	text-decoration: none;
@@ -340,14 +340,24 @@
 	font-size: 16px;
 	margin-left: 30px;
 	cursor: pointer;
-    background-color: red;
-	border-radius: 12%;
+	border-radius: 0%;
+  margin-top: -20px;
+  background-color: red;
   }
-  .deleteButton:hover
+  button:hover
   {
-    background-color: white;
-	color: black;
+    background-color: brown;
+	color: whitesmoke;
   }
+.button1
+{
+  width: 25%;
+  font-size: 20px;
+  border-radius: 25%;
+}
+.button1:hover{
+border: 1px solid whitesmoke;
+}
 
 
 

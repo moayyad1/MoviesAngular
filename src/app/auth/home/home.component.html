@@ -24,10 +24,6 @@ because it requires specific images, where more than 50% of bg is transparent or
                   <span>Widow</span>
                 </div>
               </h2>
-              <button type="button" class="fnc-slide__action-btn">
-                Credits
-                <span data-text="Credits">Credits</span>
-              </button>
             </div>
           </div>
         </div>
@@ -47,10 +43,6 @@ because it requires specific images, where more than 50% of bg is transparent or
                   <span>America</span>
                 </div>
               </h2>
-              <button type="button" class="fnc-slide__action-btn">
-                Credits
-                <span data-text="Credits">Credits</span>
-              </button>
             </div>
           </div>
         </div>
@@ -70,10 +62,6 @@ because it requires specific images, where more than 50% of bg is transparent or
                   <span>Man</span>
                 </div>
               </h2>
-              <button type="button" class="fnc-slide__action-btn">
-                Credits
-                <span data-text="Credits">Credits</span>
-              </button>
             </div>
           </div>
         </div>
@@ -93,10 +81,6 @@ because it requires specific images, where more than 50% of bg is transparent or
                   <span>Just Thor</span>
                 </div>
               </h2>
-              <button type="button" class="fnc-slide__action-btn">
-                Credits
-                <span data-text="Credits">Credits</span>
-              </button>
             </div>
           </div>
         </div>
@@ -129,27 +113,102 @@ because it requires specific images, where more than 50% of bg is transparent or
         </div>
       </nav>
     </div>
-    <!-- slider end -->
-    <div class="demo-cont__credits">
-      <div class="demo-cont__credits-close"></div>
-      <h2 class="demo-cont__credits-heading">Made by</h2>
-      <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/142996/profile/profile-512_5.jpg" alt="" class="demo-cont__credits-img" />
-      <h3 class="demo-cont__credits-name">Nikolay Talanov</h3>
-      <a href="https://codepen.io/suez/" target="_blank" class="demo-cont__credits-link">My codepen</a>
-      <a href="https://twitter.com/NikolayTalanov" target="_blank" class="demo-cont__credits-link">My twitter</a>
-      <h2 class="demo-cont__credits-heading">Based on</h2>
-      <a href="https://dribbble.com/shots/2375246-Fashion-Butique-slider-animation" target="_blank" class="demo-cont__credits-link">Concept by Kreativa Studio</a>
-      <h4 class="demo-cont__credits-blend">Global Blend Mode</h4>
-      <div class="colorful-switch">
-        <input type="checkbox" class="colorful-switch__checkbox js-activate-global-blending" id="colorful-switch-cb" />
-        <label class="colorful-switch__label" for="colorful-switch-cb">
-          <span class="colorful-switch__bg"></span>
-          <span class="colorful-switch__dot"></span>
-          <span class="colorful-switch__on">
-            <span class="colorful-switch__on__inner"></span>
-          </span>
-          <span class="colorful-switch__off"></span>
-        </label>
+  </div>
+
+<section class="style-cards">
+    <div class="card-0">
+        <img src="../../../assets/images/movies-images/Newest_BG-home.png" alt="Netflix Mobile">
+        <div class="desc-0">
+            <h1>Latest movies and original works.</h1>
+            <h3>Watch the latest movies on our website at the lowest prices. Be the first to watch the best and latest movies and original works.</h3>
+        </div>
+    </div>
+    <div class="card-1">
+        <div class="desc-1">
+            <h1>Lower prices, more fun.</h1>
+            <h3>Seize the opportunity to get the best movies at the lowest prices and enjoy the latest movies shown on our website.</h3>
+        </div>
+        <img src="../../../assets/images/movies-images/TopratedBG-home.png" alt="Netflix TV">
+        <video class="video-1" autoplay="" playsinline="" muted="" loop=""><source src="1.m4v" type="video/mp4"></video>
+    </div>
+    <div class="card-2">
+        <img style="width: 130%;" src="../../../assets/images/movies-images/rateBg-home.PNG" alt="Netflix Mobile">
+        <div style="margin-left: 350px;white-space: nowrap;" class="desc-2">
+            <h1>Watch, rate and comment.</h1>
+            <h3>Watch movies details and save them to your favourites.</h3>
+        </div>
+    </div>
+    <div class="card-3">
+        <div class="desc-3">
+            <h1>Watch movie and trailer,comment and rate.</h1>
+            <h3>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</h3><br><br>
+            <a routerLink="/singUP" style="width: 30%;margin: auto;border-radius: 0%;margin-left: 10px;padding: 7px;" class="button1">Create your account now</a>
+        </div>
+        <img style="width: 130%;" src="../../../assets/images/movies-images/rate,comment-bg.png" alt="Device-Pile-In">
+        <video class="video-2" autoplay="" playsinline="" muted="" loop=""><source src="2.m4v" type="video/mp4"></video>
+    </div>
+    <h2><strong>Latest movies on our website</strong></h2>
+    <div style="display:flex;flex-direction:row;flex-wrap:wrap;margin-left: 90px;">
+    <div *ngFor="let item1 of allMovies;let i=index">
+      <div  *ngIf="i<16" class="cards">
+      <figure class="card">
+        <img src="../../../assets/images/movies-images/{{item1.img}}" />
+        <figcaption>{{item1.name}}</figcaption>
+      </figure> 
+    </div>
+    </div>	
+  </div>
+</section>
+
+<br><a routerLink="LogIn" style="width: 30%;margin: auto;border-radius: 0%;margin-left: 880px;padding: 7px;" class="button1">Login to show more</a>
+<br><br><br><br><footer>
+  <div class="container mtop">
+    <div class="box">
+      <div class="logo">
+        <img routerLink="/movies/home" style="width: 60%;margin-left: -17px;" src="../../../assets/images/movies-images/logo.png">
+      </div>
+      <p> An infinite number of movies, TV shows, and more
+        Watch Wherever You Are on movies website.</p>
+      <div class="icon">
+        <i class="fab fa-facebook-square"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-twitter-square"></i>
+        <i class="fab fa-youtube-square"></i>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="flex">
+        <ul>
+          <li routerLink="/movies/home">Home</li>
+          <li routerLink="/movies/all_shows">All Shows</li>
+          <li routerLink="/movies/top_rated">Top Rated</li>
+          <li routerLink="/movies/newest_movies">Newest Movies</li>
+          <li routerLink="/movies/contact">Contact Us</li>
+          <li routerLink="/movies/about">About Us</li></ul>
+      </div>
+    </div>
+
+    <div class="box ">
+      <div class="flex">
+        <ul>
+          <li>Company</li>
+          <li>Terms of Use</li>
+          <li>Contact us</li>
+          <li>Our Team</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="box">
+      <br><br><p>An infinite number of movies, TV shows, and more
+        Watch Wherever You Are on movies website.</p>
+      <div class="img flex1">
+        <img src="image/app1.png" alt="">
+        <img src="image/app2.png" alt="">
       </div>
     </div>
   </div>
+  <p style="margin-bottom: -10px;" class="legal">Copyright	&#169; 2021 All Rights Reserved | This Website is made With <i class="fas fa-heart"></i></p>
+</footer>
+

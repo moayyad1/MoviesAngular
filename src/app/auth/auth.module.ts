@@ -18,7 +18,6 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
     HomeComponent,
     NavBarComponent,
     ForgetPasswordComponent
-      
   ],
   imports: [
     CommonModule,

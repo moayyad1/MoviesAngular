@@ -57,9 +57,9 @@
 <div *ngFor="let item of GetEvaluation">
     <h3 *ngIf="item.id==MovieById.id && item.eval==0">Not Rated Yet <i style="color: darkred;" class="fa fa-exclamation" aria-hidden="true"></i>
     </h3>
- </div><br><br><br><br><br><br><!--<span style="margin-left: 20px;font-size: 20px;color: greenyellow;" *ngIf="!isUserOwnMovie">Buy movie so you can rate it <i style="color: darkred;" class="fa fa-exclamation" aria-hidden="true"></i></span> -->
+ </div><br><br><br><br><br><br><br><br><!--<span style="margin-left: 20px;font-size: 20px;color: greenyellow;" *ngIf="!isUserOwnMovie">Buy movie so you can rate it <i style="color: darkred;" class="fa fa-exclamation" aria-hidden="true"></i></span> -->
       
-<div style="width: 35%;margin-top: -180px;margin-left: 50px;">      
+<div style="width: 35%;margin-top: -210px;margin-left: 50px;">      
     <i *ngIf="isUserOwnMovie && !IsRated" (click)="addLike()" class="fa fa-thumbs-up rate-like positive"></i> 
     <i *ngIf="isUserOwnMovie && !IsRated" (click)="addDisLike()" class="fa fa-thumbs-down rate-dis negative"></i>
 </div>
