@@ -73,7 +73,7 @@ export class ProfileComponent implements OnInit {
       id: this.accInfo.id,
       firstName: this.firstName,
       lastName:this.lastName,
-      phone:this.phone,
+      phone:this.phone.toString(),
       email:this.email,
       img:this.img,
       gender:this.accInfo.gender,

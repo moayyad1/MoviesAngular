@@ -103,7 +103,7 @@ export class UpdateAccountantComponent implements OnInit {
       id: this.accountant.id,
       firstName: this.firstName,
       lastName: this.lastName,
-      phone: this.phone,
+      phone: parseInt(this.phone),
       email: this.accountant.email,
       gender: this.gender,
       img: this.accountant.img,
