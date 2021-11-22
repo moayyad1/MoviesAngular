@@ -3,7 +3,7 @@
 
 
 
-<div class="dark-edition">
+<div style="overflow: hidden !important;" class="dark-edition">
     <app-admin-side-bar></app-admin-side-bar>
 
     <div class="wrapper ">
@@ -19,10 +19,11 @@
       <div class="main-panel">
      
         <div class="content">
-            <div class=" col offset-5">
-                <h1 class="mainTExt" style="margin-top: 40px;">Financials View</h1>
-            
-            </div>
+          <div class="">
+            <h1 class="mainTExt offset-4" style="margin-top: 10px">
+              Financials View
+            </h1>
+          </div>
             <div class="row offset-4">
                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
                   <div class="card card-stats" style="background: rgb(0,0,0,0.6);">
@@ -31,15 +32,12 @@
                         <i class="fa fa-money"></i>
                       </div>
                       <p class="card-category">Total Sold Tickets</p>
-                      <h3 class="card-title" style="color: white;"><small>#</small> {{totalTickets}}
-                        
-                      </h3>
-                     
-                    </div>
-                 
+                      <h3 class="card-title" style="color: white;"><small>#</small> {{totalTickets}}                        
+                      </h3>                   
+                    </div>                 
                   </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                </div> 
+                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
                     <div class="card card-stats" style="background: rgb(0,0,0,0.6);">
                       <div class="card-header card-header-success card-header-icon">
                         <div class="card-icon">
@@ -53,7 +51,7 @@
                       </div>
                      
                     </div>
-                  </div>
+                  </div> 
                 </div>
               
             
@@ -91,23 +89,12 @@
                                <td>0</td>
                                <td style="color: rgb(155, 19, 19);">{{gain.employeeSalaries}}</td>
                                <td style="color: rgb(155, 19, 19);">0</td>
-                               <td>{{gain.total}}</td>
-                              
-                            
-
+                               <td>{{gain.total}}</td>                             
                              </tr>
                           </tbody>
                         </table>
                       </div>
                   </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card card-profile">
-                  <div class="card-avatar">
-                    
-                  </div>
-                 
                 </div>
               </div>
             </div>

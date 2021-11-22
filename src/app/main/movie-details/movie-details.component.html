@@ -1,4 +1,4 @@
-<div style="margin-top: -30px">
+<div  style="margin-top: -30px">
     <app-nav></app-nav>
 </div>
 <div class="container">
@@ -7,7 +7,7 @@
     <img src="../../../assets/images/movies-images/{{MovieById.img}}">
 </div>
 
-<div class="info">
+<div  class="info">
 <div class="movie-title"><span style="justify-content: left;">{{MovieById.name}}</span><br>
     <button *ngIf="InFavouraties" class="mybtn success">In Your Favourites <i class="fa fa-heart" aria-hidden="true"></i>    </button>
     <button *ngIf="!InFavouraties" (click)="AddToFav()" class="mybtn success">Favourites <i class="fa fa-heart" aria-hidden="true"></i>    </button>
@@ -16,7 +16,7 @@
 
 </div>
 
-<div class="movie-detail">
+<div  class="movie-detail">
     <div class="set">
         <label>Release Date</label>
         <span>{{MovieById.releaseDate | date:'y'}}</span>

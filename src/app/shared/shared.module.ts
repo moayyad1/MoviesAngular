@@ -30,6 +30,7 @@ import {NgxPrintModule} from 'ngx-print';
     MatDialogModule,
     NgxPrintModule,
     NgSelectModule,
+    
    ],
    exports:[
     FormsModule,

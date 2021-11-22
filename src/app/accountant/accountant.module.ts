@@ -11,6 +11,7 @@ import { SharedModule } from '../shared/shared.module';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { UsersComponent } from './users/users.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { AuthModule } from '../auth/auth.module';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     CommonModule,
     AccountantRoutingModule,
     SharedModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    AuthModule
   ]
 })
 export class AccountantModule { }

@@ -27,6 +27,9 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
     ToastNoAnimationModule.forRoot(),
     ToastrModule.forRoot(),
     NgxSpinnerModule
+  ],
+  exports:[
+    NavBarComponent
   ]
 })
 export class AuthModule { }
